@@ -1,0 +1,13 @@
+/home/saurex83/Projects/Neocore/Service/CMakeFiles/rebuild_cache.dir
+/home/saurex83/Projects/Neocore/Service/CMakeFiles/edit_cache.dir
+/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/rebuild_cache.dir
+/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/edit_cache.dir
+/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/tags.dir
+/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service.dir
+/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir
+/home/saurex83/Projects/Neocore/Service/tests/CMakeFiles/rebuild_cache.dir
+/home/saurex83/Projects/Neocore/Service/tests/CMakeFiles/gtest.dir
+/home/saurex83/Projects/Neocore/Service/tests/CMakeFiles/edit_cache.dir
+/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/rebuild_cache.dir
+/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir
+/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/edit_cache.dir

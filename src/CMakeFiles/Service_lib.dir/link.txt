@@ -1,0 +1,2 @@
+/usr/bin/ar qc libService_lib.a  CMakeFiles/Service_lib.dir/main.cpp.o CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o CMakeFiles/Service_lib.dir/SerialCom.cpp.o CMakeFiles/Service_lib.dir/Transiver.cpp.o
+/usr/bin/ranlib libService_lib.a
