@@ -249,6 +249,8 @@ stdlib.h
 -
 string.h
 -
+cerrno
+-
 cstdint
 -
 limits

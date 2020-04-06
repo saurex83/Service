@@ -153,12 +153,62 @@ src/CMakeFiles/Service_lib.dir/Transiver.cpp.o.provides: src/CMakeFiles/Service_
 src/CMakeFiles/Service_lib.dir/Transiver.cpp.o.provides.build: src/CMakeFiles/Service_lib.dir/Transiver.cpp.o
 
 
+src/CMakeFiles/Service_lib.dir/frame.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
+src/CMakeFiles/Service_lib.dir/frame.cpp.o: src/frame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/Service_lib.dir/frame.cpp.o"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/frame.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/frame.cpp
+
+src/CMakeFiles/Service_lib.dir/frame.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Service_lib.dir/frame.cpp.i"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saurex83/Projects/Neocore/Service/src/frame.cpp > CMakeFiles/Service_lib.dir/frame.cpp.i
+
+src/CMakeFiles/Service_lib.dir/frame.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Service_lib.dir/frame.cpp.s"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saurex83/Projects/Neocore/Service/src/frame.cpp -o CMakeFiles/Service_lib.dir/frame.cpp.s
+
+src/CMakeFiles/Service_lib.dir/frame.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/Service_lib.dir/frame.cpp.o.requires
+
+src/CMakeFiles/Service_lib.dir/frame.cpp.o.provides: src/CMakeFiles/Service_lib.dir/frame.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/frame.cpp.o.provides.build
+.PHONY : src/CMakeFiles/Service_lib.dir/frame.cpp.o.provides
+
+src/CMakeFiles/Service_lib.dir/frame.cpp.o.provides.build: src/CMakeFiles/Service_lib.dir/frame.cpp.o
+
+
+src/CMakeFiles/Service_lib.dir/debug.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
+src/CMakeFiles/Service_lib.dir/debug.cpp.o: src/debug.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/Service_lib.dir/debug.cpp.o"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/debug.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/debug.cpp
+
+src/CMakeFiles/Service_lib.dir/debug.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Service_lib.dir/debug.cpp.i"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saurex83/Projects/Neocore/Service/src/debug.cpp > CMakeFiles/Service_lib.dir/debug.cpp.i
+
+src/CMakeFiles/Service_lib.dir/debug.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Service_lib.dir/debug.cpp.s"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saurex83/Projects/Neocore/Service/src/debug.cpp -o CMakeFiles/Service_lib.dir/debug.cpp.s
+
+src/CMakeFiles/Service_lib.dir/debug.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/Service_lib.dir/debug.cpp.o.requires
+
+src/CMakeFiles/Service_lib.dir/debug.cpp.o.provides: src/CMakeFiles/Service_lib.dir/debug.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/debug.cpp.o.provides.build
+.PHONY : src/CMakeFiles/Service_lib.dir/debug.cpp.o.provides
+
+src/CMakeFiles/Service_lib.dir/debug.cpp.o.provides.build: src/CMakeFiles/Service_lib.dir/debug.cpp.o
+
+
 # Object files for target Service_lib
 Service_lib_OBJECTS = \
 "CMakeFiles/Service_lib.dir/main.cpp.o" \
 "CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o" \
 "CMakeFiles/Service_lib.dir/SerialCom.cpp.o" \
-"CMakeFiles/Service_lib.dir/Transiver.cpp.o"
+"CMakeFiles/Service_lib.dir/Transiver.cpp.o" \
+"CMakeFiles/Service_lib.dir/frame.cpp.o" \
+"CMakeFiles/Service_lib.dir/debug.cpp.o"
 
 # External object files for target Service_lib
 Service_lib_EXTERNAL_OBJECTS =
@@ -167,9 +217,11 @@ src/libService_lib.a: src/CMakeFiles/Service_lib.dir/main.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/Transiver.cpp.o
+src/libService_lib.a: src/CMakeFiles/Service_lib.dir/frame.cpp.o
+src/libService_lib.a: src/CMakeFiles/Service_lib.dir/debug.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/build.make
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libService_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libService_lib.a"
 	cd /home/saurex83/Projects/Neocore/Service/src && $(CMAKE_COMMAND) -P CMakeFiles/Service_lib.dir/cmake_clean_target.cmake
 	cd /home/saurex83/Projects/Neocore/Service/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Service_lib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -182,6 +234,8 @@ src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/main.cpp
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/Transiver.cpp.o.requires
+src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/frame.cpp.o.requires
+src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/debug.cpp.o.requires
 
 .PHONY : src/CMakeFiles/Service_lib.dir/requires
 

@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/saurex83/Projects/Neocore/Service/tests/src/SerialCom_test.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/SerialCom_test.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/tests/src/ServiceConfig_test.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/ServiceConfig_test.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/tests/src/Transiver_test.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/tests/src/frame_test.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/frame_test.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/tests/src/main.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

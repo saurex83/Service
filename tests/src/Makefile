@@ -206,6 +206,33 @@ Transiver_test.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.s
 .PHONY : Transiver_test.cpp.s
 
+frame_test.o: frame_test.cpp.o
+
+.PHONY : frame_test.o
+
+# target to build an object file
+frame_test.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/frame_test.cpp.o
+.PHONY : frame_test.cpp.o
+
+frame_test.i: frame_test.cpp.i
+
+.PHONY : frame_test.i
+
+# target to preprocess a source file
+frame_test.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/frame_test.cpp.i
+.PHONY : frame_test.cpp.i
+
+frame_test.s: frame_test.cpp.s
+
+.PHONY : frame_test.s
+
+# target to generate assembly for a file
+frame_test.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/frame_test.cpp.s
+.PHONY : frame_test.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -251,6 +278,9 @@ help:
 	@echo "... Transiver_test.o"
 	@echo "... Transiver_test.i"
 	@echo "... Transiver_test.s"
+	@echo "... frame_test.o"
+	@echo "... frame_test.i"
+	@echo "... frame_test.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

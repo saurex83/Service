@@ -1,7 +1,8 @@
 #include "SerialCom.hpp" 
 #include "ServiceConfig.hpp"
 #include "Transiver.hpp"
-#include <boost/log/trivial.hpp>
+#include "debug.hpp"
+#include <iostream>
 
 #define ATYPE_PAR_ERR  0
 #define ATYPE_CMD_ERR  1
@@ -19,31 +20,12 @@
 #define CMD_RX_EMPTY 6 
 
 
+static unsigned char rx_buffer[READ_BUFF_SIZE];	
+static unsigned char tx_buffer[WRITE_BUFF_SIZE];	
 
-bool Transiver::serial_inited  = false;
-SerialCom Transiver::serial;
-unsigned char Transiver::rx_buffer[READ_BUFF_SIZE];	
-unsigned char Transiver::tx_buffer[WRITE_BUFF_SIZE];	
+static src::severity_logger<severity_level> lg;
 
-Transiver::Transiver(){
-	if (!serial_inited)
-		serial.connect();
-};
-
-Transiver::~Transiver(){
-	///serial.disconnect();
-};
-
-void Transiver::connect(){
-	if (!serial_inited){
-		serial.connect();
-		serial_inited = true;
-	};
-};
- 
-
-
-unsigned short Transiver::crc16(unsigned char *pcBlock, unsigned int len){
+static unsigned short crc16(unsigned char *pcBlock, unsigned int len){
     unsigned short crc = 0xFFFF;
     unsigned char i;
  
@@ -55,87 +37,89 @@ unsigned short Transiver::crc16(unsigned char *pcBlock, unsigned int len){
     return crc;
 }
 
-void Transiver::serial_write(unsigned char *data, unsigned int len){
+static void serial_write(unsigned char *data, unsigned int len){
 	unsigned int buf_len = len + 3;
 	unsigned short crc = crc16(data, len);
 
-	Transiver::tx_buffer[0] = len + 2;
-	std::memcpy(&Transiver::tx_buffer[1], data, len);
-	Transiver::tx_buffer[len+1] = ((unsigned char*)(&crc))[0];
-	Transiver::tx_buffer[len+2] = ((unsigned char*)(&crc))[1];
-	serial.write(Transiver::tx_buffer, buf_len);
+	tx_buffer[0] = len + 2;
+	std::memcpy(&tx_buffer[1], data, len);
+	tx_buffer[len+1] = ((unsigned char*)(&crc))[0];
+	tx_buffer[len+2] = ((unsigned char*)(&crc))[1];
+	SerialCom& serial = SerialCom::getInstance();
+	serial.write(tx_buffer, buf_len);
 };
 
-int Transiver::serial_read(){
-	unsigned int read_bytes = serial.read(Transiver::rx_buffer, READ_BUFF_SIZE);
+static int serial_read(){
+	SerialCom& serial = SerialCom::getInstance();
+	unsigned int read_bytes = serial.read(rx_buffer, READ_BUFF_SIZE);
 	// Ничего не прочитали
 	if (!read_bytes)
 		return 0;	
 	
 	// Указаный размер передачи не соотетсвует фактическому
-	if (Transiver::rx_buffer[0] != read_bytes - 1){
-		BOOST_LOG_TRIVIAL(error) <<"rx_buffer[0]=" << Transiver::rx_buffer[0] << " .read_bytes=" << read_bytes;
+	if (rx_buffer[0] != read_bytes - 1){
+		LOGGER(lg, error) << "rx_buffer[0]=" << rx_buffer[0] << " .read_bytes=" << read_bytes;
 		throw ParserError("Received size not match to specified");	
 	};
 
 	// Произошла ошибка парсера
-	if (Transiver::rx_buffer[1] == ATYPE_PAR_ERR)
-		switch(Transiver::rx_buffer[2]){
+	if (rx_buffer[1] == ATYPE_PAR_ERR)
+		switch(rx_buffer[2]){
 			case PAR_CRC16:
-				BOOST_LOG_TRIVIAL(error) << "crc16";
+				LOGGER(lg, error) << "crc16";
 				return -1;
 			case PAR_NOCMD:
-				BOOST_LOG_TRIVIAL(error) << "No CMD";
+				LOGGER(lg, error) << "No CMD";
 				throw ParserError("Command not found");
 			default:
-				BOOST_LOG_TRIVIAL(error) << "Unexpected error";
+				LOGGER(lg, error) << "Unexpected error";
 				throw ParserError("Unexpected parser error");
 		}
 
 	// Команда выдала ошибку при исполнении
-	if (Transiver::rx_buffer[1] == ATYPE_CMD_ERR)
-		switch(Transiver::rx_buffer[2]){
+	if (rx_buffer[1] == ATYPE_CMD_ERR)
+		switch(rx_buffer[2]){
 			case CMD_LEN:
-				BOOST_LOG_TRIVIAL(error) << "Incorrect args length"; 
+				LOGGER(lg, error) << "Incorrect args length"; 
 				throw CMDError("Incorrect args length");
 			case CMD_ARG_VAL:
-				BOOST_LOG_TRIVIAL(error) << "Incorrect args value"; 
+				LOGGER(lg, error) << "Incorrect args value"; 
 				throw CMDError("Incorrect args value");
 			case CMD_SEEDING:
-				BOOST_LOG_TRIVIAL(error) << "Network seed must be stoped"; 
+				LOGGER(lg, error) << "Network seed must be stoped"; 
 				throw CMDError("Network seed must be stopped");
 			case CMD_NOSEEDING:
-				BOOST_LOG_TRIVIAL(error) << "Network seed must be start"; 
+				LOGGER(lg, error) << "Network seed must be start"; 
 				throw CMDError("Network seed must be start");
 			case CMD_TX_FULL:
-				BOOST_LOG_TRIVIAL(error) << "TX buffer full"; 
+				LOGGER(lg, error) << "TX buffer full"; 
 				throw CMDError("TX buffer full");
 			case CMD_RX_EMPTY:
-				BOOST_LOG_TRIVIAL(error) << "RX buffer empty"; 
+				BOOST_LOG_SEV(lg, error) << "RX buffer empty"; 
 				throw CMDError("RX buffer empty");
 			default:
-				BOOST_LOG_TRIVIAL(error) << "Unexpected cmd error answer"; 
+				LOGGER(lg, error) << "Unexpected cmd error answer"; 
 				throw CMDError("Unexpected cmd error answer");
 		}
 
 	// Ожидаемы ответ ATYPE_CMD_OK
-	if (Transiver::rx_buffer[1] != ATYPE_CMD_OK){
-		BOOST_LOG_TRIVIAL(error) << "Expected ATYPE_CMD_OK, but something go wrong. rx_buffer[1] = " 
-			<< unsigned(Transiver::rx_buffer[1]);
+	if (rx_buffer[1] != ATYPE_CMD_OK){
+		LOGGER(lg, error) << "Expected ATYPE_CMD_OK, but something go wrong. rx_buffer[1] = " 
+			<< unsigned(rx_buffer[1]);
 		throw ParserError("Expected ATYPE_CMD_OK");
 	};
 	return read_bytes;  	
 };
 
 
-int Transiver::send_cmd(unsigned char *cmd, int size){
+static int send_cmd(unsigned char *cmd, int size){
 	bool cmd_notsended = true;
 	int read_bytes;
 	while (cmd_notsended){
 		serial_write(cmd, size);	
 		read_bytes = serial_read();
 		if (read_bytes == -1){
-			BOOST_LOG_TRIVIAL(warning) << "CRC16 error"; 
+			LOGGER(lg, error) << "CRC16 error"; 
 			continue;	
 		}
 		cmd_notsended = false;
@@ -145,15 +129,17 @@ int Transiver::send_cmd(unsigned char *cmd, int size){
 
 bool Transiver::is_network_seed(){
 	unsigned char cmd = 0x00;
-	
+		
 	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
 	
 	if (read_bytes != 5){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x00 incorrect answer length = " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x00 incorrect answer length = " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x00 is not 5 bytes");
 	;}
 
-	if (Transiver::rx_buffer[2])
+	LOGGER(lg, trace) << "CMD 0x00. Network " << ((rx_buffer[2]? "seeding":"not seeding")); 
+	
+	if (rx_buffer[2])
 		return true;
 	return false;
 };
@@ -167,9 +153,11 @@ void Transiver::set_panid(unsigned char panid){
 
 	
 	if (read_bytes != 4){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x01 incorrect answer length " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x01 incorrect answer length " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x01 is not 4 bytes");
 	;}
+	
+	LOGGER(lg, trace) << "CMD 0x01. Network set panid " << panid; 
 };
 
 void Transiver::set_rtc(uint32_t rtc){
@@ -183,9 +171,11 @@ void Transiver::set_rtc(uint32_t rtc){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x02 incorrect answer length " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x02 incorrect answer length " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x02 is not 4 bytes");
 	;}
+
+	LOGGER(lg, trace) << "CMD 0x02. Set RTC =  " << rtc; 
 };
 
 void Transiver::network_seed(bool status){
@@ -196,11 +186,11 @@ void Transiver::network_seed(bool status){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x03 incorrect answer length " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x03 incorrect answer length " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x03 is not 4 bytes");
 	;}
 	
-	BOOST_LOG_TRIVIAL(info) << "cmd 0x03. Set network status =  " << (status? "run":"stop"); 
+	LOGGER(lg, trace) << "CMD 0x03. Set network seeding =  " << (status? "true":"false"); 
 };
 
 void Transiver::load_streem_iv(unsigned char *iv){
@@ -212,11 +202,11 @@ void Transiver::load_streem_iv(unsigned char *iv){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x04 incorrect answer length " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x04 incorrect answer length " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x04 is not 4 bytes");
 	;}
 	
-	BOOST_LOG_TRIVIAL(info) << "cmd 0x04. New IV loaded."; 
+	LOGGER(lg, trace) << "CMD 0x04. New IV loaded"; 
 };
 
 void Transiver::load_streem_key(unsigned char *key){
@@ -228,11 +218,11 @@ void Transiver::load_streem_key(unsigned char *key){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x05 incorrect answer length " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x05 incorrect answer length " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x05 is not 4 bytes");
 	};
 	
-	BOOST_LOG_TRIVIAL(info) << "cmd 0x05. New KEY loaded."; 
+	LOGGER(lg, trace) << "CMD 0x05. New KEY loaded"; 
 };
 
 void Transiver::open_slot(unsigned char ts, unsigned char ch){
@@ -244,11 +234,11 @@ void Transiver::open_slot(unsigned char ts, unsigned char ch){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x07 incorrect answer length " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x07 incorrect answer length " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x07 is not 4 bytes");
 	};
 
-	BOOST_LOG_TRIVIAL(info) << "cmd 0x07. Opened slot: " << unsigned(ts) << " on ch: " << unsigned(ch) ; 
+	LOGGER(lg, trace) << "CMD 0x07. Opened slot: " << unsigned(ts) << " on ch: " << unsigned(ch) ; 
 };
 
 void Transiver::close_slot(unsigned char ts){
@@ -259,9 +249,83 @@ void Transiver::close_slot(unsigned char ts){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		BOOST_LOG_TRIVIAL(error) << "cmd 0x08 incorrect answer length " << read_bytes; 
+		LOGGER(lg, error) << "cmd 0x08 incorrect answer length " << read_bytes; 
 		throw std::runtime_error("Answer length for cmd 0x08 is not 4 bytes");
 	};
 
-	BOOST_LOG_TRIVIAL(info) << "cmd 0x08. Closed slot: " << unsigned(ts) ; 
+	LOGGER(lg, trace) << "CMD 0x08. Closed slot: " << unsigned(ts) ; 
+};
+
+
+int Transiver::rx_frames(){
+	unsigned char cmd;
+	cmd = 0x09;
+
+	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
+	
+	if (read_bytes != 5){
+		LOGGER(lg, error) << "cmd 0x09 incorrect answer length " << read_bytes; 
+		throw std::runtime_error("Answer length for cmd 0x09 is not 4 bytes");
+	};
+	
+	int rx_frames = rx_buffer[2];
+	LOGGER(lg, trace) << "CMD 0x09. Frames in RX buffer: " << rx_frames ;
+
+	return rx_frames;
+};
+
+
+int Transiver::tx_frames(){
+	unsigned char cmd;
+	cmd = 0x0A;
+
+	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
+	
+	if (read_bytes != 5){
+		LOGGER(lg, error) << "cmd 0x0A incorrect answer length " << read_bytes; 
+		throw std::runtime_error("Answer length for cmd 0x0A is not 4 bytes");
+	};
+	
+	int tx_frames = rx_buffer[2];
+	LOGGER(lg, trace) << "CMD 0x0A. Frames in TX buffer: " << tx_frames ;
+
+	return tx_frames;
+};
+
+
+void Transiver::push_tx(Frame *frame){
+	unsigned char cmd[256];
+	unsigned char cmd_size = sizeof(meta) + 1 + frame->len + 1;
+
+	cmd[0] = 0x0B;
+	memcpy(&cmd[1], &frame->meta, sizeof(meta));
+	cmd[sizeof(meta) + 1] = frame->len;
+	memcpy(&cmd[sizeof(meta) + 2], frame->payload, frame->len);
+	int read_bytes = send_cmd(cmd, cmd_size);
+	
+	if (read_bytes != 4){
+		LOGGER(lg, error) << "cmd 0x0B incorrect answer length " << read_bytes; 
+		throw std::runtime_error("Answer length for cmd 0x0B is not 4 bytes");
+	};
+	
+	LOGGER(lg, trace) << "CMD 0x0B. Frame pushed in TX buffer";
+};
+
+unsigned int Transiver::pop_rx(unsigned char *frame){
+	unsigned char cmd;
+	cmd = 0x0C;
+
+	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
+	
+	if (read_bytes < 4){
+		LOGGER(lg, error) << "cmd 0x0C incorrect answer length " << read_bytes; 
+		throw std::runtime_error("Answer length for cmd 0x0C less 4 bytes");
+	};
+
+	for (int i = 0; i < read_bytes; i++)
+		frame[i] = rx_buffer[i+2];	
+	
+	LOGGER(lg, trace) << "cmd 0x0B. Frames pop from RX buffer (bytes): " << read_bytes;
+
+	return read_bytes;
 };

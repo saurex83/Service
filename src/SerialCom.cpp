@@ -12,31 +12,32 @@ using namespace asio;
 boost::asio::serial_port* SerialCom::m_Port;
 boost::asio::io_service SerialCom::m_Io;
 
+SerialCom* SerialCom::p_instance = 0;
+  
+SerialCom& SerialCom::getInstance() {
+    if(!p_instance)     {
+        p_instance = new SerialCom();
+    }
+    return *p_instance;
+}
+
 SerialCom::SerialCom() {
-};
-
-
-SerialCom::~SerialCom(){
-	if(SerialCom::m_Port->is_open())
-    	SerialCom::m_Port->close();
-	delete SerialCom::m_Port;
+	std::cout<<"CONNECT SERIAL COM";
+	connect();
 };
 
 void SerialCom::connect(){
+	ServiceConfig& config = ServiceConfig::getInstance(); 
 	SerialCom::m_Port = new boost::asio::serial_port(m_Io);
-	SerialCom::m_Port->open(ServiceConfig::port);
+	SerialCom::m_Port->open(config.port);
 	
-    SerialCom::m_Port->set_option(serial_port_base::baud_rate(ServiceConfig::speed));
+    SerialCom::m_Port->set_option(serial_port_base::baud_rate(config.speed));
    	SerialCom::m_Port->set_option(serial_port_base::character_size(8));
 	SerialCom::m_Port->set_option(serial_port_base::flow_control(serial_port_base::flow_control::none));
     SerialCom::m_Port->set_option(serial_port_base::parity(serial_port_base::parity::none));
     SerialCom::m_Port->set_option(serial_port_base::stop_bits(serial_port_base::stop_bits::one));
 };
 
-void SerialCom::disconnect(){
-	if(SerialCom::m_Port->is_open())
-    	SerialCom::m_Port->close();
-};
 
 void SerialCom::flush_serial_port(
 	boost::asio::serial_port& serial_port,

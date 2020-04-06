@@ -245,6 +245,66 @@ Transiver.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/Transiver.cpp.s
 .PHONY : Transiver.cpp.s
 
+debug.o: debug.cpp.o
+
+.PHONY : debug.o
+
+# target to build an object file
+debug.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/debug.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/debug.cpp.o
+.PHONY : debug.cpp.o
+
+debug.i: debug.cpp.i
+
+.PHONY : debug.i
+
+# target to preprocess a source file
+debug.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/debug.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/debug.cpp.i
+.PHONY : debug.cpp.i
+
+debug.s: debug.cpp.s
+
+.PHONY : debug.s
+
+# target to generate assembly for a file
+debug.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/debug.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/debug.cpp.s
+.PHONY : debug.cpp.s
+
+frame.o: frame.cpp.o
+
+.PHONY : frame.o
+
+# target to build an object file
+frame.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/frame.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/frame.cpp.o
+.PHONY : frame.cpp.o
+
+frame.i: frame.cpp.i
+
+.PHONY : frame.i
+
+# target to preprocess a source file
+frame.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/frame.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/frame.cpp.i
+.PHONY : frame.cpp.i
+
+frame.s: frame.cpp.s
+
+.PHONY : frame.s
+
+# target to generate assembly for a file
+frame.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/frame.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/frame.cpp.s
+.PHONY : frame.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -295,6 +355,12 @@ help:
 	@echo "... Transiver.o"
 	@echo "... Transiver.i"
 	@echo "... Transiver.s"
+	@echo "... debug.o"
+	@echo "... debug.i"
+	@echo "... debug.s"
+	@echo "... frame.o"
+	@echo "... frame.i"
+	@echo "... frame.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

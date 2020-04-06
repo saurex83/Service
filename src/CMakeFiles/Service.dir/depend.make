@@ -8,13 +8,25 @@ src/CMakeFiles/Service.dir/SerialCom.cpp.o: inc/blocking_reader.hpp
 
 src/CMakeFiles/Service.dir/ServiceConfig.cpp.o: src/ServiceConfig.cpp
 src/CMakeFiles/Service.dir/ServiceConfig.cpp.o: inc/ServiceConfig.hpp
+src/CMakeFiles/Service.dir/ServiceConfig.cpp.o: inc/debug.hpp
 
 src/CMakeFiles/Service.dir/Transiver.cpp.o: src/Transiver.cpp
 src/CMakeFiles/Service.dir/Transiver.cpp.o: inc/SerialCom.hpp
 src/CMakeFiles/Service.dir/Transiver.cpp.o: inc/ServiceConfig.hpp
 src/CMakeFiles/Service.dir/Transiver.cpp.o: inc/Transiver.hpp
+src/CMakeFiles/Service.dir/Transiver.cpp.o: inc/debug.hpp
+src/CMakeFiles/Service.dir/Transiver.cpp.o: inc/frame.hpp
+
+src/CMakeFiles/Service.dir/debug.cpp.o: src/debug.cpp
+src/CMakeFiles/Service.dir/debug.cpp.o: inc/debug.hpp
+
+src/CMakeFiles/Service.dir/frame.cpp.o: src/frame.cpp
+src/CMakeFiles/Service.dir/frame.cpp.o: inc/frame.hpp
 
 src/CMakeFiles/Service.dir/main.cpp.o: src/main.cpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/SerialCom.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/ServiceConfig.hpp
+src/CMakeFiles/Service.dir/main.cpp.o: inc/Transiver.hpp
+src/CMakeFiles/Service.dir/main.cpp.o: inc/debug.hpp
+src/CMakeFiles/Service.dir/main.cpp.o: inc/frame.hpp
 

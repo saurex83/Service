@@ -4,41 +4,44 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 #include "ServiceConfig.hpp"
+#include "debug.hpp"
 
 using namespace std;
+using namespace boost;
 
 #define CONFIG_FILE "config.ini"
 
-std::string ServiceConfig::port;
-unsigned int ServiceConfig::speed;
+//string ServiceConfig::port;
+//unsigned int ServiceConfig::speed;
+
+static	src::severity_logger<severity_level> lg;
+
+ServiceConfig* ServiceConfig::p_instance = 0;
+  
+ServiceConfig& ServiceConfig::getInstance() {
+    if(!p_instance)     {
+        p_instance = new ServiceConfig();
+    }
+    return *p_instance;
+}
 
 ServiceConfig::ServiceConfig(){
-};
-
-bool ServiceConfig::Load(){
-	bool res = true;
-
 	try{
-		boost::property_tree::ptree pt;
-		boost::property_tree::ini_parser::read_ini(CONFIG_FILE, pt);
+		property_tree::ptree pt;
+		property_tree::ini_parser::read_ini(CONFIG_FILE, pt);
 		ServiceConfig::port =pt.get<std::string>("serial.port");
 		ServiceConfig::speed = pt.get<unsigned int>("serial.speed");	
 	}
 	catch(boost::property_tree::ptree_bad_data &e){
 		//если строку пытается представить в виде числа
-		BOOST_LOG_TRIVIAL(error) <<"Wrong data format. "<< e.what();
-		res = false;
+		LOGGER(lg, error) <<"Wrong data format. "<< e.what();
 	}
-	catch(boost::property_tree::ptree_bad_path &e){
+	catch(property_tree::ptree_bad_path &e){
 		// Если нету узла в ini
-		BOOST_LOG_TRIVIAL(error) <<"Ini node wrong. "<< e.what(); 
-		res = false;
+		LOGGER(lg, error) <<"Ini node wrong. "<< e.what(); 
 	}
-	catch(boost::property_tree::ptree_error &e){
+	catch(property_tree::ptree_error &e){
 		// Если файл неудалось загрузить
-		BOOST_LOG_TRIVIAL(error) <<"File error. "<< e.what(); 
-		res = false;
+		LOGGER(lg, error) <<"File error. "<< e.what(); 
 	}
-
-	return res;
 };

@@ -9,7 +9,7 @@ set (Boost_USE_MULTITHREADED ON)
 find_package(Boost COMPONENTS log system REQUIRED )
 include_directories(${Boost_INCLUDE_DIRS})
 
-set(SOURCES main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp)
+set(SOURCES main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp frame.cpp debug.cpp)
 
 add_executable(Service ${SOURCES})
 add_library(Service_lib STATIC ${SOURCES})

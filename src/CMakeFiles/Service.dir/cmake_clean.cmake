@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Service.dir/ServiceConfig.cpp.o"
   "CMakeFiles/Service.dir/SerialCom.cpp.o"
   "CMakeFiles/Service.dir/Transiver.cpp.o"
+  "CMakeFiles/Service.dir/frame.cpp.o"
+  "CMakeFiles/Service.dir/debug.cpp.o"
   "../bin/Service.pdb"
   "../bin/Service"
 )

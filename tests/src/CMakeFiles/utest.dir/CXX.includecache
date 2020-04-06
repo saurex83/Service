@@ -27,6 +27,16 @@ Transiver.hpp
 /home/saurex83/Projects/Neocore/Service/tests/src/Transiver.hpp
 ServiceConfig.hpp
 /home/saurex83/Projects/Neocore/Service/tests/src/ServiceConfig.hpp
+iostream
+-
+frame.hpp
+/home/saurex83/Projects/Neocore/Service/tests/src/frame.hpp
+
+/home/saurex83/Projects/Neocore/Service/tests/src/frame_test.cpp
+gtest/gtest.h
+/home/saurex83/Projects/Neocore/Service/tests/src/gtest/gtest.h
+frame.hpp
+/home/saurex83/Projects/Neocore/Service/tests/src/frame.hpp
 
 /home/saurex83/Projects/Neocore/Service/tests/src/main.cpp
 gtest/gtest.h
@@ -46,6 +56,16 @@ inc/SerialCom.hpp
 cstdint
 -
 exception
+-
+frame.hpp
+inc/frame.hpp
+
+inc/frame.hpp
+exception
+-
+cstdint
+-
+string
 -
 
 tests/gtest/src/gtest/googletest/include/gtest/gtest-death-test.h
@@ -284,6 +304,8 @@ stdio.h
 stdlib.h
 -
 string.h
+-
+cerrno
 -
 cstdint
 -

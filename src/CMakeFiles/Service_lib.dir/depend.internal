@@ -9,12 +9,24 @@ src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o
 src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/ServiceConfig.cpp
  inc/ServiceConfig.hpp
+ inc/debug.hpp
 src/CMakeFiles/Service_lib.dir/Transiver.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/Transiver.cpp
  inc/SerialCom.hpp
  inc/ServiceConfig.hpp
  inc/Transiver.hpp
+ inc/debug.hpp
+ inc/frame.hpp
+src/CMakeFiles/Service_lib.dir/debug.cpp.o
+ /home/saurex83/Projects/Neocore/Service/src/debug.cpp
+ inc/debug.hpp
+src/CMakeFiles/Service_lib.dir/frame.cpp.o
+ /home/saurex83/Projects/Neocore/Service/src/frame.cpp
+ inc/frame.hpp
 src/CMakeFiles/Service_lib.dir/main.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/main.cpp
  inc/SerialCom.hpp
  inc/ServiceConfig.hpp
+ inc/Transiver.hpp
+ inc/debug.hpp
+ inc/frame.hpp
