@@ -6,15 +6,18 @@ set (Boost_USE_STATIC_LIBS ON)
 set (Boost_USE_MULTITHREADED ON)
 #add_definitions(-DBOOST_LOG_DYN_LINK)
 
+find_package(PostgreSQL REQUIRED)
 find_package(Boost COMPONENTS log system REQUIRED )
-include_directories(${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS} PRIVATE ${PostgreSQL_INCLUDE_DIRS})
 
-set(SOURCES main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp frame.cpp debug.cpp)
+set(SOURCES main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp frame.cpp
+	debug.cpp database.cpp gwthread.cpp)
 
 add_executable(Service ${SOURCES})
 add_library(Service_lib STATIC ${SOURCES})
 
 target_link_libraries(Service ${Boost_LIBRARIES})
+target_link_libraries(Service PRIVATE ${PostgreSQL_LIBRARIES})
 
 message("LIBRA ${Boost_LIBRARIES}")
 # Автогенерация ctags

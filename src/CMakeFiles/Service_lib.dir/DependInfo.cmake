@@ -7,8 +7,10 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/saurex83/Projects/Neocore/Service/src/SerialCom.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/ServiceConfig.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/Transiver.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/Transiver.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/src/database.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/database.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/debug.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/debug.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/frame.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/frame.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/src/gwthread.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/gwthread.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/main.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -16,6 +18,9 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "inc"
+  "src/PRIVATE"
+  "/usr/include/postgresql"
+  "/usr/include/postgresql/10/server"
   )
 
 # Targets to which this target links.

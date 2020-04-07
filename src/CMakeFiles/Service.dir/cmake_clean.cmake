@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Service.dir/Transiver.cpp.o"
   "CMakeFiles/Service.dir/frame.cpp.o"
   "CMakeFiles/Service.dir/debug.cpp.o"
+  "CMakeFiles/Service.dir/database.cpp.o"
+  "CMakeFiles/Service.dir/gwthread.cpp.o"
   "../bin/Service.pdb"
   "../bin/Service"
 )

@@ -22,7 +22,6 @@ SerialCom& SerialCom::getInstance() {
 }
 
 SerialCom::SerialCom() {
-	std::cout<<"CONNECT SERIAL COM";
 	connect();
 };
 

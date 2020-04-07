@@ -23,8 +23,6 @@
 static unsigned char rx_buffer[READ_BUFF_SIZE];	
 static unsigned char tx_buffer[WRITE_BUFF_SIZE];	
 
-static src::severity_logger<severity_level> lg;
-
 static unsigned short crc16(unsigned char *pcBlock, unsigned int len){
     unsigned short crc = 0xFFFF;
     unsigned char i;
@@ -58,7 +56,7 @@ static int serial_read(){
 	
 	// Указаный размер передачи не соотетсвует фактическому
 	if (rx_buffer[0] != read_bytes - 1){
-		LOGGER(lg, error) << "rx_buffer[0]=" << rx_buffer[0] << " .read_bytes=" << read_bytes;
+		SPDLOG_ERROR("rx_buffer[0]=", rx_buffer[0], " .read_bytes=", read_bytes);
 		throw ParserError("Received size not match to specified");	
 	};
 
@@ -66,13 +64,13 @@ static int serial_read(){
 	if (rx_buffer[1] == ATYPE_PAR_ERR)
 		switch(rx_buffer[2]){
 			case PAR_CRC16:
-				LOGGER(lg, error) << "crc16";
+				SPDLOG_ERROR("crc16");
 				return -1;
 			case PAR_NOCMD:
-				LOGGER(lg, error) << "No CMD";
+				SPDLOG_ERROR("No CMD");
 				throw ParserError("Command not found");
 			default:
-				LOGGER(lg, error) << "Unexpected error";
+				SPDLOG_ERROR("Unexpected error");
 				throw ParserError("Unexpected parser error");
 		}
 
@@ -80,32 +78,32 @@ static int serial_read(){
 	if (rx_buffer[1] == ATYPE_CMD_ERR)
 		switch(rx_buffer[2]){
 			case CMD_LEN:
-				LOGGER(lg, error) << "Incorrect args length"; 
+				SPDLOG_ERROR("Incorrect args length"); 
 				throw CMDError("Incorrect args length");
 			case CMD_ARG_VAL:
-				LOGGER(lg, error) << "Incorrect args value"; 
+				SPDLOG_ERROR("Incorrect args value"); 
 				throw CMDError("Incorrect args value");
 			case CMD_SEEDING:
-				LOGGER(lg, error) << "Network seed must be stoped"; 
+				SPDLOG_ERROR("Network seed must be stoped"); 
 				throw CMDError("Network seed must be stopped");
 			case CMD_NOSEEDING:
-				LOGGER(lg, error) << "Network seed must be start"; 
+				SPDLOG_ERROR("Network seed must be start"); 
 				throw CMDError("Network seed must be start");
 			case CMD_TX_FULL:
-				LOGGER(lg, error) << "TX buffer full"; 
+				SPDLOG_ERROR("TX buffer full"); 
 				throw CMDError("TX buffer full");
 			case CMD_RX_EMPTY:
-				BOOST_LOG_SEV(lg, error) << "RX buffer empty"; 
+				SPDLOG_ERROR("RX buffer empty"); 
 				throw CMDError("RX buffer empty");
 			default:
-				LOGGER(lg, error) << "Unexpected cmd error answer"; 
+				SPDLOG_ERROR("Unexpected cmd error answer"); 
 				throw CMDError("Unexpected cmd error answer");
 		}
 
 	// Ожидаемы ответ ATYPE_CMD_OK
 	if (rx_buffer[1] != ATYPE_CMD_OK){
-		LOGGER(lg, error) << "Expected ATYPE_CMD_OK, but something go wrong. rx_buffer[1] = " 
-			<< unsigned(rx_buffer[1]);
+		SPDLOG_ERROR("Expected ATYPE_CMD_OK, but something go wrong. rx_buffer[1] = ", 
+			 unsigned(rx_buffer[1]));
 		throw ParserError("Expected ATYPE_CMD_OK");
 	};
 	return read_bytes;  	
@@ -119,7 +117,7 @@ static int send_cmd(unsigned char *cmd, int size){
 		serial_write(cmd, size);	
 		read_bytes = serial_read();
 		if (read_bytes == -1){
-			LOGGER(lg, error) << "CRC16 error"; 
+			SPDLOG_ERROR("CRC16 error"); 
 			continue;	
 		}
 		cmd_notsended = false;
@@ -133,11 +131,11 @@ bool Transiver::is_network_seed(){
 	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
 	
 	if (read_bytes != 5){
-		LOGGER(lg, error) << "cmd 0x00 incorrect answer length = " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x00 incorrect answer length = ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x00 is not 5 bytes");
 	;}
 
-	LOGGER(lg, trace) << "CMD 0x00. Network " << ((rx_buffer[2]? "seeding":"not seeding")); 
+	SPDLOG_TRACE("CMD 0x00. Network ", ((rx_buffer[2]? "seeding":"not seeding"))); 
 	
 	if (rx_buffer[2])
 		return true;
@@ -153,11 +151,11 @@ void Transiver::set_panid(unsigned char panid){
 
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x01 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x01 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x01 is not 4 bytes");
 	;}
 	
-	LOGGER(lg, trace) << "CMD 0x01. Network set panid " << panid; 
+	SPDLOG_TRACE("CMD 0x01. Network set panid ", panid); 
 };
 
 void Transiver::set_rtc(uint32_t rtc){
@@ -171,11 +169,11 @@ void Transiver::set_rtc(uint32_t rtc){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x02 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x02 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x02 is not 4 bytes");
 	;}
 
-	LOGGER(lg, trace) << "CMD 0x02. Set RTC =  " << rtc; 
+	SPDLOG_TRACE("CMD 0x02. Set RTC =  ", rtc); 
 };
 
 void Transiver::network_seed(bool status){
@@ -186,11 +184,11 @@ void Transiver::network_seed(bool status){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x03 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x03 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x03 is not 4 bytes");
 	;}
 	
-	LOGGER(lg, trace) << "CMD 0x03. Set network seeding =  " << (status? "true":"false"); 
+	SPDLOG_TRACE("CMD 0x03. Set network seeding =  ", (status? "true":"false")); 
 };
 
 void Transiver::load_streem_iv(unsigned char *iv){
@@ -202,11 +200,11 @@ void Transiver::load_streem_iv(unsigned char *iv){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x04 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x04 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x04 is not 4 bytes");
 	;}
 	
-	LOGGER(lg, trace) << "CMD 0x04. New IV loaded"; 
+	SPDLOG_TRACE("CMD 0x04. New IV loaded"); 
 };
 
 void Transiver::load_streem_key(unsigned char *key){
@@ -218,11 +216,11 @@ void Transiver::load_streem_key(unsigned char *key){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x05 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x05 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x05 is not 4 bytes");
 	};
 	
-	LOGGER(lg, trace) << "CMD 0x05. New KEY loaded"; 
+	SPDLOG_TRACE("CMD 0x05. New KEY loaded"); 
 };
 
 void Transiver::open_slot(unsigned char ts, unsigned char ch){
@@ -234,11 +232,11 @@ void Transiver::open_slot(unsigned char ts, unsigned char ch){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x07 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x07 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x07 is not 4 bytes");
 	};
 
-	LOGGER(lg, trace) << "CMD 0x07. Opened slot: " << unsigned(ts) << " on ch: " << unsigned(ch) ; 
+	SPDLOG_TRACE("CMD 0x07. Opened slot: ", unsigned(ts), " on ch: ", unsigned(ch)) ; 
 };
 
 void Transiver::close_slot(unsigned char ts){
@@ -249,11 +247,11 @@ void Transiver::close_slot(unsigned char ts){
 	int read_bytes = send_cmd(cmd, sizeof(cmd));
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x08 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x08 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x08 is not 4 bytes");
 	};
 
-	LOGGER(lg, trace) << "CMD 0x08. Closed slot: " << unsigned(ts) ; 
+	SPDLOG_TRACE("CMD 0x08. Closed slot: ", unsigned(ts)) ; 
 };
 
 
@@ -264,12 +262,12 @@ int Transiver::rx_frames(){
 	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
 	
 	if (read_bytes != 5){
-		LOGGER(lg, error) << "cmd 0x09 incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x09 incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x09 is not 4 bytes");
 	};
 	
 	int rx_frames = rx_buffer[2];
-	LOGGER(lg, trace) << "CMD 0x09. Frames in RX buffer: " << rx_frames ;
+	SPDLOG_TRACE("CMD 0x09. Frames in RX buffer: ", rx_frames);
 
 	return rx_frames;
 };
@@ -282,12 +280,12 @@ int Transiver::tx_frames(){
 	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
 	
 	if (read_bytes != 5){
-		LOGGER(lg, error) << "cmd 0x0A incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x0A incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x0A is not 4 bytes");
 	};
 	
 	int tx_frames = rx_buffer[2];
-	LOGGER(lg, trace) << "CMD 0x0A. Frames in TX buffer: " << tx_frames ;
+	SPDLOG_TRACE("CMD 0x0A. Frames in TX buffer: ",tx_frames) ;
 
 	return tx_frames;
 };
@@ -304,11 +302,11 @@ void Transiver::push_tx(Frame *frame){
 	int read_bytes = send_cmd(cmd, cmd_size);
 	
 	if (read_bytes != 4){
-		LOGGER(lg, error) << "cmd 0x0B incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x0B incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x0B is not 4 bytes");
 	};
 	
-	LOGGER(lg, trace) << "CMD 0x0B. Frame pushed in TX buffer";
+	SPDLOG_TRACE("CMD 0x0B. Frame pushed in TX buffer");
 };
 
 unsigned int Transiver::pop_rx(unsigned char *frame){
@@ -318,14 +316,14 @@ unsigned int Transiver::pop_rx(unsigned char *frame){
 	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
 	
 	if (read_bytes < 4){
-		LOGGER(lg, error) << "cmd 0x0C incorrect answer length " << read_bytes; 
+		SPDLOG_ERROR("cmd 0x0C incorrect answer length ", read_bytes); 
 		throw std::runtime_error("Answer length for cmd 0x0C less 4 bytes");
 	};
 
 	for (int i = 0; i < read_bytes; i++)
 		frame[i] = rx_buffer[i+2];	
 	
-	LOGGER(lg, trace) << "cmd 0x0B. Frames pop from RX buffer (bytes): " << read_bytes;
+	SPDLOG_TRACE("cmd 0x0B. Frames pop from RX buffer (bytes): %d ", read_bytes);
 
 	return read_bytes;
 };

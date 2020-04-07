@@ -3,8 +3,8 @@
 #include "SerialCom.hpp"
 #include "debug.hpp"
 #include "Transiver.hpp"
-
-static src::severity_logger<severity_level> lg;
+#include "database.hpp"
+#include "gwthread.hpp"
 
 int initialisation();
 
@@ -25,7 +25,7 @@ int main(int, char*[])
 int initialisation(){
 	// Настройка модуля отладки
 	debugInit();
-	CUSTOM_LOG(lg, info) << "Debug inited";
+	SPDLOG_INFO("Debug inited");
 
 //******************************************************************	
 // Загрузка конфигурации
@@ -36,30 +36,33 @@ int initialisation(){
 //	catch(){
 //	};
 
-	CUSTOM_LOG(lg, info) << "ServiceConfig loaded";
-	CUSTOM_LOG(lg, info) << "ServiceConfig.port = " << cfg.port;
-	CUSTOM_LOG(lg, info) << "ServiceConfig.speed = " << cfg.speed;
+	SPDLOG_INFO("ServiceConfig loaded");
 
 //******************************************************************	
 // Инициализация трансивера
 //******************************************************************	
 	SerialCom& com = SerialCom::getInstance();
-	CUSTOM_LOG(lg, info) << "SerialCom open port";
+	SPDLOG_INFO("SerialCom open port");
 
 	Transiver::network_seed(false);	
 	bool status = Transiver::is_network_seed();
 	
 	if (status){
-		CUSTOM_LOG(lg, error) << "Transiver communication error";
+		SPDLOG_INFO("Transiver communication error");
 		return 1;
 	}
 	
-	CUSTOM_LOG(lg, info) << "Transiver network seed stoped";
+	SPDLOG_INFO("Transiver network seed stoped");
 
 //******************************************************************	
 // Подключение к базе данных 
 //******************************************************************	
+	DataBase db;
 
-
-
+//******************************************************************	
+// Подключение к базе данных 
+//******************************************************************	
+	GWThread th;
+	th.start();
+	th.stop();
 }

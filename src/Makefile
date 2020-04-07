@@ -245,6 +245,36 @@ Transiver.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/Transiver.cpp.s
 .PHONY : Transiver.cpp.s
 
+database.o: database.cpp.o
+
+.PHONY : database.o
+
+# target to build an object file
+database.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/database.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/database.cpp.o
+.PHONY : database.cpp.o
+
+database.i: database.cpp.i
+
+.PHONY : database.i
+
+# target to preprocess a source file
+database.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/database.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/database.cpp.i
+.PHONY : database.cpp.i
+
+database.s: database.cpp.s
+
+.PHONY : database.s
+
+# target to generate assembly for a file
+database.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/database.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/database.cpp.s
+.PHONY : database.cpp.s
+
 debug.o: debug.cpp.o
 
 .PHONY : debug.o
@@ -305,6 +335,36 @@ frame.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/frame.cpp.s
 .PHONY : frame.cpp.s
 
+gwthread.o: gwthread.cpp.o
+
+.PHONY : gwthread.o
+
+# target to build an object file
+gwthread.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/gwthread.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/gwthread.cpp.o
+.PHONY : gwthread.cpp.o
+
+gwthread.i: gwthread.cpp.i
+
+.PHONY : gwthread.i
+
+# target to preprocess a source file
+gwthread.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/gwthread.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/gwthread.cpp.i
+.PHONY : gwthread.cpp.i
+
+gwthread.s: gwthread.cpp.s
+
+.PHONY : gwthread.s
+
+# target to generate assembly for a file
+gwthread.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/gwthread.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/gwthread.cpp.s
+.PHONY : gwthread.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -355,12 +415,18 @@ help:
 	@echo "... Transiver.o"
 	@echo "... Transiver.i"
 	@echo "... Transiver.s"
+	@echo "... database.o"
+	@echo "... database.i"
+	@echo "... database.s"
 	@echo "... debug.o"
 	@echo "... debug.i"
 	@echo "... debug.s"
 	@echo "... frame.o"
 	@echo "... frame.i"
 	@echo "... frame.s"
+	@echo "... gwthread.o"
+	@echo "... gwthread.i"
+	@echo "... gwthread.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
