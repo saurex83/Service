@@ -152,3 +152,10 @@ TEST(Database, config_data_key){
 	res = db.set_DATA_KEY(vec_old);
 	ASSERT_EQ(res, true);
 }
+
+TEST(Database, journal_insert){
+	DataBase db;
+	bool res = db.record_JOURNAL("TEST","GTEST","TEST MESSAGE");
+	ASSERT_EQ(res, true);
+
+}

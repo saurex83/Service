@@ -60,6 +60,11 @@ void DataBase::dropTables(){
 		SPDLOG_INFO("Table CONFIG droped");
 	else
 		SPDLOG_ERROR("Error while table CONFIG droping");
+
+	if (tableActions("DROP TABLE IF EXISTS JOURNAL"))
+		SPDLOG_INFO("Table JOURNAL droped");
+	else
+		SPDLOG_ERROR("Error while table JOURNAL droping");
 }
 
 void DataBase::createTables(){
@@ -67,6 +72,11 @@ void DataBase::createTables(){
 		SPDLOG_INFO("Table CONFIG created");
 	else
 		SPDLOG_ERROR("Error while table CONFIG creating");
+	
+	if (tableActions(DB_JOURNAL))
+		SPDLOG_INFO("Table JOURNAL created");
+	else
+		SPDLOG_ERROR("Error while table JOURNAL creating");
 };
 
 bool DataBase::setValueToCONFIG(const char* NAME, std::string& value){
@@ -351,4 +361,24 @@ bool DataBase::set_DATA_KEY(std::vector<unsigned char>& DATA_KEY){
 		return false;
 	}
 	return setValueToCONFIG("DATA_KEY", value_str);
+}
+
+//***********************************************************
+//RECORD_JOURNAL
+//***********************************************************
+bool DataBase::record_JOURNAL(std::string lvl, std::string src, std::string msg){
+	PGresult   *res;
+	std::string sqlcmd;
+	sqlcmd += "insert into journal(LEVEL, SOURCE, MESSAGE) VALUES (";
+	sqlcmd +="'"+ lvl+"','"+ src+"','" + msg + "'";
+	sqlcmd += ");";
+	res = PQexec(this->m_connection.get(), sqlcmd.c_str());
+	if (PQresultStatus(res) != PGRES_COMMAND_OK){
+		SPDLOG_ERROR("Insert to JOURNAL faild: {}", PQerrorMessage(this->m_connection.get()));
+		PQclear(res);
+		return false;
+	}
+
+	PQclear(res);
+	return true;
 }
