@@ -283,6 +283,30 @@ NeocoreService_BINARY_DIR:STATIC=/home/saurex83/Projects/Neocore/Service
 //Value Computed by CMake
 NeocoreService_SOURCE_DIR:STATIC=/home/saurex83/Projects/Neocore/Service
 
+//The directory containing a CMake configuration file for PocoCrypto.
+PocoCrypto_DIR:PATH=/usr/lib/cmake/Poco
+
+//The directory containing a CMake configuration file for PocoFoundation.
+PocoFoundation_DIR:PATH=/usr/lib/cmake/Poco
+
+//The directory containing a CMake configuration file for PocoJSON.
+PocoJSON_DIR:PATH=/usr/lib/cmake/Poco
+
+//The directory containing a CMake configuration file for PocoNetSSL.
+PocoNetSSL_DIR:PATH=/usr/lib/cmake/Poco
+
+//The directory containing a CMake configuration file for PocoNet.
+PocoNet_DIR:PATH=/usr/lib/cmake/Poco
+
+//The directory containing a CMake configuration file for PocoUtil.
+PocoUtil_DIR:PATH=/usr/lib/cmake/Poco
+
+//The directory containing a CMake configuration file for PocoXML.
+PocoXML_DIR:PATH=/usr/lib/cmake/Poco
+
+//The directory containing a CMake configuration file for Poco.
+Poco_DIR:PATH=/usr/lib/cmake/Poco
+
 //The Set the PostgreSQL_INCLUDE_DIR cmake cache entry to the top-level
 // directory containing the PostgreSQL include directories. E.g
 // /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include

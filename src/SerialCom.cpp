@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "blocking_reader.hpp"
+#include "debug.hpp"
 
 using namespace boost;
 using namespace asio;
@@ -24,6 +25,10 @@ SerialCom& SerialCom::getInstance() {
 SerialCom::SerialCom() {
 	connect();
 };
+
+SerialCom::~SerialCom(){
+	SPDLOG_WARN("Destructor must close com port");
+}
 
 void SerialCom::connect(){
 	ServiceConfig& config = ServiceConfig::getInstance(); 

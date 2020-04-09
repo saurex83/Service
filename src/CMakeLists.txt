@@ -6,6 +6,7 @@ set (Boost_USE_STATIC_LIBS ON)
 set (Boost_USE_MULTITHREADED ON)
 #add_definitions(-DBOOST_LOG_DYN_LINK)
 
+find_package(Poco REQUIRED Foundation Net NetSSL JSON)
 find_package(PostgreSQL REQUIRED)
 find_package(Boost COMPONENTS log system REQUIRED )
 include_directories(${Boost_INCLUDE_DIRS} PRIVATE ${PostgreSQL_INCLUDE_DIRS})
@@ -18,6 +19,7 @@ add_library(Service_lib STATIC ${SOURCES})
 
 target_link_libraries(Service ${Boost_LIBRARIES})
 target_link_libraries(Service PRIVATE ${PostgreSQL_LIBRARIES})
+target_link_libraries(Service PUBLIC Poco::NetSSL)
 
 message("LIBRA ${Boost_LIBRARIES}")
 # Автогенерация ctags

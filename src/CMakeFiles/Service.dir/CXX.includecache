@@ -17,6 +17,8 @@ string
 -
 blocking_reader.hpp
 /home/saurex83/Projects/Neocore/Service/src/blocking_reader.hpp
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/ServiceConfig.cpp
 fstream
@@ -53,6 +55,16 @@ ServiceConfig.hpp
 /home/saurex83/Projects/Neocore/Service/src/ServiceConfig.hpp
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
+db_tables_def.hpp
+/home/saurex83/Projects/Neocore/Service/src/db_tables_def.hpp
+sstream
+-
+boost/format.hpp
+-
+iostream
+-
+iomanip
+-
 
 /home/saurex83/Projects/Neocore/Service/src/debug.cpp
 debug.hpp
@@ -73,6 +85,8 @@ iostream
 -
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
+exception
+-
 
 /home/saurex83/Projects/Neocore/Service/src/main.cpp
 ServiceConfig.hpp
@@ -87,6 +101,10 @@ database.hpp
 /home/saurex83/Projects/Neocore/Service/src/database.hpp
 gwthread.hpp
 /home/saurex83/Projects/Neocore/Service/src/gwthread.hpp
+Poco/BasicEvent.h
+/home/saurex83/Projects/Neocore/Service/src/Poco/BasicEvent.h
+Poco/Delegate.h
+/home/saurex83/Projects/Neocore/Service/src/Poco/Delegate.h
 
 /usr/include/postgresql/libpq-fe.h
 stdio.h
@@ -129,6 +147,12 @@ libpq-fe.h
 -
 memory
 -
+string
+-
+vector
+-
+
+inc/db_tables_def.hpp
 
 inc/debug.hpp
 spdlog/spdlog.h
@@ -144,6 +168,12 @@ string
 
 inc/gwthread.hpp
 boost/thread.hpp
+-
+string
+-
+vector
+-
+mutex
 -
 
 inc/spdlog/cfg/log_levels.h

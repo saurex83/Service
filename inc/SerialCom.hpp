@@ -16,7 +16,6 @@ class SerialCom
     SerialCom();
     SerialCom(const SerialCom&);
     SerialCom& operator=(SerialCom&);
-   ~SerialCom(){};
 	static boost::asio::serial_port *m_Port;
 	static void flush_serial_port(
 		boost::asio::serial_port& serial_port,
@@ -25,6 +24,7 @@ class SerialCom
 	static boost::asio::io_service m_Io;
   public:
     static SerialCom& getInstance();
+   ~SerialCom();
 	void write(const unsigned char *transmitData, 
 			int writeSize);
 	unsigned int read(unsigned char *transmitData,

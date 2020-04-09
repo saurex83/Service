@@ -5,6 +5,8 @@
 #include "Transiver.hpp"
 #include "database.hpp"
 #include "gwthread.hpp"
+#include "Poco/BasicEvent.h"
+#include "Poco/Delegate.h"
 
 int initialisation();
 

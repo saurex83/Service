@@ -24,13 +24,13 @@ ServiceConfig& ServiceConfig::getInstance() {
 }
 
 void ServiceConfig::debugOutput(){
-		SPDLOG_INFO("Config file. Serial port: ", ServiceConfig::port);
-		SPDLOG_INFO("Config file. Serial speed: ", ServiceConfig::speed);
-		SPDLOG_INFO("Config file. Database IP: ", ServiceConfig::db_ip);
-		SPDLOG_INFO("Config file. Database login: ", ServiceConfig::db_login);
-		SPDLOG_INFO("Config file. Database password: ", ServiceConfig::db_password);
-		SPDLOG_INFO("Config file. Database db_name: ", ServiceConfig::db_name);
-		SPDLOG_INFO("Config file. Database port: ", ServiceConfig::db_port);
+		SPDLOG_INFO("Config file. Serial port: {} ", ServiceConfig::port);
+		SPDLOG_INFO("Config file. Serial speed: {}", ServiceConfig::speed);
+		SPDLOG_INFO("Config file. Database IP: {}", ServiceConfig::db_ip);
+		SPDLOG_INFO("Config file. Database login: {}", ServiceConfig::db_login);
+		SPDLOG_INFO("Config file. Database password: {}", ServiceConfig::db_password);
+		SPDLOG_INFO("Config file. Database db_name: {}", ServiceConfig::db_name);
+		SPDLOG_INFO("Config file. Database port: {}", ServiceConfig::db_port);
 }
 
 ServiceConfig::ServiceConfig(){
@@ -49,14 +49,14 @@ ServiceConfig::ServiceConfig(){
 	}
 	catch(boost::property_tree::ptree_bad_data &e){
 		//если строку пытается представить в виде числа
-		SPDLOG_ERROR("Wrong data format. ", e.what());
+		SPDLOG_ERROR("Wrong data format. {}", e.what());
 	}
 	catch(property_tree::ptree_bad_path &e){
 		// Если нету узла в ini
-		SPDLOG_ERROR("Ini node wrong.", e.what()); 
+		SPDLOG_ERROR("Ini node wrong. {}", e.what()); 
 	}
 	catch(property_tree::ptree_error &e){
 		// Если файл неудалось загрузить
-		SPDLOG_ERROR("File error. ", e.what()); 
+		SPDLOG_ERROR("File error. {}", e.what()); 
 	}
 };
