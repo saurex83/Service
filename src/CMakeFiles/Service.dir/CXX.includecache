@@ -88,6 +88,26 @@ debug.hpp
 exception
 -
 
+/home/saurex83/Projects/Neocore/Service/src/httpserver.cpp
+httpserver.hpp
+/home/saurex83/Projects/Neocore/Service/src/httpserver.hpp
+Poco/Net/HTTPServer.h
+-
+Poco/Net/HTTPRequestHandler.h
+-
+Poco/Net/HTTPRequestHandlerFactory.h
+-
+Poco/Net/HTTPServerRequest.h
+-
+Poco/Net/HTTPServerResponse.h
+-
+Poco/Net/ServerSocket.h
+-
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
+iostream
+-
+
 /home/saurex83/Projects/Neocore/Service/src/main.cpp
 ServiceConfig.hpp
 /home/saurex83/Projects/Neocore/Service/src/ServiceConfig.hpp
@@ -105,6 +125,8 @@ Poco/BasicEvent.h
 /home/saurex83/Projects/Neocore/Service/src/Poco/BasicEvent.h
 Poco/Delegate.h
 /home/saurex83/Projects/Neocore/Service/src/Poco/Delegate.h
+httpserver.hpp
+/home/saurex83/Projects/Neocore/Service/src/httpserver.hpp
 
 /usr/include/postgresql/libpq-fe.h
 stdio.h
@@ -175,6 +197,8 @@ vector
 -
 mutex
 -
+
+inc/httpserver.hpp
 
 inc/spdlog/cfg/log_levels.h
 spdlog/common.h

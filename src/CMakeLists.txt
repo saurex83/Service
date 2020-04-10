@@ -12,7 +12,7 @@ find_package(Boost COMPONENTS log system REQUIRED )
 include_directories(${Boost_INCLUDE_DIRS} PRIVATE ${PostgreSQL_INCLUDE_DIRS})
 
 set(SOURCES main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp frame.cpp
-	debug.cpp database.cpp gwthread.cpp)
+	debug.cpp database.cpp gwthread.cpp httpserver.cpp)
 
 add_executable(Service ${SOURCES})
 add_library(Service_lib STATIC ${SOURCES})

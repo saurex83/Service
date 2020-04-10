@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Service.dir/debug.cpp.o"
   "CMakeFiles/Service.dir/database.cpp.o"
   "CMakeFiles/Service.dir/gwthread.cpp.o"
+  "CMakeFiles/Service.dir/httpserver.cpp.o"
   "../bin/Service.pdb"
   "../bin/Service"
 )

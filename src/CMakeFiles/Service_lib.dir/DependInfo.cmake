@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/saurex83/Projects/Neocore/Service/src/debug.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/debug.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/frame.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/frame.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/gwthread.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/gwthread.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/src/httpserver.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/httpserver.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/main.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

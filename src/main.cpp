@@ -7,6 +7,7 @@
 #include "gwthread.hpp"
 #include "Poco/BasicEvent.h"
 #include "Poco/Delegate.h"
+#include "httpserver.hpp"
 
 int initialisation();
 
@@ -64,7 +65,15 @@ int initialisation(){
 //******************************************************************	
 // Подключение к базе данных 
 //******************************************************************	
-	GWThread th;
-	th.start();
-	th.stop();
+//	GWThread th;
+//	th.start();
+//	th.stop();
+SPDLOG_INFO("START WEB");
+//******************************************************************	
+// Запуск REST API сервера
+//******************************************************************	
+	SPDLOG_INFO("obj server created");
+	HTTP_Server_run();
+	SPDLOG_INFO("server run");
+	while(true);
 }

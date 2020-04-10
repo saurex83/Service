@@ -365,6 +365,36 @@ gwthread.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/gwthread.cpp.s
 .PHONY : gwthread.cpp.s
 
+httpserver.o: httpserver.cpp.o
+
+.PHONY : httpserver.o
+
+# target to build an object file
+httpserver.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/httpserver.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/httpserver.cpp.o
+.PHONY : httpserver.cpp.o
+
+httpserver.i: httpserver.cpp.i
+
+.PHONY : httpserver.i
+
+# target to preprocess a source file
+httpserver.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/httpserver.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/httpserver.cpp.i
+.PHONY : httpserver.cpp.i
+
+httpserver.s: httpserver.cpp.s
+
+.PHONY : httpserver.s
+
+# target to generate assembly for a file
+httpserver.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/httpserver.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/httpserver.cpp.s
+.PHONY : httpserver.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -427,6 +457,9 @@ help:
 	@echo "... gwthread.o"
 	@echo "... gwthread.i"
 	@echo "... gwthread.s"
+	@echo "... httpserver.o"
+	@echo "... httpserver.i"
+	@echo "... httpserver.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
