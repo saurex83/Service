@@ -121,24 +121,32 @@ iostream
 -
 
 /home/saurex83/Projects/Neocore/Service/src/main.cpp
-ServiceConfig.hpp
-/home/saurex83/Projects/Neocore/Service/src/ServiceConfig.hpp
-SerialCom.hpp
-/home/saurex83/Projects/Neocore/Service/src/SerialCom.hpp
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
+gwthread.hpp
+/home/saurex83/Projects/Neocore/Service/src/gwthread.hpp
+httpserver.hpp
+/home/saurex83/Projects/Neocore/Service/src/httpserver.hpp
+agrthread.hpp
+/home/saurex83/Projects/Neocore/Service/src/agrthread.hpp
+dbdecthread.hpp
+/home/saurex83/Projects/Neocore/Service/src/dbdecthread.hpp
+sysconfig.hpp
+/home/saurex83/Projects/Neocore/Service/src/sysconfig.hpp
+
+/home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
+ServiceConfig.hpp
+/home/saurex83/Projects/Neocore/Service/src/ServiceConfig.hpp
 Transiver.hpp
 /home/saurex83/Projects/Neocore/Service/src/Transiver.hpp
 database.hpp
 /home/saurex83/Projects/Neocore/Service/src/database.hpp
-gwthread.hpp
-/home/saurex83/Projects/Neocore/Service/src/gwthread.hpp
-Poco/BasicEvent.h
-/home/saurex83/Projects/Neocore/Service/src/Poco/BasicEvent.h
-Poco/Delegate.h
-/home/saurex83/Projects/Neocore/Service/src/Poco/Delegate.h
-httpserver.hpp
-/home/saurex83/Projects/Neocore/Service/src/httpserver.hpp
+SerialCom.hpp
+/home/saurex83/Projects/Neocore/Service/src/SerialCom.hpp
+exception
+-
 
 /usr/include/postgresql/libpq-fe.h
 stdio.h
@@ -747,4 +755,8 @@ inc/spdlog/spdlog-inl.h
 inc/spdlog/tweakme.h
 
 inc/spdlog/version.h
+
+inc/sysconfig.hpp
+exception
+-
 

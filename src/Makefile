@@ -485,6 +485,36 @@ main.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sysconfig.o: sysconfig.cpp.o
+
+.PHONY : sysconfig.o
+
+# target to build an object file
+sysconfig.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/sysconfig.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/sysconfig.cpp.o
+.PHONY : sysconfig.cpp.o
+
+sysconfig.i: sysconfig.cpp.i
+
+.PHONY : sysconfig.i
+
+# target to preprocess a source file
+sysconfig.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/sysconfig.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/sysconfig.cpp.i
+.PHONY : sysconfig.cpp.i
+
+sysconfig.s: sysconfig.cpp.s
+
+.PHONY : sysconfig.s
+
+# target to generate assembly for a file
+sysconfig.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/sysconfig.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/sysconfig.cpp.s
+.PHONY : sysconfig.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -529,6 +559,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... sysconfig.o"
+	@echo "... sysconfig.i"
+	@echo "... sysconfig.s"
 .PHONY : help
 
 

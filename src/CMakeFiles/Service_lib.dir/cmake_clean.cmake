@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Service_lib.dir/sysconfig.cpp.o"
   "CMakeFiles/Service_lib.dir/main.cpp.o"
   "CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o"
   "CMakeFiles/Service_lib.dir/SerialCom.cpp.o"
