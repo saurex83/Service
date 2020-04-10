@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Service_lib.dir/frame.cpp.o"
   "CMakeFiles/Service_lib.dir/debug.cpp.o"
   "CMakeFiles/Service_lib.dir/database.cpp.o"
+  "CMakeFiles/Service_lib.dir/dbdecthread.cpp.o"
+  "CMakeFiles/Service_lib.dir/agrthread.cpp.o"
   "CMakeFiles/Service_lib.dir/gwthread.cpp.o"
   "CMakeFiles/Service_lib.dir/httpserver.cpp.o"
   "libService_lib.pdb"

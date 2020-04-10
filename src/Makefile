@@ -245,6 +245,36 @@ Transiver.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/Transiver.cpp.s
 .PHONY : Transiver.cpp.s
 
+agrthread.o: agrthread.cpp.o
+
+.PHONY : agrthread.o
+
+# target to build an object file
+agrthread.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/agrthread.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/agrthread.cpp.o
+.PHONY : agrthread.cpp.o
+
+agrthread.i: agrthread.cpp.i
+
+.PHONY : agrthread.i
+
+# target to preprocess a source file
+agrthread.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/agrthread.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/agrthread.cpp.i
+.PHONY : agrthread.cpp.i
+
+agrthread.s: agrthread.cpp.s
+
+.PHONY : agrthread.s
+
+# target to generate assembly for a file
+agrthread.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/agrthread.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/agrthread.cpp.s
+.PHONY : agrthread.cpp.s
+
 database.o: database.cpp.o
 
 .PHONY : database.o
@@ -274,6 +304,36 @@ database.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/database.cpp.s
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/database.cpp.s
 .PHONY : database.cpp.s
+
+dbdecthread.o: dbdecthread.cpp.o
+
+.PHONY : dbdecthread.o
+
+# target to build an object file
+dbdecthread.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/dbdecthread.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o
+.PHONY : dbdecthread.cpp.o
+
+dbdecthread.i: dbdecthread.cpp.i
+
+.PHONY : dbdecthread.i
+
+# target to preprocess a source file
+dbdecthread.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/dbdecthread.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.i
+.PHONY : dbdecthread.cpp.i
+
+dbdecthread.s: dbdecthread.cpp.s
+
+.PHONY : dbdecthread.s
+
+# target to generate assembly for a file
+dbdecthread.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/dbdecthread.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.s
+.PHONY : dbdecthread.cpp.s
 
 debug.o: debug.cpp.o
 
@@ -445,9 +505,15 @@ help:
 	@echo "... Transiver.o"
 	@echo "... Transiver.i"
 	@echo "... Transiver.s"
+	@echo "... agrthread.o"
+	@echo "... agrthread.i"
+	@echo "... agrthread.s"
 	@echo "... database.o"
 	@echo "... database.i"
 	@echo "... database.s"
+	@echo "... dbdecthread.o"
+	@echo "... dbdecthread.i"
+	@echo "... dbdecthread.s"
 	@echo "... debug.o"
 	@echo "... debug.i"
 	@echo "... debug.s"

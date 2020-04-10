@@ -32,6 +32,9 @@ GWThread::~GWThread(){
 	if (this->threadStarted)
 		stop();
 }
+bool GWThread::isRunnig(){
+	return this->threadStarted;
+};
 
 void GWThread::start(){
 	SPDLOG_INFO("Gateway thread prepared to start");

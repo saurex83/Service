@@ -225,9 +225,57 @@ src/CMakeFiles/Service_lib.dir/database.cpp.o.provides: src/CMakeFiles/Service_l
 src/CMakeFiles/Service_lib.dir/database.cpp.o.provides.build: src/CMakeFiles/Service_lib.dir/database.cpp.o
 
 
+src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
+src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o: src/dbdecthread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/dbdecthread.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/dbdecthread.cpp
+
+src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Service_lib.dir/dbdecthread.cpp.i"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saurex83/Projects/Neocore/Service/src/dbdecthread.cpp > CMakeFiles/Service_lib.dir/dbdecthread.cpp.i
+
+src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Service_lib.dir/dbdecthread.cpp.s"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saurex83/Projects/Neocore/Service/src/dbdecthread.cpp -o CMakeFiles/Service_lib.dir/dbdecthread.cpp.s
+
+src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.requires
+
+src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.provides: src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.provides.build
+.PHONY : src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.provides
+
+src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.provides.build: src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o
+
+
+src/CMakeFiles/Service_lib.dir/agrthread.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
+src/CMakeFiles/Service_lib.dir/agrthread.cpp.o: src/agrthread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/Service_lib.dir/agrthread.cpp.o"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/agrthread.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/agrthread.cpp
+
+src/CMakeFiles/Service_lib.dir/agrthread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Service_lib.dir/agrthread.cpp.i"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saurex83/Projects/Neocore/Service/src/agrthread.cpp > CMakeFiles/Service_lib.dir/agrthread.cpp.i
+
+src/CMakeFiles/Service_lib.dir/agrthread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Service_lib.dir/agrthread.cpp.s"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saurex83/Projects/Neocore/Service/src/agrthread.cpp -o CMakeFiles/Service_lib.dir/agrthread.cpp.s
+
+src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.requires
+
+src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.provides: src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.provides.build
+.PHONY : src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.provides
+
+src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.provides.build: src/CMakeFiles/Service_lib.dir/agrthread.cpp.o
+
+
 src/CMakeFiles/Service_lib.dir/gwthread.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/gwthread.cpp.o: src/gwthread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/Service_lib.dir/gwthread.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/Service_lib.dir/gwthread.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/gwthread.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/gwthread.cpp
 
 src/CMakeFiles/Service_lib.dir/gwthread.cpp.i: cmake_force
@@ -251,7 +299,7 @@ src/CMakeFiles/Service_lib.dir/gwthread.cpp.o.provides.build: src/CMakeFiles/Ser
 
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: src/httpserver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/Service_lib.dir/httpserver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/Service_lib.dir/httpserver.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/httpserver.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/httpserver.cpp
 
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.i: cmake_force
@@ -282,6 +330,8 @@ Service_lib_OBJECTS = \
 "CMakeFiles/Service_lib.dir/frame.cpp.o" \
 "CMakeFiles/Service_lib.dir/debug.cpp.o" \
 "CMakeFiles/Service_lib.dir/database.cpp.o" \
+"CMakeFiles/Service_lib.dir/dbdecthread.cpp.o" \
+"CMakeFiles/Service_lib.dir/agrthread.cpp.o" \
 "CMakeFiles/Service_lib.dir/gwthread.cpp.o" \
 "CMakeFiles/Service_lib.dir/httpserver.cpp.o"
 
@@ -295,11 +345,13 @@ src/libService_lib.a: src/CMakeFiles/Service_lib.dir/Transiver.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/frame.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/debug.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/database.cpp.o
+src/libService_lib.a: src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o
+src/libService_lib.a: src/CMakeFiles/Service_lib.dir/agrthread.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/gwthread.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/httpserver.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/build.make
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libService_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX static library libService_lib.a"
 	cd /home/saurex83/Projects/Neocore/Service/src && $(CMAKE_COMMAND) -P CMakeFiles/Service_lib.dir/cmake_clean_target.cmake
 	cd /home/saurex83/Projects/Neocore/Service/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Service_lib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -315,6 +367,8 @@ src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/Transive
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/frame.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/debug.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/database.cpp.o.requires
+src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.requires
+src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/gwthread.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/httpserver.cpp.o.requires
 

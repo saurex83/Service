@@ -16,6 +16,7 @@ class GWThread{
 		~GWThread();
 		void start();
 		void stop();
+		bool isRunnig();
 		std::string thread_error;
 		void addGWTask(GWTask& task);
 	private:

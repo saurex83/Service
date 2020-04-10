@@ -138,6 +138,50 @@ src/CMakeFiles/Service.dir/Transiver.cpp.o
  inc/spdlog/spdlog.h
  inc/spdlog/tweakme.h
  inc/spdlog/version.h
+src/CMakeFiles/Service.dir/agrthread.cpp.o
+ /home/saurex83/Projects/Neocore/Service/src/agrthread.cpp
+ inc/agrthread.hpp
+ inc/debug.hpp
+ inc/spdlog/cfg/log_levels.h
+ inc/spdlog/common-inl.h
+ inc/spdlog/common.h
+ inc/spdlog/details/backtracer-inl.h
+ inc/spdlog/details/backtracer.h
+ inc/spdlog/details/circular_q.h
+ inc/spdlog/details/console_globals.h
+ inc/spdlog/details/fmt_helper.h
+ inc/spdlog/details/log_msg-inl.h
+ inc/spdlog/details/log_msg.h
+ inc/spdlog/details/log_msg_buffer-inl.h
+ inc/spdlog/details/log_msg_buffer.h
+ inc/spdlog/details/null_mutex.h
+ inc/spdlog/details/os-inl.h
+ inc/spdlog/details/os.h
+ inc/spdlog/details/periodic_worker-inl.h
+ inc/spdlog/details/periodic_worker.h
+ inc/spdlog/details/registry-inl.h
+ inc/spdlog/details/registry.h
+ inc/spdlog/details/synchronous_factory.h
+ inc/spdlog/details/windows_include.h
+ inc/spdlog/fmt/bundled/core.h
+ inc/spdlog/fmt/bundled/format-inl.h
+ inc/spdlog/fmt/bundled/format.h
+ inc/spdlog/fmt/fmt.h
+ inc/spdlog/formatter.h
+ inc/spdlog/logger-inl.h
+ inc/spdlog/logger.h
+ inc/spdlog/pattern_formatter-inl.h
+ inc/spdlog/pattern_formatter.h
+ inc/spdlog/sinks/ansicolor_sink-inl.h
+ inc/spdlog/sinks/ansicolor_sink.h
+ inc/spdlog/sinks/sink-inl.h
+ inc/spdlog/sinks/sink.h
+ inc/spdlog/sinks/wincolor_sink-inl.h
+ inc/spdlog/sinks/wincolor_sink.h
+ inc/spdlog/spdlog-inl.h
+ inc/spdlog/spdlog.h
+ inc/spdlog/tweakme.h
+ inc/spdlog/version.h
 src/CMakeFiles/Service.dir/database.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/database.cpp
  /usr/include/postgresql/libpq-fe.h
@@ -146,6 +190,50 @@ src/CMakeFiles/Service.dir/database.cpp.o
  inc/ServiceConfig.hpp
  inc/database.hpp
  inc/db_tables_def.hpp
+ inc/debug.hpp
+ inc/spdlog/cfg/log_levels.h
+ inc/spdlog/common-inl.h
+ inc/spdlog/common.h
+ inc/spdlog/details/backtracer-inl.h
+ inc/spdlog/details/backtracer.h
+ inc/spdlog/details/circular_q.h
+ inc/spdlog/details/console_globals.h
+ inc/spdlog/details/fmt_helper.h
+ inc/spdlog/details/log_msg-inl.h
+ inc/spdlog/details/log_msg.h
+ inc/spdlog/details/log_msg_buffer-inl.h
+ inc/spdlog/details/log_msg_buffer.h
+ inc/spdlog/details/null_mutex.h
+ inc/spdlog/details/os-inl.h
+ inc/spdlog/details/os.h
+ inc/spdlog/details/periodic_worker-inl.h
+ inc/spdlog/details/periodic_worker.h
+ inc/spdlog/details/registry-inl.h
+ inc/spdlog/details/registry.h
+ inc/spdlog/details/synchronous_factory.h
+ inc/spdlog/details/windows_include.h
+ inc/spdlog/fmt/bundled/core.h
+ inc/spdlog/fmt/bundled/format-inl.h
+ inc/spdlog/fmt/bundled/format.h
+ inc/spdlog/fmt/fmt.h
+ inc/spdlog/formatter.h
+ inc/spdlog/logger-inl.h
+ inc/spdlog/logger.h
+ inc/spdlog/pattern_formatter-inl.h
+ inc/spdlog/pattern_formatter.h
+ inc/spdlog/sinks/ansicolor_sink-inl.h
+ inc/spdlog/sinks/ansicolor_sink.h
+ inc/spdlog/sinks/sink-inl.h
+ inc/spdlog/sinks/sink.h
+ inc/spdlog/sinks/wincolor_sink-inl.h
+ inc/spdlog/sinks/wincolor_sink.h
+ inc/spdlog/spdlog-inl.h
+ inc/spdlog/spdlog.h
+ inc/spdlog/tweakme.h
+ inc/spdlog/version.h
+src/CMakeFiles/Service.dir/dbdecthread.cpp.o
+ /home/saurex83/Projects/Neocore/Service/src/dbdecthread.cpp
+ inc/dbdecthread.hpp
  inc/debug.hpp
  inc/spdlog/cfg/log_levels.h
  inc/spdlog/common-inl.h

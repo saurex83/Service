@@ -48,6 +48,12 @@ debug.hpp
 iostream
 -
 
+/home/saurex83/Projects/Neocore/Service/src/agrthread.cpp
+agrthread.hpp
+/home/saurex83/Projects/Neocore/Service/src/agrthread.hpp
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
+
 /home/saurex83/Projects/Neocore/Service/src/database.cpp
 database.hpp
 /home/saurex83/Projects/Neocore/Service/src/database.hpp
@@ -65,6 +71,12 @@ iostream
 -
 iomanip
 -
+
+/home/saurex83/Projects/Neocore/Service/src/dbdecthread.cpp
+dbdecthread.hpp
+/home/saurex83/Projects/Neocore/Service/src/dbdecthread.hpp
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/debug.cpp
 debug.hpp
@@ -158,6 +170,16 @@ exception
 frame.hpp
 inc/frame.hpp
 
+inc/agrthread.hpp
+boost/thread.hpp
+-
+string
+-
+vector
+-
+mutex
+-
+
 inc/blocking_reader.hpp
 boost/asio/serial_port.hpp
 -
@@ -175,6 +197,16 @@ vector
 -
 
 inc/db_tables_def.hpp
+
+inc/dbdecthread.hpp
+boost/thread.hpp
+-
+string
+-
+vector
+-
+mutex
+-
 
 inc/debug.hpp
 spdlog/spdlog.h
