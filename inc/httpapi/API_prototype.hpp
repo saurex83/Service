@@ -13,9 +13,11 @@
 #include "gwthread.hpp"
 #include "database.hpp"
 #include <Poco/JSON/JSON.h>
+#include <Poco/JSON/Parser.h>
 #include <Poco/JSON/Stringifier.h>
 #include <Poco/JSON/Object.h>
 #include <Poco/Dynamic/Var.h>
+#include <Poco/Exception.h>
 
 using namespace Poco::Net;
 using namespace Poco;
@@ -23,6 +25,8 @@ using namespace std;
 using Poco::JSON::Stringifier;
 using Poco::JSON::Object;
 using Poco::JSON::Array;
+using Poco::Dynamic::Var;
+using Poco::JSON::Parser;
 
 class API_prototype : public HTTPRequestHandler{
 public:
@@ -66,6 +70,20 @@ public:
 	
 	virtual void deleteHandler(HTTPServerRequest &req, HTTPServerResponse &resp){
 		undefinedAnswer(req, resp);
+	};
+
+	void ApiSetAnswer(bool err, string msg){
+		JSON_ERROR.set("error", err);
+		JSON_ERROR.set("message", msg);
+		JSON_ANSWER.set("result", JSON_ERROR);
+	}
+
+	string HTTPRequestToString(HTTPServerRequest &req){
+		auto & stream = req.stream();
+		const size_t len = req.getContentLength();
+		std::string buffer(len, 0);
+		stream.read(buffer.data(), len);
+		return buffer;
 	};
 
 private:

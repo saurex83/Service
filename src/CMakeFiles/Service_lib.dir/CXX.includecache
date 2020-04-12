@@ -291,11 +291,15 @@ database.hpp
 inc/httpapi/database.hpp
 Poco/JSON/JSON.h
 -
+Poco/JSON/Parser.h
+-
 Poco/JSON/Stringifier.h
 -
 Poco/JSON/Object.h
 -
 Poco/Dynamic/Var.h
+-
+Poco/Exception.h
 -
 
 inc/httpapi/API_transiver_config.hpp
