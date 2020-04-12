@@ -30,10 +30,52 @@ public:
 		this->params = params;
 		this->gwthread =gw;
 	};
-	
+
 	GWThread* gwthread;
 	vector<string> params;
 	Object JSON_ERROR;
 	Object JSON_ANSWER;
+	
+	void handleRequest(HTTPServerRequest &req, HTTPServerResponse &resp){
+		string req_method = req.getMethod();
+
+		if (req_method == string("GET"))
+			getHandler(req, resp);
+		else if (req_method == string("PUT"))
+			putHandler(req, resp);
+		else if (req_method == string("POST"))
+			postHandler(req, resp);
+		else if (req_method == string("DELETE"))
+			deleteHandler(req, resp);
+		else
+			SPDLOG_ERROR("HTTPServerRequest.getMethod undefined: {}", req_method);
+	};
+
+	virtual void getHandler(HTTPServerRequest &req, HTTPServerResponse &resp){
+		SPDLOG_INFO("into get");	
+		undefinedAnswer(req, resp);
+	};
+
+	virtual void putHandler(HTTPServerRequest &req, HTTPServerResponse &resp){
+		undefinedAnswer(req, resp);
+	};
+
+	virtual void postHandler(HTTPServerRequest &req, HTTPServerResponse &resp){
+		undefinedAnswer(req, resp);
+	};
+	
+	virtual void deleteHandler(HTTPServerRequest &req, HTTPServerResponse &resp){
+		undefinedAnswer(req, resp);
+	};
+
+private:
+	void undefinedAnswer(HTTPServerRequest &req, HTTPServerResponse &resp){
+		resp.setContentType("application/json"); 
+		std::ostream& ostr = resp.send();
+		JSON_ERROR.set("error", true);
+		JSON_ERROR.set("message", "Method undefined");
+		JSON_ANSWER.set("result", JSON_ERROR);
+		JSON_ANSWER.stringify(ostr);
+	};
 };
 

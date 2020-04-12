@@ -6,7 +6,7 @@ public:
 	API_default(vector<string> params, GWThread *gw)
 		:API_prototype(params, gw){};
 
-	virtual void handleRequest(HTTPServerRequest &req, HTTPServerResponse &resp){
+	void getHandler(HTTPServerRequest &req, HTTPServerResponse &resp){
 		resp.setContentType("application/json"); 
 		std::ostream& ostr = resp.send();
 	
@@ -14,5 +14,5 @@ public:
 		JSON_ERROR.set("message", "Rest api path not found");
 		JSON_ANSWER.set("result", JSON_ERROR);
 		JSON_ANSWER.stringify(ostr);
-	};
+	};	
 };

@@ -14,10 +14,6 @@
 #include <vector>
 #include "httpapi/httpapi.hpp"
 
-using namespace Poco::Net;
-using namespace Poco;
-using namespace std;
-
 static HTTPServer* http_server;
 static GWThread* gwthread;
 
