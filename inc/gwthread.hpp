@@ -1,7 +1,9 @@
+#pragma once
 #include <boost/thread.hpp>
 #include <string>
 #include <vector>
 #include <mutex>
+#include "agrthread.hpp"
 
 class GWTask{
 	public:
@@ -12,7 +14,7 @@ class GWTask{
 
 class GWThread{
 	public:
-		GWThread();
+		GWThread(AgrThread* agr);
 		~GWThread();
 		void start();
 		void stop();
@@ -20,6 +22,7 @@ class GWThread{
 		std::string thread_error;
 		void addGWTask(GWTask& task);
 	private:
+		AgrThread* agrthread;
 		std::mutex mutexTask;
 		std::vector<GWTask> taskPool;
 		void taskRegistrate();

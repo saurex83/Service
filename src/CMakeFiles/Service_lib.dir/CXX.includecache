@@ -53,6 +53,8 @@ agrthread.hpp
 /home/saurex83/Projects/Neocore/Service/src/agrthread.hpp
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
+boost/chrono.hpp
+-
 
 /home/saurex83/Projects/Neocore/Service/src/database.cpp
 database.hpp
@@ -77,6 +79,8 @@ dbdecthread.hpp
 /home/saurex83/Projects/Neocore/Service/src/dbdecthread.hpp
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
+boost/chrono.hpp
+-
 
 /home/saurex83/Projects/Neocore/Service/src/debug.cpp
 debug.hpp
@@ -115,10 +119,22 @@ Poco/Net/HTTPServerResponse.h
 -
 Poco/Net/ServerSocket.h
 -
+Poco/URI.h
+-
+Poco/Foundation.h
+-
+Poco/RegularExpression.h
+-
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
 iostream
 -
+string
+-
+vector
+-
+httpapi/httpapi.hpp
+/home/saurex83/Projects/Neocore/Service/src/httpapi/httpapi.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/main.cpp
 debug.hpp
@@ -133,6 +149,8 @@ dbdecthread.hpp
 /home/saurex83/Projects/Neocore/Service/src/dbdecthread.hpp
 sysconfig.hpp
 /home/saurex83/Projects/Neocore/Service/src/sysconfig.hpp
+boost/chrono.hpp
+-
 
 /home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp
 debug.hpp
@@ -237,8 +255,42 @@ vector
 -
 mutex
 -
+agrthread.hpp
+inc/agrthread.hpp
+
+inc/httpapi/API_default.hpp
+Poco/Net/HTTPRequestHandler.h
+-
+Poco/Net/HTTPRequestHandlerFactory.h
+-
+Poco/URI.h
+-
+Poco/Foundation.h
+-
+Poco/RegularExpression.h
+-
+debug.hpp
+inc/httpapi/debug.hpp
+iostream
+-
+string
+-
+vector
+-
+Poco/Net/HTTPServerRequest.h
+-
+Poco/Net/HTTPServerResponse.h
+-
+gwthread.hpp
+inc/httpapi/gwthread.hpp
+
+inc/httpapi/httpapi.hpp
+API_default.hpp
+inc/httpapi/API_default.hpp
 
 inc/httpserver.hpp
+gwthread.hpp
+inc/gwthread.hpp
 
 inc/spdlog/cfg/log_levels.h
 spdlog/common.h

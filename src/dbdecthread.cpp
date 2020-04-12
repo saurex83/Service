@@ -1,5 +1,6 @@
 #include "dbdecthread.hpp"
 #include "debug.hpp"
+#include <boost/chrono.hpp>
 
 #define CATCH_THREAD_EXC(name) \
 		catch(std::exception &e){\
@@ -60,4 +61,4 @@ void DbDecThread::decThread(){
 
 
 void DbDecThread::threadActions(){
-}
+boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));}

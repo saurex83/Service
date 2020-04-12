@@ -4,13 +4,45 @@
 #include "agrthread.hpp"
 #include "dbdecthread.hpp"
 #include "sysconfig.hpp"
+#include <boost/chrono.hpp>
 
 void initialisation();
 
 int main(int, char*[])
 {
+	// Службу не нужно стартовать если : 
+	// - ошибка загрузки файла конфигурации
+	// - ошибка связи с трансивером
+	// - ошибка подключения к БД
+	// WEB интерфейс если не может подключиться к службе,
+	// смотрит информацию в логах системы.
+
 	initialisation();
-   	return 0;
+	bool autostart_network = false;
+	
+	DbDecThread 	dbdecthread;
+	AgrThread 		agrthread;
+	GWThread  		gwthread(&agrthread);
+	HTTP_Server_set_GWThread(&gwthread);
+
+	dbdecthread.start();
+	agrthread.start();
+	if (autostart_network)
+		gwthread.start();	
+	HTTP_Server_run();
+	
+
+	while (true){
+		boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));
+
+		if (!dbdecthread.isRunnig()){
+			dbdecthread.start();
+		}	
+
+		if (!agrthread.isRunnig()){
+			agrthread.start();
+		}
+	};
 }
 
 void initialisation(){

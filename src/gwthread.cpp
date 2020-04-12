@@ -21,11 +21,12 @@
 		};
 
 
-GWThread::GWThread(){
+GWThread::GWThread(AgrThread* agr){
 	this->threadStarted = false;
 	this->threadStopReq = false;
 	this->thread_error = "";
 	this->threadException = false;
+	this->agrthread = agr;
 }
 
 GWThread::~GWThread(){
@@ -110,6 +111,7 @@ void GWThread::addGWTask(GWTask& task){
 };	
 
 void GWThread::threadActions(){
+	boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));
 }
 
 

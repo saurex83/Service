@@ -5,43 +5,68 @@
 #include <Poco/Net/HTTPServerRequest.h>
 #include <Poco/Net/HTTPServerResponse.h>
 #include <Poco/Net/ServerSocket.h>
+#include <Poco/URI.h>
+#include <Poco/Foundation.h>
+#include <Poco/RegularExpression.h>
 #include "debug.hpp"
 #include <iostream>
+#include <string>
+#include <vector>
+#include "httpapi/httpapi.hpp"
 
 using namespace Poco::Net;
+using namespace Poco;
 using namespace std;
 
-//static HTTPServer* http_server;
+static HTTPServer* http_server;
+static GWThread* gwthread;
 
-class RequestHandler : public HTTPRequestHandler{
-public:
-	virtual void handleRequest(HTTPServerRequest &req, HTTPServerResponse &resp){
-		ostream& out = resp.send();
-		out << "<h1>Hello world!</h1>";
-		out.flush();
-	};
-};
+void HTTP_Server_set_GWThread(GWThread* gw){
+	gwthread = gw;
+}
 
 class RequestHandlerFactory : public HTTPRequestHandlerFactory{
 public:
-	virtual HTTPRequestHandler* createRequestHandler(const HTTPServerRequest &){
-		return new RequestHandler;
+	virtual HTTPRequestHandler* createRequestHandler(const HTTPServerRequest &req){
+		URI uri(req.getURI());
+		vector<string> params;
+
+		if (parseURI("(?i)(/api/books/)(\\d+)/([0-9a-f]{16})$", uri, params))
+			return new API_default(params, gwthread);
+	
+		// Ответ по умолчанию	
+		return new API_default(params, gwthread);
+	}
+
+	int parseURI(const char* regexp, URI& uri, vector<string>& params){
+		string uri_path(uri.getPath());
+		Poco::RegularExpression regex(regexp);
+		Poco::RegularExpression::MatchVec mvec;
+		int matches = regex.match(uri_path, 0, mvec);	
+
+		for (Poco::RegularExpression::Match M : mvec)
+			params.push_back(uri_path.substr(M.offset, M.length));
+
+		return matches;
 	}
 };
 
-
 void HTTP_Server_run(){
-    HTTPServer s 
+	if (gwthread == NULL){
+		SPDLOG_ERROR("Pointer to gwthread not set. Http server start abort");
+		throw(std::runtime_error("Pointer to gwthread not set. Http server start abort"));
+	}
+
+    http_server = new HTTPServer 
 		(
 			new RequestHandlerFactory, 
 			ServerSocket(9090), 
 			new HTTPServerParams);
+    http_server->start();
+    SPDLOG_INFO("HTTP server started");
+}
 
-    SPDLOG_INFO("REST API server started");
-    s.start();
-
-	while(true);
-
-    SPDLOG_INFO("REST API server shutting down...");
-    s.stop();
+void HTTP_Server_stop(){
+    SPDLOG_INFO("HTTP server shutting down...");
+    http_server->stop();
 }

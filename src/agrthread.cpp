@@ -1,5 +1,6 @@
 #include "agrthread.hpp"
 #include "debug.hpp"
+#include <boost/chrono.hpp>
 
 #define CATCH_THREAD_EXC(name) \
 		catch(std::exception &e){\
@@ -59,4 +60,5 @@ void AgrThread::agrThread(){
 
 
 void AgrThread::threadActions(){
+	boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));
 }
