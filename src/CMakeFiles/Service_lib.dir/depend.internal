@@ -368,7 +368,11 @@ src/CMakeFiles/Service_lib.dir/gwthread.cpp.o
  inc/spdlog/version.h
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/httpserver.cpp
+ /usr/include/postgresql/libpq-fe.h
+ /usr/include/postgresql/pg_config_ext.h
+ /usr/include/postgresql/postgres_ext.h
  inc/agrthread.hpp
+ inc/database.hpp
  inc/debug.hpp
  inc/gwthread.hpp
  inc/httpapi/API_default.hpp

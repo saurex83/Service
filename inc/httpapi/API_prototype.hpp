@@ -11,10 +11,18 @@
 #include <Poco/Net/HTTPServerRequest.h>
 #include <Poco/Net/HTTPServerResponse.h>
 #include "gwthread.hpp"
+#include "database.hpp"
+#include <Poco/JSON/JSON.h>
+#include <Poco/JSON/Stringifier.h>
+#include <Poco/JSON/Object.h>
+#include <Poco/Dynamic/Var.h>
 
 using namespace Poco::Net;
 using namespace Poco;
 using namespace std;
+using Poco::JSON::Stringifier;
+using Poco::JSON::Object;
+using Poco::JSON::Array;
 
 class API_prototype : public HTTPRequestHandler{
 public:
@@ -22,8 +30,10 @@ public:
 		this->params = params;
 		this->gwthread =gw;
 	};
-private:
+	
 	GWThread* gwthread;
 	vector<string> params;
+	Object JSON_ERROR;
+	Object JSON_ANSWER;
 };
 

@@ -287,6 +287,16 @@ Poco/Net/HTTPServerResponse.h
 -
 gwthread.hpp
 inc/httpapi/gwthread.hpp
+database.hpp
+inc/httpapi/database.hpp
+Poco/JSON/JSON.h
+-
+Poco/JSON/Stringifier.h
+-
+Poco/JSON/Object.h
+-
+Poco/Dynamic/Var.h
+-
 
 inc/httpapi/API_transiver_config.hpp
 API_prototype.hpp
