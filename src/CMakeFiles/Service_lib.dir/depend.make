@@ -371,6 +371,9 @@ src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/agrthread.hpp
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/debug.hpp
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/gwthread.hpp
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/httpapi/API_default.hpp
+src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/httpapi/API_prototype.hpp
+src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/httpapi/API_transiver_config.hpp
+src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/httpapi/API_transiver_status.hpp
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/httpapi/httpapi.hpp
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/httpserver.hpp
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: inc/spdlog/cfg/log_levels.h

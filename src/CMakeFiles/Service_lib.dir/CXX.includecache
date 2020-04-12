@@ -259,6 +259,10 @@ agrthread.hpp
 inc/agrthread.hpp
 
 inc/httpapi/API_default.hpp
+API_prototype.hpp
+inc/httpapi/API_prototype.hpp
+
+inc/httpapi/API_prototype.hpp
 Poco/Net/HTTPRequestHandler.h
 -
 Poco/Net/HTTPRequestHandlerFactory.h
@@ -284,9 +288,21 @@ Poco/Net/HTTPServerResponse.h
 gwthread.hpp
 inc/httpapi/gwthread.hpp
 
+inc/httpapi/API_transiver_config.hpp
+API_prototype.hpp
+inc/httpapi/API_prototype.hpp
+
+inc/httpapi/API_transiver_status.hpp
+API_prototype.hpp
+inc/httpapi/API_prototype.hpp
+
 inc/httpapi/httpapi.hpp
 API_default.hpp
 inc/httpapi/API_default.hpp
+API_transiver_status.hpp
+inc/httpapi/API_transiver_status.hpp
+API_transiver_config.hpp
+inc/httpapi/API_transiver_config.hpp
 
 inc/httpserver.hpp
 gwthread.hpp

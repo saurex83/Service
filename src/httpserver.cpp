@@ -31,8 +31,12 @@ public:
 		URI uri(req.getURI());
 		vector<string> params;
 
-		if (parseURI("(?i)(/api/books/)(\\d+)/([0-9a-f]{16})$", uri, params))
-			return new API_default(params, gwthread);
+		if (parseURI("(?i)(/api/transiver/status$)", uri, params))
+			return new API_transiver_status(params, gwthread);
+	
+		if (parseURI("(?i)(/api/transiver/config/)(\\w+)$", uri, params))
+			return new API_transiver_config(params, gwthread);
+	
 	
 		// Ответ по умолчанию	
 		return new API_default(params, gwthread);
