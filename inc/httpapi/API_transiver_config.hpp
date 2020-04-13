@@ -45,15 +45,5 @@ public:
 		JSON_ANSWER.stringify(ostr);
 	};
 	
-	string VectorToStr(vector<unsigned char> vec){
-		std::string value_str;
-		std::stringstream ss;
-		for (unsigned char item : vec)
-			ss << std::setfill('0') << std::setw(2) 
-				<< std::hex << (unsigned)(item);
-		ss >> value_str;
-		return value_str;
-	}
-
 };
 

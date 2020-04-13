@@ -377,6 +377,7 @@ src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/gwthread.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/API_default.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/API_prototype.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/API_transiver_config.hpp
+src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/API_transiver_config_param.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/API_transiver_status.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/httpapi.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpserver.hpp

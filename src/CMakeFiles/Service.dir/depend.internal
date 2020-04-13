@@ -378,6 +378,7 @@ src/CMakeFiles/Service.dir/httpserver.cpp.o
  inc/httpapi/API_default.hpp
  inc/httpapi/API_prototype.hpp
  inc/httpapi/API_transiver_config.hpp
+ inc/httpapi/API_transiver_config_param.hpp
  inc/httpapi/API_transiver_status.hpp
  inc/httpapi/httpapi.hpp
  inc/httpserver.hpp

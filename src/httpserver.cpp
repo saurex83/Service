@@ -30,8 +30,8 @@ public:
 		if (parseURI("(?i)(/api/transiver/status$)", uri, params))
 			return new API_transiver_status(params, gwthread);
 	
-//		if (parseURI("(?i)(/api/transiver/config/)(\\w+)$", uri, params))
-//			return new API_transiver_config(params, gwthread);
+		if (parseURI("(?i)(/api/transiver/config/)(\\w+)$", uri, params))
+			return new API_transiver_config_param(params, gwthread);
 	
 		if (parseURI("(?i)(/api/transiver/config$)", uri, params))
 			return new API_transiver_config(params, gwthread);

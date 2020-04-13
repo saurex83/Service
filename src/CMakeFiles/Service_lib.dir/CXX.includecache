@@ -306,6 +306,10 @@ inc/httpapi/API_transiver_config.hpp
 API_prototype.hpp
 inc/httpapi/API_prototype.hpp
 
+inc/httpapi/API_transiver_config_param.hpp
+API_prototype.hpp
+inc/httpapi/API_prototype.hpp
+
 inc/httpapi/API_transiver_status.hpp
 API_prototype.hpp
 inc/httpapi/API_prototype.hpp
@@ -317,6 +321,8 @@ API_transiver_status.hpp
 inc/httpapi/API_transiver_status.hpp
 API_transiver_config.hpp
 inc/httpapi/API_transiver_config.hpp
+API_transiver_config_param.hpp
+inc/httpapi/API_transiver_config_param.hpp
 
 inc/httpserver.hpp
 gwthread.hpp
