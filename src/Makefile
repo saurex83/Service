@@ -515,6 +515,36 @@ sysconfig.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/sysconfig.cpp.s
 .PHONY : sysconfig.cpp.s
 
+valuechecker.o: valuechecker.cpp.o
+
+.PHONY : valuechecker.o
+
+# target to build an object file
+valuechecker.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/valuechecker.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/valuechecker.cpp.o
+.PHONY : valuechecker.cpp.o
+
+valuechecker.i: valuechecker.cpp.i
+
+.PHONY : valuechecker.i
+
+# target to preprocess a source file
+valuechecker.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/valuechecker.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/valuechecker.cpp.i
+.PHONY : valuechecker.cpp.i
+
+valuechecker.s: valuechecker.cpp.s
+
+.PHONY : valuechecker.s
+
+# target to generate assembly for a file
+valuechecker.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/valuechecker.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/valuechecker.cpp.s
+.PHONY : valuechecker.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -562,6 +592,9 @@ help:
 	@echo "... sysconfig.o"
 	@echo "... sysconfig.i"
 	@echo "... sysconfig.s"
+	@echo "... valuechecker.o"
+	@echo "... valuechecker.i"
+	@echo "... valuechecker.s"
 .PHONY : help
 
 

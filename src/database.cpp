@@ -382,3 +382,45 @@ bool DataBase::record_JOURNAL(std::string lvl, std::string src, std::string msg)
 	PQclear(res);
 	return true;
 }
+
+bool DataBase::getLastRecords(std::vector<JRecord> &j_vec, size_t n_rec){
+	PGresult   *res;
+	std::string sqlcmd;
+	sqlcmd += "select timestampz, level, source, message  from journal  ORDER BY timestampz DESC limit ";
+	sqlcmd += std::to_string(n_rec) + ";";
+	res = PQexec(this->m_connection.get(), sqlcmd.c_str());
+	if (PQresultStatus(res) != PGRES_TUPLES_OK){
+		SPDLOG_ERROR("Select from JOURNAL faild: {}", PQerrorMessage(this->m_connection.get()));
+		PQclear(res);
+		return false;
+	}
+
+ 	int nFields = PQnfields(res);
+	int nTuples = PQntuples(res);
+	
+//	if (nTuples != 1){
+//		SPDLOG_ERROR("nTuples = {}. Must be 1", nTuples);
+//		PQclear(res);
+//		return false;
+//	}
+
+	if (nFields != 4){
+		SPDLOG_ERROR("nFields = {}. Must be 4", nFields);
+		PQclear(res);
+		return false;
+	}
+
+	JRecord j_rec;
+	for (int i = 0; i < nTuples; i++){
+		j_rec.tsz = PQgetvalue(res, i, 0); 
+		j_rec.lvl = PQgetvalue(res, i, 1); 
+		j_rec.src = PQgetvalue(res, i, 2); 
+		j_rec.msg = PQgetvalue(res, i, 3); 
+		j_vec.push_back(j_rec);
+	}
+
+	PQclear(res);
+	return true;
+};
+
+

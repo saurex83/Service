@@ -42,6 +42,7 @@ void GWThread::start(){
 	this->taskPool.clear();
 	this->threadStarted = false;
 	this->threadStopReq = false;
+	this->thread_error = "";
 	Thread = boost::thread(&GWThread::gatewayThread, this);
 }
 
@@ -111,7 +112,8 @@ void GWThread::addGWTask(GWTask& task){
 };	
 
 void GWThread::threadActions(){
-	boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));
+	boost::this_thread::sleep_for(boost::chrono::milliseconds(10000));
+	throw (std::runtime_error("This is test exception!! Not a problem!"));
 }
 
 

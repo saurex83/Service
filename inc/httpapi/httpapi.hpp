@@ -3,3 +3,4 @@
 #include "API_transiver_status.hpp"
 #include "API_transiver_config.hpp"
 #include "API_transiver_config_param.hpp"
+#include "API_journal.hpp"

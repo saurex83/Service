@@ -166,6 +166,16 @@ SerialCom.hpp
 exception
 -
 
+/home/saurex83/Projects/Neocore/Service/src/valuechecker.cpp
+valuechecker.hpp
+/home/saurex83/Projects/Neocore/Service/src/valuechecker.hpp
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
+Poco/Foundation.h
+-
+Poco/RegularExpression.h
+-
+
 /usr/include/postgresql/libpq-fe.h
 stdio.h
 -
@@ -262,6 +272,10 @@ inc/httpapi/API_default.hpp
 API_prototype.hpp
 inc/httpapi/API_prototype.hpp
 
+inc/httpapi/API_journal.hpp
+API_prototype.hpp
+inc/httpapi/API_prototype.hpp
+
 inc/httpapi/API_prototype.hpp
 Poco/Net/HTTPRequestHandler.h
 -
@@ -323,6 +337,8 @@ API_transiver_config.hpp
 inc/httpapi/API_transiver_config.hpp
 API_transiver_config_param.hpp
 inc/httpapi/API_transiver_config_param.hpp
+API_journal.hpp
+inc/httpapi/API_journal.hpp
 
 inc/httpserver.hpp
 gwthread.hpp
@@ -846,5 +862,11 @@ inc/spdlog/version.h
 
 inc/sysconfig.hpp
 exception
+-
+
+inc/valuechecker.hpp
+string
+-
+vector
 -
 
