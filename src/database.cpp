@@ -77,6 +77,41 @@ void DataBase::createTables(){
 		SPDLOG_INFO("Table JOURNAL created");
 	else
 		SPDLOG_ERROR("Error while table JOURNAL creating");
+	
+	if (tableActions(DB_NODELIST))
+		SPDLOG_INFO("Table NODELIST created");
+	else
+		SPDLOG_ERROR("Error while table NODELIST creating");
+	
+	if (tableActions(DB_NODE_STATISTIC))
+		SPDLOG_INFO("Table NODE_STATISTIC created");
+	else
+		SPDLOG_ERROR("Error while table NODE_STATISTIC creating");
+	
+	if (tableActions(DB_MEASURING_POINT))
+		SPDLOG_INFO("Table MEASURING_POINT created");
+	else
+		SPDLOG_ERROR("Error while table MEASURING_POINT creating");
+	
+	if (tableActions(DB_DATA_FLOAT))
+		SPDLOG_INFO("Table DATA_FLOAT created");
+	else
+		SPDLOG_ERROR("Error while table DATA_FLOAT creating");
+	
+	if (tableActions(DB_DATA_INT))
+		SPDLOG_INFO("Table DATA_INT created");
+	else
+		SPDLOG_ERROR("Error while table DATA_INT creating");
+	
+	if (tableActions(DB_DATA_BOOL))
+		SPDLOG_INFO("Table DATA_BOOL created");
+	else
+		SPDLOG_ERROR("Error while table DATA_BOOL creating");
+	
+	if (tableActions(DB_NODE_LAST_COMM))
+		SPDLOG_INFO("Table NODE_LAST_COMM created");
+	else
+		SPDLOG_ERROR("Error while table NODE_LAST_COMM creating");
 };
 
 bool DataBase::setValueToCONFIG(const char* NAME, std::string& value){
