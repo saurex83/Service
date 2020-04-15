@@ -52,9 +52,11 @@ void AgrThread::agrThread(){
 	SPDLOG_INFO("Agregation thread started");
 	
 	while(!this->threadStopReq){
+		DataRecordsRegistrate();
 		try{
 			threadActions();
 		} CATCH_THREAD_EXC("threadActions");
+		DataRecordsClear();
 	};
 };
 
@@ -62,3 +64,29 @@ void AgrThread::agrThread(){
 void AgrThread::threadActions(){
 	boost::this_thread::sleep_for(boost::chrono::milliseconds(1000));
 }
+		
+void AgrThread::pushData(DRecord drec){
+	mutexDataRecordList.lock();
+	DataRecordList.push_back(drec);
+	mutexDataRecordList.unlock();
+}
+
+void AgrThread::DataRecordsRegistrate(){
+	mutexDataRecordList.lock();
+	for (DRecord drec : DataRecordList)
+		if (!drec.registrated)
+			drec.registrated = true;
+	mutexDataRecordList.unlock();
+}
+
+void AgrThread::DataRecordsClear(){
+	mutexDataRecordList.lock();
+	for(std::vector<DRecord>::iterator drec = this->DataRecordList.begin();
+		drec != this->DataRecordList.end();
+		drec++){
+		if(drec->registrated)
+			this->DataRecordList.erase(drec);
+	}
+	mutexDataRecordList.unlock();
+}
+

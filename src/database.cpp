@@ -112,6 +112,32 @@ void DataBase::createTables(){
 		SPDLOG_INFO("Table NODE_LAST_COMM created");
 	else
 		SPDLOG_ERROR("Error while table NODE_LAST_COMM creating");
+	
+	if (tableActions(DB_LICENSE))
+		SPDLOG_INFO("Table LICENSE created");
+	else
+		SPDLOG_ERROR("Error while table LICENSE creating");
+	
+	if (tableActions(DB_VIRTUALSENSOR))
+		SPDLOG_INFO("Table VIRTUALSENSOR created");
+	else
+		SPDLOG_ERROR("Error while table VIRTUALSENSOR creating");
+	
+	if (tableActions(DB_VIRT_DATA_FLOAT))
+		SPDLOG_INFO("Table VIRT_DATA_FLOAT created");
+	else
+		SPDLOG_ERROR("Error while table VIRT_DATA_FLOAT creating");
+	
+	if (tableActions(DB_VIRT_DATA_INT))
+		SPDLOG_INFO("Table VIRT_DATA_INT created");
+	else
+		SPDLOG_ERROR("Error while table VIRT_DATA_INT creating");
+	
+	if (tableActions(DB_VIRT_DATA_BOOL))
+		SPDLOG_INFO("Table VIRT_DATA_BOOL created");
+	else
+		SPDLOG_ERROR("Error while table DATA_BOOL creating");
+	
 };
 
 bool DataBase::setValueToCONFIG(const char* NAME, std::string& value){
@@ -459,3 +485,35 @@ bool DataBase::getLastRecords(std::vector<JRecord> &j_vec, size_t n_rec){
 };
 
 
+//***********************************************************
+//GET LICENSE
+//***********************************************************
+bool DataBase::getLicense(std::string &lic){
+	PGresult   *res;
+	std::string sqlcmd;
+	sqlcmd += "select TEXT from license limit 1;";
+	res = PQexec(this->m_connection.get(), sqlcmd.c_str());
+	if (PQresultStatus(res) != PGRES_TUPLES_OK){
+		SPDLOG_ERROR("Select from LICENSE faild: {}", PQerrorMessage(this->m_connection.get()));
+		PQclear(res);
+		return false;
+	}
+ 	
+	int nFields = PQnfields(res);
+	int nTuples = PQntuples(res);
+	
+	if (nTuples != 1){
+		SPDLOG_ERROR("nTuples = {}. Must be 1", nTuples);
+		PQclear(res);
+		return false;
+	}
+
+	if (nFields != 1){
+		SPDLOG_ERROR("nFields = {}. Must be 1", nFields);
+		PQclear(res);
+		return false;
+	}
+
+	lic = PQgetvalue(res, 0, 0);
+	return true;
+};

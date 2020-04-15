@@ -34,6 +34,7 @@ class DataBase {
 		bool set_DATA_KEY(std::vector<unsigned char>& DATA_KEY);
 		bool record_JOURNAL(std::string lvl, std::string src, std::string msg);
 		bool getLastRecords(std::vector<JRecord> &j_vec, size_t n_rec);
+		bool getLicense(std::string &lic);
 	private:
 		bool getValueFromCONFIG(const char* NAME, std::string& result);
 		bool setValueToCONFIG(const char* NAME, std::string& value);
