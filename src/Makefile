@@ -455,6 +455,36 @@ httpserver.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/httpserver.cpp.s
 .PHONY : httpserver.cpp.s
 
+license.o: license.cpp.o
+
+.PHONY : license.o
+
+# target to build an object file
+license.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/license.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/license.cpp.o
+.PHONY : license.cpp.o
+
+license.i: license.cpp.i
+
+.PHONY : license.i
+
+# target to preprocess a source file
+license.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/license.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/license.cpp.i
+.PHONY : license.cpp.i
+
+license.s: license.cpp.s
+
+.PHONY : license.s
+
+# target to generate assembly for a file
+license.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/license.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/license.cpp.s
+.PHONY : license.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -586,6 +616,9 @@ help:
 	@echo "... httpserver.o"
 	@echo "... httpserver.i"
 	@echo "... httpserver.s"
+	@echo "... license.o"
+	@echo "... license.i"
+	@echo "... license.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

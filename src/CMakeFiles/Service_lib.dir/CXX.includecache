@@ -136,6 +136,20 @@ vector
 httpapi/httpapi.hpp
 /home/saurex83/Projects/Neocore/Service/src/httpapi/httpapi.hpp
 
+/home/saurex83/Projects/Neocore/Service/src/license.cpp
+license.hpp
+/home/saurex83/Projects/Neocore/Service/src/license.hpp
+database.hpp
+/home/saurex83/Projects/Neocore/Service/src/database.hpp
+string
+-
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
+vector
+-
+utility
+-
+
 /home/saurex83/Projects/Neocore/Service/src/main.cpp
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
@@ -351,6 +365,20 @@ inc/httpapi/API_journal.hpp
 inc/httpserver.hpp
 gwthread.hpp
 inc/gwthread.hpp
+
+inc/license.hpp
+Poco/SingletonHolder.h
+inc/Poco/SingletonHolder.h
+Poco/JSON/Object.h
+-
+Poco/JSON/Parser.h
+-
+Poco/Dynamic/Var.h
+-
+Poco/Dynamic/Struct.h
+-
+Poco/Exception.h
+-
 
 inc/spdlog/cfg/log_levels.h
 spdlog/common.h

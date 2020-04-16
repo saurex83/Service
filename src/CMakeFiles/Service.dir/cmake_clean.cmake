@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Service.dir/license.cpp.o"
   "CMakeFiles/Service.dir/valuechecker.cpp.o"
   "CMakeFiles/Service.dir/sysconfig.cpp.o"
   "CMakeFiles/Service.dir/main.cpp.o"
