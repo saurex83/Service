@@ -478,6 +478,7 @@ src/CMakeFiles/Service.dir/main.cpp.o
  inc/debug.hpp
  inc/gwthread.hpp
  inc/httpserver.hpp
+ inc/license.hpp
  inc/spdlog/cfg/log_levels.h
  inc/spdlog/common-inl.h
  inc/spdlog/common.h

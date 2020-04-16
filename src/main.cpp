@@ -5,8 +5,16 @@
 #include "dbdecthread.hpp"
 #include "sysconfig.hpp"
 #include <boost/chrono.hpp>
+#include "license.hpp"
 
 void initialisation();
+
+void TESTER(){
+	License& lic = License::instance();
+	int max_wnodes;
+	bool res = lic.getLicParam(std::string("max_wnodes"), max_wnodes);
+	SPDLOG_INFO("max_wnodes {}", max_wnodes);
+};
 
 int main(int, char*[])
 {
@@ -17,9 +25,12 @@ int main(int, char*[])
 	// WEB интерфейс если не может подключиться к службе,
 	// смотрит информацию в логах системы.
 
+		
 	initialisation();
 	bool autostart_network = false;
 	
+	TESTER();
+
 	DbDecThread 	dbdecthread;
 	AgrThread 		agrthread;
 	GWThread  		gwthread(&agrthread);

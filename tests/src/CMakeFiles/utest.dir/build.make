@@ -177,9 +177,33 @@ tests/src/CMakeFiles/utest.dir/frame_test.cpp.o.provides: tests/src/CMakeFiles/u
 tests/src/CMakeFiles/utest.dir/frame_test.cpp.o.provides.build: tests/src/CMakeFiles/utest.dir/frame_test.cpp.o
 
 
+tests/src/CMakeFiles/utest.dir/license_test.cpp.o: tests/src/CMakeFiles/utest.dir/flags.make
+tests/src/CMakeFiles/utest.dir/license_test.cpp.o: tests/src/license_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/src/CMakeFiles/utest.dir/license_test.cpp.o"
+	cd /home/saurex83/Projects/Neocore/Service/tests/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utest.dir/license_test.cpp.o -c /home/saurex83/Projects/Neocore/Service/tests/src/license_test.cpp
+
+tests/src/CMakeFiles/utest.dir/license_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/utest.dir/license_test.cpp.i"
+	cd /home/saurex83/Projects/Neocore/Service/tests/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saurex83/Projects/Neocore/Service/tests/src/license_test.cpp > CMakeFiles/utest.dir/license_test.cpp.i
+
+tests/src/CMakeFiles/utest.dir/license_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/utest.dir/license_test.cpp.s"
+	cd /home/saurex83/Projects/Neocore/Service/tests/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saurex83/Projects/Neocore/Service/tests/src/license_test.cpp -o CMakeFiles/utest.dir/license_test.cpp.s
+
+tests/src/CMakeFiles/utest.dir/license_test.cpp.o.requires:
+
+.PHONY : tests/src/CMakeFiles/utest.dir/license_test.cpp.o.requires
+
+tests/src/CMakeFiles/utest.dir/license_test.cpp.o.provides: tests/src/CMakeFiles/utest.dir/license_test.cpp.o.requires
+	$(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/license_test.cpp.o.provides.build
+.PHONY : tests/src/CMakeFiles/utest.dir/license_test.cpp.o.provides
+
+tests/src/CMakeFiles/utest.dir/license_test.cpp.o.provides.build: tests/src/CMakeFiles/utest.dir/license_test.cpp.o
+
+
 tests/src/CMakeFiles/utest.dir/main.cpp.o: tests/src/CMakeFiles/utest.dir/flags.make
 tests/src/CMakeFiles/utest.dir/main.cpp.o: tests/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/src/CMakeFiles/utest.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object tests/src/CMakeFiles/utest.dir/main.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/tests/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/utest.dir/main.cpp.o -c /home/saurex83/Projects/Neocore/Service/tests/src/main.cpp
 
 tests/src/CMakeFiles/utest.dir/main.cpp.i: cmake_force
@@ -208,6 +232,7 @@ utest_OBJECTS = \
 "CMakeFiles/utest.dir/Transiver_test.cpp.o" \
 "CMakeFiles/utest.dir/database_test.cpp.o" \
 "CMakeFiles/utest.dir/frame_test.cpp.o" \
+"CMakeFiles/utest.dir/license_test.cpp.o" \
 "CMakeFiles/utest.dir/main.cpp.o"
 
 # External object files for target utest
@@ -218,8 +243,10 @@ bin/utest: tests/src/CMakeFiles/utest.dir/ServiceConfig_test.cpp.o
 bin/utest: tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o
 bin/utest: tests/src/CMakeFiles/utest.dir/database_test.cpp.o
 bin/utest: tests/src/CMakeFiles/utest.dir/frame_test.cpp.o
+bin/utest: tests/src/CMakeFiles/utest.dir/license_test.cpp.o
 bin/utest: tests/src/CMakeFiles/utest.dir/main.cpp.o
 bin/utest: tests/src/CMakeFiles/utest.dir/build.make
+bin/utest: /usr/lib/libPocoNetSSL.so.50
 bin/utest: src/libService_lib.a
 bin/utest: tests/gtest/src/gtest-build/lib/libgtest.a
 bin/utest: tests/gtest/src/gtest-build/lib/libgmock.a
@@ -234,8 +261,19 @@ bin/utest: /usr/lib/x86_64-linux-gnu/libboost_regex.a
 bin/utest: /usr/lib/x86_64-linux-gnu/libboost_chrono.a
 bin/utest: /usr/lib/x86_64-linux-gnu/libboost_atomic.a
 bin/utest: /usr/lib/x86_64-linux-gnu/libpthread.so
+bin/utest: /usr/lib/libPocoUtil.so.50
+bin/utest: /usr/lib/libPocoJSON.so.50
+bin/utest: /usr/lib/libPocoXML.so.50
+bin/utest: /usr/lib/x86_64-linux-gnu/libexpat.so
+bin/utest: /usr/lib/libPocoNet.so.50
+bin/utest: /usr/lib/libPocoCrypto.so.50
+bin/utest: /usr/lib/libPocoFoundation.so.50
+bin/utest: /usr/lib/x86_64-linux-gnu/libpcre.so
+bin/utest: /usr/lib/x86_64-linux-gnu/libz.so
+bin/utest: /usr/lib/x86_64-linux-gnu/libssl.so
+bin/utest: /usr/lib/x86_64-linux-gnu/libcrypto.so
 bin/utest: tests/src/CMakeFiles/utest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../../bin/utest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../../bin/utest"
 	cd /home/saurex83/Projects/Neocore/Service/tests/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/utest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -248,6 +286,7 @@ tests/src/CMakeFiles/utest.dir/requires: tests/src/CMakeFiles/utest.dir/ServiceC
 tests/src/CMakeFiles/utest.dir/requires: tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o.requires
 tests/src/CMakeFiles/utest.dir/requires: tests/src/CMakeFiles/utest.dir/database_test.cpp.o.requires
 tests/src/CMakeFiles/utest.dir/requires: tests/src/CMakeFiles/utest.dir/frame_test.cpp.o.requires
+tests/src/CMakeFiles/utest.dir/requires: tests/src/CMakeFiles/utest.dir/license_test.cpp.o.requires
 tests/src/CMakeFiles/utest.dir/requires: tests/src/CMakeFiles/utest.dir/main.cpp.o.requires
 
 .PHONY : tests/src/CMakeFiles/utest.dir/requires

@@ -6,10 +6,11 @@ set (Boost_USE_STATIC_LIBS ON)
 set (Boost_USE_MULTITHREADED ON)
 #add_definitions(-DBOOST_LOG_DYN_LINK)
 
-find_package(Poco REQUIRED Foundation Net NetSSL JSON)
+find_package(Poco REQUIRED Util Net Foundation NetSSL JSON)
+#find_package(Poco)
 find_package(PostgreSQL REQUIRED)
 find_package(Boost COMPONENTS log system REQUIRED )
-include_directories(${Boost_INCLUDE_DIRS} PRIVATE ${PostgreSQL_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS} ${Poco_INCLUDE_DIRS} PRIVATE ${PostgreSQL_INCLUDE_DIRS})
 
 set(SOURCES license.cpp valuechecker.cpp sysconfig.cpp main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp frame.cpp
 	debug.cpp database.cpp dbdecthread.cpp agrthread.cpp gwthread.cpp httpserver.cpp)
@@ -19,9 +20,10 @@ add_library(Service_lib STATIC ${SOURCES})
 
 target_link_libraries(Service ${Boost_LIBRARIES})
 target_link_libraries(Service PRIVATE ${PostgreSQL_LIBRARIES})
-target_link_libraries(Service PUBLIC Poco::NetSSL)
+target_link_libraries(Service PUBLIC ${Poco_LIBRARIES} )
 
 message("LIBRA ${Boost_LIBRARIES}")
+message("LIBRA ${Poco_LIBRARIES}")
 # Автогенерация ctags
 set_source_files_properties(tags PROPERTIES GENERATED true)
 add_custom_target(tags

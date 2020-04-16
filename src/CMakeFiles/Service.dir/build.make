@@ -440,12 +440,12 @@ bin/Service: /usr/lib/x86_64-linux-gnu/libboost_atomic.a
 bin/Service: /usr/lib/x86_64-linux-gnu/libpthread.so
 bin/Service: /usr/lib/x86_64-linux-gnu/libpq.so
 bin/Service: /usr/lib/libPocoNetSSL.so.50
-bin/Service: /usr/lib/libPocoCrypto.so.50
-bin/Service: /usr/lib/libPocoNet.so.50
 bin/Service: /usr/lib/libPocoUtil.so.50
+bin/Service: /usr/lib/libPocoJSON.so.50
 bin/Service: /usr/lib/libPocoXML.so.50
 bin/Service: /usr/lib/x86_64-linux-gnu/libexpat.so
-bin/Service: /usr/lib/libPocoJSON.so.50
+bin/Service: /usr/lib/libPocoNet.so.50
+bin/Service: /usr/lib/libPocoCrypto.so.50
 bin/Service: /usr/lib/libPocoFoundation.so.50
 bin/Service: /usr/lib/x86_64-linux-gnu/libpcre.so
 bin/Service: /usr/lib/x86_64-linux-gnu/libz.so

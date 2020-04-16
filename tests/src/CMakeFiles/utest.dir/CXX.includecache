@@ -48,6 +48,14 @@ gtest/gtest.h
 frame.hpp
 /home/saurex83/Projects/Neocore/Service/tests/src/frame.hpp
 
+/home/saurex83/Projects/Neocore/Service/tests/src/license_test.cpp
+gtest/gtest.h
+/home/saurex83/Projects/Neocore/Service/tests/src/gtest/gtest.h
+license.hpp
+/home/saurex83/Projects/Neocore/Service/tests/src/license.hpp
+string
+-
+
 /home/saurex83/Projects/Neocore/Service/tests/src/main.cpp
 gtest/gtest.h
 /home/saurex83/Projects/Neocore/Service/tests/src/gtest/gtest.h
@@ -98,6 +106,22 @@ exception
 cstdint
 -
 string
+-
+
+inc/license.hpp
+Poco/SingletonHolder.h
+inc/Poco/SingletonHolder.h
+Poco/JSON/Object.h
+-
+Poco/JSON/Parser.h
+-
+Poco/Dynamic/Var.h
+-
+Poco/Dynamic/Struct.h
+-
+Poco/Exception.h
+-
+Poco/AtomicCounter.h
 -
 
 tests/gtest/src/gtest/googletest/include/gtest/gtest-death-test.h

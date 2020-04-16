@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/utest.dir/Transiver_test.cpp.o"
   "CMakeFiles/utest.dir/database_test.cpp.o"
   "CMakeFiles/utest.dir/frame_test.cpp.o"
+  "CMakeFiles/utest.dir/license_test.cpp.o"
   "CMakeFiles/utest.dir/main.cpp.o"
   "../../bin/utest.pdb"
   "../../bin/utest"

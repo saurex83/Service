@@ -6,12 +6,15 @@ set (Boost_USE_STATIC_LIBS ON)
 set (Boost_USE_MULTITHREADED ON)
 
 find_package(PostgreSQL REQUIRED)
+find_package(Poco REQUIRED Util Net Foundation NetSSL JSON)
 find_package(Boost COMPONENTS log system REQUIRED )
-include_directories(${Boost_INCLUDE_DIRS} ${PostgreSQL_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS} ${PostgreSQL_INCLUDE_DIRS}
+	${Poco_INCLUDE_DIRS})
 message("LIBRA ${Boost_LIBRARIES}")
 
 TARGET_LINK_LIBRARIES(
 	utest 
+	${Poco_LIBRARIES}
 	Service_lib
     libgtest
 	libgmock

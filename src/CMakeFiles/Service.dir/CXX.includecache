@@ -165,6 +165,8 @@ sysconfig.hpp
 /home/saurex83/Projects/Neocore/Service/src/sysconfig.hpp
 boost/chrono.hpp
 -
+license.hpp
+/home/saurex83/Projects/Neocore/Service/src/license.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp
 debug.hpp
@@ -378,6 +380,8 @@ Poco/Dynamic/Var.h
 Poco/Dynamic/Struct.h
 -
 Poco/Exception.h
+-
+Poco/AtomicCounter.h
 -
 
 inc/spdlog/cfg/log_levels.h

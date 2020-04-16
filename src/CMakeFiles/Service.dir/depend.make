@@ -477,6 +477,7 @@ src/CMakeFiles/Service.dir/main.cpp.o: inc/dbdecthread.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/debug.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/gwthread.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/httpserver.hpp
+src/CMakeFiles/Service.dir/main.cpp.o: inc/license.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/spdlog/cfg/log_levels.h
 src/CMakeFiles/Service.dir/main.cpp.o: inc/spdlog/common-inl.h
 src/CMakeFiles/Service.dir/main.cpp.o: inc/spdlog/common.h

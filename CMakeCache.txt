@@ -283,6 +283,9 @@ NeocoreService_BINARY_DIR:STATIC=/home/saurex83/Projects/Neocore/Service
 //Value Computed by CMake
 NeocoreService_SOURCE_DIR:STATIC=/home/saurex83/Projects/Neocore/Service
 
+//The directory containing a CMake configuration file for PocoAtomicCounter.
+PocoAtomicCounter_DIR:PATH=PocoAtomicCounter_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for PocoCrypto.
 PocoCrypto_DIR:PATH=/usr/lib/cmake/Poco
 

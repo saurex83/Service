@@ -260,6 +260,33 @@ frame_test.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/frame_test.cpp.s
 .PHONY : frame_test.cpp.s
 
+license_test.o: license_test.cpp.o
+
+.PHONY : license_test.o
+
+# target to build an object file
+license_test.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/license_test.cpp.o
+.PHONY : license_test.cpp.o
+
+license_test.i: license_test.cpp.i
+
+.PHONY : license_test.i
+
+# target to preprocess a source file
+license_test.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/license_test.cpp.i
+.PHONY : license_test.cpp.i
+
+license_test.s: license_test.cpp.s
+
+.PHONY : license_test.s
+
+# target to generate assembly for a file
+license_test.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/license_test.cpp.s
+.PHONY : license_test.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -311,6 +338,9 @@ help:
 	@echo "... frame_test.o"
 	@echo "... frame_test.i"
 	@echo "... frame_test.s"
+	@echo "... license_test.o"
+	@echo "... license_test.i"
+	@echo "... license_test.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
