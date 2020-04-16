@@ -13,7 +13,7 @@ static bool inRange(unsigned char min, unsigned char max,
 		return false;
 }
 
-CheckRes pan_id(const unsigned char &val){
+CheckRes checker::pan_id(const unsigned char &val){
 	CheckRes res;
 	if (val == 0){
 		res.error = true;
@@ -25,7 +25,7 @@ CheckRes pan_id(const unsigned char &val){
 	return res;
 };
 
-CheckRes sys_channel(const unsigned char &val){
+CheckRes checker::sys_channel(const unsigned char &val){
 	CheckRes res;
 
 	if (!inRange(11,28, val)){
@@ -38,7 +38,7 @@ CheckRes sys_channel(const unsigned char &val){
 	return res;
 };
 
-CheckRes sync_channel(const unsigned char &val){
+CheckRes checker::sync_channel(const unsigned char &val){
 	CheckRes res;
 
 	if (!inRange(11,28, val)){
@@ -52,7 +52,7 @@ CheckRes sync_channel(const unsigned char &val){
 };
 
 
-CheckRes encrypt_iv_key(std::string &val){
+CheckRes checker::encrypt_iv_key(std::string &val){
 	CheckRes res;
 	
 	Poco::RegularExpression regex("(?i)^[0-9abcdef]{32}$");

@@ -322,8 +322,15 @@ src/CMakeFiles/Service.dir/frame.cpp.o: src/frame.cpp
 src/CMakeFiles/Service.dir/frame.cpp.o: inc/frame.hpp
 
 src/CMakeFiles/Service.dir/gwthread.cpp.o: src/gwthread.cpp
+src/CMakeFiles/Service.dir/gwthread.cpp.o: /usr/include/postgresql/libpq-fe.h
+src/CMakeFiles/Service.dir/gwthread.cpp.o: /usr/include/postgresql/pg_config_ext.h
+src/CMakeFiles/Service.dir/gwthread.cpp.o: /usr/include/postgresql/postgres_ext.h
+src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/SerialCom.hpp
+src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/Transiver.hpp
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/agrthread.hpp
+src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/database.hpp
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/debug.hpp
+src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/frame.hpp
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/gwthread.hpp
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/spdlog/cfg/log_levels.h
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/spdlog/common-inl.h
@@ -365,6 +372,7 @@ src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/spdlog/spdlog-inl.h
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/spdlog/spdlog.h
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/spdlog/tweakme.h
 src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/spdlog/version.h
+src/CMakeFiles/Service.dir/gwthread.cpp.o: inc/valuechecker.hpp
 
 src/CMakeFiles/Service.dir/httpserver.cpp.o: src/httpserver.cpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: /usr/include/postgresql/libpq-fe.h
@@ -373,6 +381,7 @@ src/CMakeFiles/Service.dir/httpserver.cpp.o: /usr/include/postgresql/postgres_ex
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/agrthread.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/database.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/debug.hpp
+src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/frame.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/gwthread.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/API_default.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o: inc/httpapi/API_journal.hpp
@@ -475,6 +484,7 @@ src/CMakeFiles/Service.dir/main.cpp.o: src/main.cpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/agrthread.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/dbdecthread.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/debug.hpp
+src/CMakeFiles/Service.dir/main.cpp.o: inc/frame.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/gwthread.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/httpserver.hpp
 src/CMakeFiles/Service.dir/main.cpp.o: inc/license.hpp

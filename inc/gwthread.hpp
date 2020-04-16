@@ -4,6 +4,7 @@
 #include <vector>
 #include <mutex>
 #include "agrthread.hpp"
+#include "frame.hpp"
 
 class GWTask{
 	public:
@@ -35,4 +36,10 @@ class GWThread{
 		void threadActions();
 		void transiverInit();
 		void transiverDeInit();
+		void clearPools();
+		void serveRXPool();
+		void serveTXPool();
+	
+		std::vector<Frame> tx_pool;
+		std::vector<Frame> rx_pool;
 };

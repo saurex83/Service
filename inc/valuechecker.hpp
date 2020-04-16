@@ -15,4 +15,6 @@ struct CheckRes{
 	CheckRes sync_channel(const unsigned char &val);
 	CheckRes sys_channel(const unsigned char &val);
 	CheckRes encrypt_iv_key(std::string &val);
+	// TODO перегрузить черкер на вектор.
+	// Проверить что числа хорошо распределены.
 };

@@ -103,6 +103,12 @@ debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
 exception
 -
+Transiver.hpp
+/home/saurex83/Projects/Neocore/Service/src/Transiver.hpp
+database.hpp
+/home/saurex83/Projects/Neocore/Service/src/database.hpp
+valuechecker.hpp
+/home/saurex83/Projects/Neocore/Service/src/valuechecker.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/httpserver.cpp
 httpserver.hpp
@@ -221,6 +227,8 @@ exception
 -
 frame.hpp
 inc/frame.hpp
+vector
+-
 
 inc/agrthread.hpp
 boost/thread.hpp
@@ -291,6 +299,8 @@ mutex
 -
 agrthread.hpp
 inc/agrthread.hpp
+frame.hpp
+inc/frame.hpp
 
 inc/httpapi/API_default.hpp
 API_prototype.hpp

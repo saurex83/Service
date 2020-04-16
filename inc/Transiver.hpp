@@ -1,9 +1,9 @@
 #pragma once
-
 #include "SerialCom.hpp" 
 #include <cstdint> 
 #include <exception>
 #include "frame.hpp"
+#include <vector>
 
 class ParserError: public std::exception
 {

@@ -323,8 +323,15 @@ src/CMakeFiles/Service.dir/frame.cpp.o
  inc/frame.hpp
 src/CMakeFiles/Service.dir/gwthread.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/gwthread.cpp
+ /usr/include/postgresql/libpq-fe.h
+ /usr/include/postgresql/pg_config_ext.h
+ /usr/include/postgresql/postgres_ext.h
+ inc/SerialCom.hpp
+ inc/Transiver.hpp
  inc/agrthread.hpp
+ inc/database.hpp
  inc/debug.hpp
+ inc/frame.hpp
  inc/gwthread.hpp
  inc/spdlog/cfg/log_levels.h
  inc/spdlog/common-inl.h
@@ -366,6 +373,7 @@ src/CMakeFiles/Service.dir/gwthread.cpp.o
  inc/spdlog/spdlog.h
  inc/spdlog/tweakme.h
  inc/spdlog/version.h
+ inc/valuechecker.hpp
 src/CMakeFiles/Service.dir/httpserver.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/httpserver.cpp
  /usr/include/postgresql/libpq-fe.h
@@ -374,6 +382,7 @@ src/CMakeFiles/Service.dir/httpserver.cpp.o
  inc/agrthread.hpp
  inc/database.hpp
  inc/debug.hpp
+ inc/frame.hpp
  inc/gwthread.hpp
  inc/httpapi/API_default.hpp
  inc/httpapi/API_journal.hpp
@@ -476,6 +485,7 @@ src/CMakeFiles/Service.dir/main.cpp.o
  inc/agrthread.hpp
  inc/dbdecthread.hpp
  inc/debug.hpp
+ inc/frame.hpp
  inc/gwthread.hpp
  inc/httpserver.hpp
  inc/license.hpp
