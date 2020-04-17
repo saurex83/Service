@@ -1,0 +1,12 @@
+digraph "API_prototype"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node7 [label="API_prototype",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node8 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="HTTPRequestHandler",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node9 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" gwthread" ];
+  Node9 [label="GWThread",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGWThread.html"];
+  Node10 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" JSON_ERROR\nJSON_ANSWER" ];
+  Node10 [label="Object",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+}

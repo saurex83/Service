@@ -12,7 +12,7 @@ find_package(PostgreSQL REQUIRED)
 find_package(Boost COMPONENTS log system REQUIRED )
 include_directories(${Boost_INCLUDE_DIRS} ${Poco_INCLUDE_DIRS} PRIVATE ${PostgreSQL_INCLUDE_DIRS})
 
-set(SOURCES license.cpp valuechecker.cpp sysconfig.cpp main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp frame.cpp
+set(SOURCES meta.cpp license.cpp valuechecker.cpp sysconfig.cpp main.cpp ServiceConfig.cpp SerialCom.cpp Transiver.cpp frame.cpp
 	debug.cpp database.cpp dbdecthread.cpp agrthread.cpp gwthread.cpp httpserver.cpp)
 
 add_executable(Service ${SOURCES})

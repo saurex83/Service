@@ -1,0 +1,7 @@
+digraph "Иерархия классов. Графический вид."
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="spdlog::cfg::log_levels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classspdlog_1_1cfg_1_1log__levels.html"];
+}

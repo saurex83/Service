@@ -1,0 +1,27 @@
+digraph "wformat_args"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node2 [label="wformat_args",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="basic_format_args\<\l wformat_context \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbasic__format__args.html"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" args_" ];
+  Node4 [label="basic_format_arg\< Context \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbasic__format__arg.html"];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" values_" ];
+  Node5 [label="internal::value\< wformat\l_context \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classinternal_1_1value.html"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" uint128_value" ];
+  Node6 [label="internal::uint128_t",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structinternal_1_1uint128__t.html"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" custom" ];
+  Node7 [label="internal::custom_value\l\< wformat_context \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structinternal_1_1custom__value.html"];
+  Node8 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" named_arg" ];
+  Node8 [label="internal::named_arg\l_base\< char_type \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structinternal_1_1named__arg__base.html"];
+  Node9 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" name" ];
+  Node9 [label="basic_string_view\<\l char_type \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbasic__string__view.html"];
+  Node10 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" char_value" ];
+  Node10 [label="basic_format_context\l\< OutputIt, Char \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbasic__format__context.html"];
+  Node11 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" string" ];
+  Node11 [label="internal::string_value\l\< char_type \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structinternal_1_1string__value.html"];
+  Node12 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" int128_value" ];
+  Node12 [label="internal::int128_t",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structinternal_1_1int128__t.html"];
+}

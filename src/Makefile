@@ -515,6 +515,36 @@ main.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+meta.o: meta.cpp.o
+
+.PHONY : meta.o
+
+# target to build an object file
+meta.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/meta.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/meta.cpp.o
+.PHONY : meta.cpp.o
+
+meta.i: meta.cpp.i
+
+.PHONY : meta.i
+
+# target to preprocess a source file
+meta.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/meta.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/meta.cpp.i
+.PHONY : meta.cpp.i
+
+meta.s: meta.cpp.s
+
+.PHONY : meta.s
+
+# target to generate assembly for a file
+meta.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/meta.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/meta.cpp.s
+.PHONY : meta.cpp.s
+
 sysconfig.o: sysconfig.cpp.o
 
 .PHONY : sysconfig.o
@@ -622,6 +652,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... meta.o"
+	@echo "... meta.i"
+	@echo "... meta.s"
 	@echo "... sysconfig.o"
 	@echo "... sysconfig.i"
 	@echo "... sysconfig.s"

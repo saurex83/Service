@@ -1,0 +1,52 @@
+\hypertarget{classspdlog_1_1sinks_1_1syslog__sink}{}\section{Шаблон класса spdlog\+:\+:sinks\+:\+:syslog\+\_\+sink$<$ Mutex $>$}
+\label{classspdlog_1_1sinks_1_1syslog__sink}\index{spdlog\+::sinks\+::syslog\+\_\+sink$<$ Mutex $>$@{spdlog\+::sinks\+::syslog\+\_\+sink$<$ Mutex $>$}}
+
+
+{\ttfamily \#include $<$syslog\+\_\+sink.\+h$>$}
+
+
+
+Граф наследования\+:spdlog\+:\+:sinks\+:\+:syslog\+\_\+sink$<$ Mutex $>$\+:
+% FIG 0
+
+
+Граф связей класса spdlog\+:\+:sinks\+:\+:syslog\+\_\+sink$<$ Mutex $>$\+:
+% FIG 1
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1syslog__sink_a3437d71fc19b96320b3cc3a492acd1c4}\label{classspdlog_1_1sinks_1_1syslog__sink_a3437d71fc19b96320b3cc3a492acd1c4}} 
+{\bfseries syslog\+\_\+sink} (std\+::string ident, int syslog\+\_\+option, int syslog\+\_\+facility, bool enable\+\_\+formatting)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1syslog__sink_a505adae200592eab1e093ab258ad0291}\label{classspdlog_1_1sinks_1_1syslog__sink_a505adae200592eab1e093ab258ad0291}} 
+{\bfseries syslog\+\_\+sink} (const \hyperlink{classspdlog_1_1sinks_1_1syslog__sink}{syslog\+\_\+sink} \&)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1syslog__sink_a3e2454370f91c3fe2befb3f24e25ede7}\label{classspdlog_1_1sinks_1_1syslog__sink_a3e2454370f91c3fe2befb3f24e25ede7}} 
+\hyperlink{classspdlog_1_1sinks_1_1syslog__sink}{syslog\+\_\+sink} \& {\bfseries operator=} (const \hyperlink{classspdlog_1_1sinks_1_1syslog__sink}{syslog\+\_\+sink} \&)=delete
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1syslog__sink_a303bccf40cd03356510391c493078005}\label{classspdlog_1_1sinks_1_1syslog__sink_a303bccf40cd03356510391c493078005}} 
+void {\bfseries sink\+\_\+it\+\_\+} (const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1syslog__sink_a6afb5ba7ef5e5f2950e624ec650fb562}\label{classspdlog_1_1sinks_1_1syslog__sink_a6afb5ba7ef5e5f2950e624ec650fb562}} 
+void {\bfseries flush\+\_\+} () override
+\end{DoxyCompactItemize}
+\subsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1syslog__sink_a6bbfe4d4a48a416c08d906383eb1af67}\label{classspdlog_1_1sinks_1_1syslog__sink_a6bbfe4d4a48a416c08d906383eb1af67}} 
+bool {\bfseries enable\+\_\+formatting\+\_\+} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$typename Mutex$>$\newline
+class spdlog\+::sinks\+::syslog\+\_\+sink$<$ Mutex $>$}
+
+Sink that write to syslog using the {\ttfamily syscall()} library call. 
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/sinks/syslog\+\_\+sink.\+h\end{DoxyCompactItemize}

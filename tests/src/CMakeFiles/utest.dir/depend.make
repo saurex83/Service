@@ -53,6 +53,7 @@ tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: inc/SerialCom.hpp
 tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: inc/ServiceConfig.hpp
 tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: inc/Transiver.hpp
 tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: inc/frame.hpp
+tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: inc/meta.hpp
 tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-death-test.h
 tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-matchers.h
 tests/src/CMakeFiles/utest.dir/Transiver_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-message.h
@@ -102,6 +103,7 @@ tests/src/CMakeFiles/utest.dir/database_test.cpp.o: tests/gtest/src/gtest/google
 
 tests/src/CMakeFiles/utest.dir/frame_test.cpp.o: tests/src/frame_test.cpp
 tests/src/CMakeFiles/utest.dir/frame_test.cpp.o: inc/frame.hpp
+tests/src/CMakeFiles/utest.dir/frame_test.cpp.o: inc/meta.hpp
 tests/src/CMakeFiles/utest.dir/frame_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-death-test.h
 tests/src/CMakeFiles/utest.dir/frame_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-matchers.h
 tests/src/CMakeFiles/utest.dir/frame_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-message.h
@@ -167,4 +169,27 @@ tests/src/CMakeFiles/utest.dir/main.cpp.o: tests/gtest/src/gtest/googletest/incl
 tests/src/CMakeFiles/utest.dir/main.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-port.h
 tests/src/CMakeFiles/utest.dir/main.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-string.h
 tests/src/CMakeFiles/utest.dir/main.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-type-util.h
+
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/src/meta_test.cpp
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: inc/meta.hpp
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-death-test.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-matchers.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-message.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-param-test.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-printers.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-test-part.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest-typed-test.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest_pred_impl.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/gtest_prod.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/custom/gtest-port.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/custom/gtest-printers.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-death-test-internal.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-filepath.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-internal.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-param-util.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-port-arch.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-port.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-string.h
+tests/src/CMakeFiles/utest.dir/meta_test.cpp.o: tests/gtest/src/gtest/googletest/include/gtest/internal/gtest-type-util.h
 

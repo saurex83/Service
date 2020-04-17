@@ -1,0 +1,45 @@
+\hypertarget{classspdlog_1_1sinks_1_1ostream__sink}{}\section{Шаблон класса spdlog\+:\+:sinks\+:\+:ostream\+\_\+sink$<$ Mutex $>$}
+\label{classspdlog_1_1sinks_1_1ostream__sink}\index{spdlog\+::sinks\+::ostream\+\_\+sink$<$ Mutex $>$@{spdlog\+::sinks\+::ostream\+\_\+sink$<$ Mutex $>$}}
+
+
+Граф наследования\+:spdlog\+:\+:sinks\+:\+:ostream\+\_\+sink$<$ Mutex $>$\+:
+% FIG 0
+
+
+Граф связей класса spdlog\+:\+:sinks\+:\+:ostream\+\_\+sink$<$ Mutex $>$\+:
+% FIG 1
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1ostream__sink_aa038c6518dc69c08a1251e7469bc4fd8}\label{classspdlog_1_1sinks_1_1ostream__sink_aa038c6518dc69c08a1251e7469bc4fd8}} 
+{\bfseries ostream\+\_\+sink} (std\+::ostream \&os, bool force\+\_\+flush=false)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1ostream__sink_a761f1c26210fe42673af4734b38fe167}\label{classspdlog_1_1sinks_1_1ostream__sink_a761f1c26210fe42673af4734b38fe167}} 
+{\bfseries ostream\+\_\+sink} (const \hyperlink{classspdlog_1_1sinks_1_1ostream__sink}{ostream\+\_\+sink} \&)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1ostream__sink_a727591b2a4ca044848cacccfca4eb3af}\label{classspdlog_1_1sinks_1_1ostream__sink_a727591b2a4ca044848cacccfca4eb3af}} 
+\hyperlink{classspdlog_1_1sinks_1_1ostream__sink}{ostream\+\_\+sink} \& {\bfseries operator=} (const \hyperlink{classspdlog_1_1sinks_1_1ostream__sink}{ostream\+\_\+sink} \&)=delete
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1ostream__sink_a77f36cef81daf668ec55a07fa191d1e7}\label{classspdlog_1_1sinks_1_1ostream__sink_a77f36cef81daf668ec55a07fa191d1e7}} 
+void {\bfseries sink\+\_\+it\+\_\+} (const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1ostream__sink_a96458aa6b79019744ef4cb61979c39e0}\label{classspdlog_1_1sinks_1_1ostream__sink_a96458aa6b79019744ef4cb61979c39e0}} 
+void {\bfseries flush\+\_\+} () override
+\end{DoxyCompactItemize}
+\subsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1ostream__sink_a53db4ea84203737b100365438d1951b4}\label{classspdlog_1_1sinks_1_1ostream__sink_a53db4ea84203737b100365438d1951b4}} 
+std\+::ostream \& {\bfseries ostream\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1ostream__sink_a5778019dfdf7dc09ea798c490810eaed}\label{classspdlog_1_1sinks_1_1ostream__sink_a5778019dfdf7dc09ea798c490810eaed}} 
+bool {\bfseries force\+\_\+flush\+\_\+}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/sinks/ostream\+\_\+sink.\+h\end{DoxyCompactItemize}

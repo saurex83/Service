@@ -1,0 +1,25 @@
+\hypertarget{classAPI__default}{}\section{Класс A\+P\+I\+\_\+default}
+\label{classAPI__default}\index{A\+P\+I\+\_\+default@{A\+P\+I\+\_\+default}}
+
+
+Граф наследования\+:A\+P\+I\+\_\+default\+:
+% FIG 0
+
+
+Граф связей класса A\+P\+I\+\_\+default\+:
+% FIG 1
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAPI__default_a40a3e9ea464bb29c26466016f041dd37}\label{classAPI__default_a40a3e9ea464bb29c26466016f041dd37}} 
+{\bfseries A\+P\+I\+\_\+default} (vector$<$ string $>$ params, \hyperlink{classGWThread}{G\+W\+Thread} $\ast$gw)
+\item 
+\mbox{\Hypertarget{classAPI__default_aaed119255c3d5bbe60c81ff66ef69c35}\label{classAPI__default_aaed119255c3d5bbe60c81ff66ef69c35}} 
+void {\bfseries get\+Handler} (H\+T\+T\+P\+Server\+Request \&req, H\+T\+T\+P\+Server\+Response \&resp)
+\end{DoxyCompactItemize}
+\subsection*{Дополнительные унаследованные члены}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/httpapi/A\+P\+I\+\_\+default.\+hpp\end{DoxyCompactItemize}

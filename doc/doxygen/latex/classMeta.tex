@@ -1,0 +1,57 @@
+\hypertarget{classMeta}{}\section{Класс Meta}
+\label{classMeta}\index{Meta@{Meta}}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMeta_ac7e6750ca437719e2b190e1fbae1efe2}\label{classMeta_ac7e6750ca437719e2b190e1fbae1efe2}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>unsigned short int {\bfseries TIMESTAMP}\\
+\>signed char {\bfseries RSSI\_SIG}\\
+\>char {\bfseries LIQ}\\
+\>char {\bfseries TS}\\
+\>char {\bfseries CH}\\
+\>char {\bfseries PID}\\
+\>unsigned short int {\bfseries NDST}\\
+\>unsigned short int {\bfseries NSRC}\\
+\>char {\bfseries ETX}\\
+\>unsigned short int {\bfseries FDST}\\
+\>unsigned short int {\bfseries FSRC}\\
+\>char {\bfseries IPP}\\
+\>char {\bfseries tx\_attempts}\\
+\} {\bfseries \_\_attribute\_\_} ((packed)) \hyperlink{structmeta}{meta}\\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{classMeta_a6b4e2e99a1a92eb96ae2554322c50320}\label{classMeta_a6b4e2e99a1a92eb96ae2554322c50320}} 
+size\+\_\+t {\bfseries size} ()
+\item 
+\mbox{\Hypertarget{classMeta_a2e94ae8b3cc5a94220d52c1dc42abfb7}\label{classMeta_a2e94ae8b3cc5a94220d52c1dc42abfb7}} 
+void {\bfseries convert\+Raw} (vector$<$ unsigned char $>$ \&raw)
+\item 
+void \hyperlink{classMeta_a75ca6d184c5d5af3148f7657ba6671e4}{parse\+Raw} (vector$<$ unsigned char $>$ \&raw)
+\begin{DoxyCompactList}\small\item\em Заполняет внутреннию структуру на основе сырых данных. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Методы}
+\mbox{\Hypertarget{classMeta_a75ca6d184c5d5af3148f7657ba6671e4}\label{classMeta_a75ca6d184c5d5af3148f7657ba6671e4}} 
+\index{Meta@{Meta}!parse\+Raw@{parse\+Raw}}
+\index{parse\+Raw@{parse\+Raw}!Meta@{Meta}}
+\subsubsection{\texorpdfstring{parse\+Raw()}{parseRaw()}}
+{\footnotesize\ttfamily void Meta\+::parse\+Raw (\begin{DoxyParamCaption}\item[{vector$<$ unsigned char $>$ \&}]{raw }\end{DoxyParamCaption})}
+
+
+
+Заполняет внутреннию структуру на основе сырых данных. 
+
+Если размер данных не соответсвует размеру структуры, будет выброшенно исключечние runtime\+\_\+error 
+\begin{DoxyParams}{Аргументы}
+{\em raw} & указатель на входные данные \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+inc/meta.\+hpp\item 
+src/meta.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,61 @@
+\hypertarget{structinternal_1_1format__part}{}\section{Шаблон структуры internal\+:\+:format\+\_\+part$<$ Char $>$}
+\label{structinternal_1_1format__part}\index{internal\+::format\+\_\+part$<$ Char $>$@{internal\+::format\+\_\+part$<$ Char $>$}}
+
+
+Граф связей класса internal\+:\+:format\+\_\+part$<$ Char $>$\+:
+% FIG 0
+\subsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structinternal_1_1format__part_1_1replacement}{replacement}
+\item 
+union \hyperlink{unioninternal_1_1format__part_1_1value}{value}
+\end{DoxyCompactItemize}
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_ae4953e23759e3e629891dfcee8c74082}\label{structinternal_1_1format__part_ae4953e23759e3e629891dfcee8c74082}} 
+enum {\bfseries kind} \{ {\bfseries arg\+\_\+index}, 
+{\bfseries arg\+\_\+name}, 
+{\bfseries text}, 
+{\bfseries replacement}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_ac13bbba23e626bbf397137d8f0f08a6a}\label{structinternal_1_1format__part_ac13bbba23e626bbf397137d8f0f08a6a}} 
+F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR {\bfseries format\+\_\+part} (kind k=kind\+::arg\+\_\+index, \hyperlink{unioninternal_1_1format__part_1_1value}{value} v=\{\})
+\end{DoxyCompactItemize}
+\subsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_a8250e8a0524562b5d8e3e224f8dd677d}\label{structinternal_1_1format__part_a8250e8a0524562b5d8e3e224f8dd677d}} 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR \hyperlink{structinternal_1_1format__part}{format\+\_\+part} {\bfseries make\+\_\+arg\+\_\+index} (int index)
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_af28047fa4c076ebceade6ba3a2047571}\label{structinternal_1_1format__part_af28047fa4c076ebceade6ba3a2047571}} 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR \hyperlink{structinternal_1_1format__part}{format\+\_\+part} {\bfseries make\+\_\+arg\+\_\+name} (\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}$<$ Char $>$ name)
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_a0347f3b7d268562145de9b9fb2b7e7d0}\label{structinternal_1_1format__part_a0347f3b7d268562145de9b9fb2b7e7d0}} 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR \hyperlink{structinternal_1_1format__part}{format\+\_\+part} {\bfseries make\+\_\+text} (\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}$<$ Char $>$ text)
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_af9b59310be72b834c370b378c220b878}\label{structinternal_1_1format__part_af9b59310be72b834c370b378c220b878}} 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR \hyperlink{structinternal_1_1format__part}{format\+\_\+part} {\bfseries make\+\_\+replacement} (\hyperlink{structinternal_1_1format__part_1_1replacement}{replacement} repl)
+\end{DoxyCompactItemize}
+\subsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_aec1b3df9ddd60e227fb4760638073fb1}\label{structinternal_1_1format__part_aec1b3df9ddd60e227fb4760638073fb1}} 
+kind {\bfseries part\+\_\+kind}
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_a9dd1cb2745c30c2e9654945afd8ea315}\label{structinternal_1_1format__part_a9dd1cb2745c30c2e9654945afd8ea315}} 
+union \hyperlink{unioninternal_1_1format__part_1_1value}{internal\+::format\+\_\+part\+::value} {\bfseries val}
+\item 
+\mbox{\Hypertarget{structinternal_1_1format__part_ab54e438237c49ff2cd0c826dcad3fc18}\label{structinternal_1_1format__part_ab54e438237c49ff2cd0c826dcad3fc18}} 
+const Char $\ast$ {\bfseries arg\+\_\+id\+\_\+end} = nullptr
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/compile.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\hypertarget{classbasic__printf__context}{}\section{Шаблон класса basic\+\_\+printf\+\_\+context$<$ Output\+It, Char $>$}
+\label{classbasic__printf__context}\index{basic\+\_\+printf\+\_\+context$<$ Output\+It, Char $>$@{basic\+\_\+printf\+\_\+context$<$ Output\+It, Char $>$}}
+
+
+{\ttfamily \#include $<$printf.\+h$>$}
+
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classbasic__printf__context_a5ceea5767a393451e5a82b2b75a6f63e}{char\+\_\+type} = Char
+\item 
+\mbox{\Hypertarget{classbasic__printf__context_a3c272a010394b94844440423d86b176f}\label{classbasic__printf__context_a3c272a010394b94844440423d86b176f}} 
+using {\bfseries format\+\_\+arg} = \hyperlink{classbasic__format__arg}{basic\+\_\+format\+\_\+arg}$<$ \hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context} $>$
+\item 
+\mbox{\Hypertarget{classbasic__printf__context_a3c239f1d7f73104a75165b2c415d7009}\label{classbasic__printf__context_a3c239f1d7f73104a75165b2c415d7009}} 
+{\footnotesize template$<$typename T $>$ }\\using {\bfseries formatter\+\_\+type} = \hyperlink{structprintf__formatter}{printf\+\_\+formatter}$<$ T $>$
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbasic__printf__context_a70fcf45d0076835d464b8f3fb0cd4e1c}{basic\+\_\+printf\+\_\+context} (Output\+It out, \hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}$<$ \hyperlink{classbasic__printf__context_a5ceea5767a393451e5a82b2b75a6f63e}{char\+\_\+type} $>$ format\+\_\+str, \hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}$<$ \hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context} $>$ args)
+\item 
+\mbox{\Hypertarget{classbasic__printf__context_a32ce7421f1cc208df2ddc815ee3701f4}\label{classbasic__printf__context_a32ce7421f1cc208df2ddc815ee3701f4}} 
+Output\+It {\bfseries out} ()
+\item 
+\mbox{\Hypertarget{classbasic__printf__context_af9b59dfcc9a9022bbd2e22eacbed7239}\label{classbasic__printf__context_af9b59dfcc9a9022bbd2e22eacbed7239}} 
+void {\bfseries advance\+\_\+to} (Output\+It it)
+\item 
+\mbox{\Hypertarget{classbasic__printf__context_a9d938bba34fe8dda4296a4942f0e5da4}\label{classbasic__printf__context_a9d938bba34fe8dda4296a4942f0e5da4}} 
+\hyperlink{classbasic__format__arg}{format\+\_\+arg} {\bfseries arg} (int id) const
+\item 
+\mbox{\Hypertarget{classbasic__printf__context_a24228a25378df32d300f58b603897e17}\label{classbasic__printf__context_a24228a25378df32d300f58b603897e17}} 
+\hyperlink{classbasic__format__parse__context}{basic\+\_\+format\+\_\+parse\+\_\+context}$<$ Char $>$ \& {\bfseries parse\+\_\+context} ()
+\item 
+\mbox{\Hypertarget{classbasic__printf__context_a738f65c97827f7d57534c87f5b71903d}\label{classbasic__printf__context_a738f65c97827f7d57534c87f5b71903d}} 
+F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+PR void {\bfseries on\+\_\+error} (const char $\ast$message)
+\item 
+{\footnotesize template$<$typename Arg\+Formatter  = printf\+\_\+arg\+\_\+formatter$<$buffer\+\_\+range$<$\+Char$>$$>$$>$ }\\Output\+It \hyperlink{classbasic__printf__context_a931a0b93e495c59094d6d401d40b2921}{format} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$typename Output\+It, typename Char$>$\newline
+class basic\+\_\+printf\+\_\+context$<$ Output\+It, Char $>$}
+
+This template formats data and writes the output to a writer. 
+
+\subsection{Определения типов}
+\mbox{\Hypertarget{classbasic__printf__context_a5ceea5767a393451e5a82b2b75a6f63e}\label{classbasic__printf__context_a5ceea5767a393451e5a82b2b75a6f63e}} 
+\index{basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}!char\+\_\+type@{char\+\_\+type}}
+\index{char\+\_\+type@{char\+\_\+type}!basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}}
+\subsubsection{\texorpdfstring{char\+\_\+type}{char\_type}}
+{\footnotesize\ttfamily template$<$typename Output\+It, typename Char$>$ \\
+using \hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}$<$ Output\+It, Char $>$\+::\hyperlink{classbasic__printf__context_a5ceea5767a393451e5a82b2b75a6f63e}{char\+\_\+type} =  Char}
+
+The character type for the output. 
+
+\subsection{Конструктор(ы)}
+\mbox{\Hypertarget{classbasic__printf__context_a70fcf45d0076835d464b8f3fb0cd4e1c}\label{classbasic__printf__context_a70fcf45d0076835d464b8f3fb0cd4e1c}} 
+\index{basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}!basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}}
+\index{basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}!basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}}
+\subsubsection{\texorpdfstring{basic\+\_\+printf\+\_\+context()}{basic\_printf\_context()}}
+{\footnotesize\ttfamily template$<$typename Output\+It, typename Char$>$ \\
+\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}$<$ Output\+It, Char $>$\+::\hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context} (\begin{DoxyParamCaption}\item[{Output\+It}]{out,  }\item[{\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}$<$ \hyperlink{classbasic__printf__context_a5ceea5767a393451e5a82b2b75a6f63e}{char\+\_\+type} $>$}]{format\+\_\+str,  }\item[{\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}$<$ \hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}$<$ Output\+It, Char $>$ $>$}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs a {\ttfamily printf\+\_\+context} object. References to the arguments and the writer are stored in the context object so make sure they have appropriate lifetimes.  
+
+\subsection{Методы}
+\mbox{\Hypertarget{classbasic__printf__context_a931a0b93e495c59094d6d401d40b2921}\label{classbasic__printf__context_a931a0b93e495c59094d6d401d40b2921}} 
+\index{basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}!format@{format}}
+\index{format@{format}!basic\+\_\+printf\+\_\+context@{basic\+\_\+printf\+\_\+context}}
+\subsubsection{\texorpdfstring{format()}{format()}}
+{\footnotesize\ttfamily template$<$typename Output\+It , typename Char $>$ \\
+template$<$typename Arg\+Formatter $>$ \\
+Output\+It \hyperlink{classbasic__printf__context}{basic\+\_\+printf\+\_\+context}$<$ Output\+It, Char $>$\+::format (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Formats stored arguments and writes the output to the range. 
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/printf.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base}{}\section{Шаблон класса spdlog\+:\+:sinks\+:\+:stdout\+\_\+sink\+\_\+base$<$ Console\+Mutex $>$}
+\label{classspdlog_1_1sinks_1_1stdout__sink__base}\index{spdlog\+::sinks\+::stdout\+\_\+sink\+\_\+base$<$ Console\+Mutex $>$@{spdlog\+::sinks\+::stdout\+\_\+sink\+\_\+base$<$ Console\+Mutex $>$}}
+
+
+Граф наследования\+:spdlog\+:\+:sinks\+:\+:stdout\+\_\+sink\+\_\+base$<$ Console\+Mutex $>$\+:
+% FIG 0
+
+
+Граф связей класса spdlog\+:\+:sinks\+:\+:stdout\+\_\+sink\+\_\+base$<$ Console\+Mutex $>$\+:
+% FIG 1
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_aef02ee2f4bc9886ef7e42ebc0900c4df}\label{classspdlog_1_1sinks_1_1stdout__sink__base_aef02ee2f4bc9886ef7e42ebc0900c4df}} 
+using {\bfseries mutex\+\_\+t} = typename Console\+Mutex\+::mutex\+\_\+t
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a7044a6f292088dbc525961deec8a3823}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a7044a6f292088dbc525961deec8a3823}} 
+{\bfseries stdout\+\_\+sink\+\_\+base} (F\+I\+LE $\ast$file)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a4a8e344fe8ace2a6dc92e9ec4babc6d6}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a4a8e344fe8ace2a6dc92e9ec4babc6d6}} 
+{\bfseries stdout\+\_\+sink\+\_\+base} (const \hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base}{stdout\+\_\+sink\+\_\+base} \&other)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a67d1dabb63349fe23a004e99f17b54f1}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a67d1dabb63349fe23a004e99f17b54f1}} 
+\hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base}{stdout\+\_\+sink\+\_\+base} \& {\bfseries operator=} (const \hyperlink{classspdlog_1_1sinks_1_1stdout__sink__base}{stdout\+\_\+sink\+\_\+base} \&other)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a42b184a292ea3ccaceaacbc2da70ec53}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a42b184a292ea3ccaceaacbc2da70ec53}} 
+void {\bfseries log} (const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a362e6d15b80bfc0becd264d23197d7db}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a362e6d15b80bfc0becd264d23197d7db}} 
+void {\bfseries flush} () override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a4b9a3b76512cc571be1f4a02b9a0463d}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a4b9a3b76512cc571be1f4a02b9a0463d}} 
+void {\bfseries set\+\_\+pattern} (const std\+::string \&pattern) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_aca9265b7d7c22c6a3cbc81e7363c6a0e}\label{classspdlog_1_1sinks_1_1stdout__sink__base_aca9265b7d7c22c6a3cbc81e7363c6a0e}} 
+void {\bfseries set\+\_\+formatter} (std\+::unique\+\_\+ptr$<$ \hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter} $>$ sink\+\_\+formatter) override
+\end{DoxyCompactItemize}
+\subsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a5bbce9284f19a7a4089912e53557756a}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a5bbce9284f19a7a4089912e53557756a}} 
+mutex\+\_\+t \& {\bfseries mutex\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_a0e8721f25867741bcf4aa7ff4bfa92a7}\label{classspdlog_1_1sinks_1_1stdout__sink__base_a0e8721f25867741bcf4aa7ff4bfa92a7}} 
+F\+I\+LE $\ast$ {\bfseries file\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1stdout__sink__base_af3b413197a78722b0e46b29c1f2e6d87}\label{classspdlog_1_1sinks_1_1stdout__sink__base_af3b413197a78722b0e46b29c1f2e6d87}} 
+std\+::unique\+\_\+ptr$<$ \hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter} $>$ {\bfseries formatter\+\_\+}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/sinks/stdout\+\_\+sinks.\+h\item 
+inc/spdlog/sinks/stdout\+\_\+sinks-\/inl.\+h\end{DoxyCompactItemize}

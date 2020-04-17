@@ -1,0 +1,60 @@
+\hypertarget{classspdlog_1_1sinks_1_1systemd__sink}{}\section{Шаблон класса spdlog\+:\+:sinks\+:\+:systemd\+\_\+sink$<$ Mutex $>$}
+\label{classspdlog_1_1sinks_1_1systemd__sink}\index{spdlog\+::sinks\+::systemd\+\_\+sink$<$ Mutex $>$@{spdlog\+::sinks\+::systemd\+\_\+sink$<$ Mutex $>$}}
+
+
+{\ttfamily \#include $<$systemd\+\_\+sink.\+h$>$}
+
+
+
+Граф наследования\+:spdlog\+:\+:sinks\+:\+:systemd\+\_\+sink$<$ Mutex $>$\+:
+% FIG 0
+
+
+Граф связей класса spdlog\+:\+:sinks\+:\+:systemd\+\_\+sink$<$ Mutex $>$\+:
+% FIG 1
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1systemd__sink_ad7b63a446a6888241ab14c81e177288f}\label{classspdlog_1_1sinks_1_1systemd__sink_ad7b63a446a6888241ab14c81e177288f}} 
+{\bfseries systemd\+\_\+sink} (const \hyperlink{classspdlog_1_1sinks_1_1systemd__sink}{systemd\+\_\+sink} \&)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1systemd__sink_a1c2db92cf34a45775d26dfe0ad65c4ec}\label{classspdlog_1_1sinks_1_1systemd__sink_a1c2db92cf34a45775d26dfe0ad65c4ec}} 
+\hyperlink{classspdlog_1_1sinks_1_1systemd__sink}{systemd\+\_\+sink} \& {\bfseries operator=} (const \hyperlink{classspdlog_1_1sinks_1_1systemd__sink}{systemd\+\_\+sink} \&)=delete
+\end{DoxyCompactItemize}
+\subsection*{Защищенные типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1systemd__sink_ad0652008be66ac583f91e738c3d5a1f3}\label{classspdlog_1_1sinks_1_1systemd__sink_ad0652008be66ac583f91e738c3d5a1f3}} 
+using {\bfseries levels\+\_\+array} = std\+::array$<$ int, 7 $>$
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1systemd__sink_a90fe52782d60b582ca21cad93b7df843}\label{classspdlog_1_1sinks_1_1systemd__sink_a90fe52782d60b582ca21cad93b7df843}} 
+void {\bfseries sink\+\_\+it\+\_\+} (const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1systemd__sink_a29e942c5d7b3be09d515f6806cff9063}\label{classspdlog_1_1sinks_1_1systemd__sink_a29e942c5d7b3be09d515f6806cff9063}} 
+int {\bfseries syslog\+\_\+level} (level\+::level\+\_\+enum l)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1systemd__sink_a017478cdcc1e751a502ebfe0ba55e6c6}\label{classspdlog_1_1sinks_1_1systemd__sink_a017478cdcc1e751a502ebfe0ba55e6c6}} 
+void {\bfseries flush\+\_\+} () override
+\end{DoxyCompactItemize}
+\subsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1systemd__sink_a044b037c7f79f073741affdabef4c2d8}\label{classspdlog_1_1sinks_1_1systemd__sink_a044b037c7f79f073741affdabef4c2d8}} 
+levels\+\_\+array {\bfseries syslog\+\_\+levels\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$typename Mutex$>$\newline
+class spdlog\+::sinks\+::systemd\+\_\+sink$<$ Mutex $>$}
+
+Sink that write to systemd journal using the {\ttfamily sd\+\_\+journal\+\_\+send()} library call.
+
+Locking is not needed, as {\ttfamily sd\+\_\+journal\+\_\+send()} itself is thread-\/safe. 
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/sinks/systemd\+\_\+sink.\+h\end{DoxyCompactItemize}

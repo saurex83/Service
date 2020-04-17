@@ -1,79 +1,87 @@
 #include "gtest/gtest.h"
 #include "frame.hpp"
+#include <iostream>
 
 TEST(Frame, frame_create){
 	Frame frame;
-	ASSERT_EQ(frame.len , 0);
-	ASSERT_EQ(frame.meta.TIMESTAMP , 0);
-	ASSERT_EQ(frame.meta.RSSI_SIG, 0);
-	ASSERT_EQ(frame.meta.LIQ, 0);
-	ASSERT_EQ(frame.meta.TS, 0);
-	ASSERT_EQ(frame.meta.CH, 0);
-	ASSERT_EQ(frame.meta.PID, 0);
-	ASSERT_EQ(frame.meta.NDST, 0);
-	ASSERT_EQ(frame.meta.NSRC, 0);
-	ASSERT_EQ(frame.meta.FSRC, 0);
-	ASSERT_EQ(frame.meta.IPP, 0);
-	ASSERT_EQ(frame.meta.tx_attempts, 0);	
+	ASSERT_EQ(frame.meta.meta.TIMESTAMP , 0);
+	ASSERT_EQ(frame.meta.meta.RSSI_SIG, 0);
+	ASSERT_EQ(frame.meta.meta.LIQ, 0);
+	ASSERT_EQ(frame.meta.meta.TS, 0);
+	ASSERT_EQ(frame.meta.meta.CH, 0);
+	ASSERT_EQ(frame.meta.meta.PID, 0);
+	ASSERT_EQ(frame.meta.meta.NDST, 0);
+	ASSERT_EQ(frame.meta.meta.NSRC, 0);
+	ASSERT_EQ(frame.meta.meta.FSRC, 0);
+	ASSERT_EQ(frame.meta.meta.IPP, 0);
+	ASSERT_EQ(frame.meta.meta.tx_attempts, 0);	
 }
 
-TEST(Frame, addHeader){
+TEST(Frame, header_operations){
 	Frame frame;
-	unsigned char arr[10] = {1,2,3,4,5,6,7,8,9,10};
+	vector<unsigned char> tst_header = {1,2,3};
 
-	frame.addHeader(arr, sizeof(arr));
+	frame.addHeader(tst_header);
+	ASSERT_EQ(frame.payload == tst_header, true);	
+	ASSERT_EQ(frame.size(), 3);
 
-	ASSERT_EQ(frame.len, sizeof(arr));
+	vector<unsigned char> tst_add_vec = {5,6,7};
+	vector<unsigned char> result = {5,6,7,1,2,3};
+	frame.addHeader(tst_add_vec);
 
-	for (int i = 0; i < sizeof(arr); i++)
-		ASSERT_EQ(frame.payload[i], arr[i]);
+//	for (vector<unsigned char>::iterator it = frame.payload.begin();
+//			it != frame.payload.end(); it++)
+//		cout << unsigned(*it) << " ";
+//	cout << endl;
+
+	ASSERT_EQ(frame.size(), 6);
+	ASSERT_EQ(frame.payload == result, true);
+
+	frame.delHeader(2);
+	result = {7,1,2,3};	
+	ASSERT_EQ(frame.size(), 4);
+	ASSERT_EQ(frame.payload == result, true);
 	
-	unsigned char arr2[5] = {100,101,102,103,104};
+	frame.delHeader(3);
+	result = {3};	
+	ASSERT_EQ(frame.size(), 1);
+	ASSERT_EQ(frame.payload == result, true);
 	
-//	std::copy(std::begin(frame.payload), 
-//			std::end(frame.payload),
-//		   	std::ostream_iterator<int>(std::cout, " "));	
-	
-	frame.addHeader(arr2, sizeof(arr2));
-
-//	std::copy(std::begin(frame.payload), 
-//			std::end(frame.payload),
-//		   	std::ostream_iterator<int>(std::cout, " "));	
-
-	ASSERT_EQ(frame.len, sizeof(arr)+sizeof(arr2));
-	
-	for (int i = 0; i < sizeof(arr2); i++)
-		ASSERT_EQ(frame.payload[i], arr2[i]);
-
-	for (int i = 0; i < sizeof(arr); i++)
-		ASSERT_EQ(frame.payload[i+sizeof(arr2)], arr[i]);
+	frame.delHeader(1);
+	ASSERT_EQ(frame.size(), 0);
 }
 
 
-TEST(Frame, delHeader){
+TEST(Frame, parser){
 	Frame frame;
-	unsigned char arr[10] = {1,2,3,4,5,6,7,8,9,10};
+	vector<unsigned char> raw ={
+		0,0x1a, //TIMESTAMP
+		9,		//RSSI_SIG
+		10,     //LIQ
+		11,     //TS
+		12,     //CH
+		13,     //PID
+		0,0x11, //NDST
+		0,0x12, //NSRC
+		14,     //ETX
+		0,0x13, //FDST
+		0,0x14, //FSRC
+		15,     //IPP
+		16,     //tx_attempts
+		5,		//LEN
+		1,2,3,4,5 //PAYALOAD
+	};
+//	cout << "META SIZE " << frame.meta.size() << endl;
+	frame.parseRaw(raw);
 
-	frame.addHeader(arr, sizeof(arr));
+	ASSERT_EQ(frame.size(), 5);
+	vector<unsigned char> result = {1,2,3,4,5};
+	ASSERT_EQ(frame.payload == result, true);
 
-	ASSERT_EQ(frame.len, sizeof(arr));
-
-	frame.delHeader(5);
-	
-	ASSERT_EQ(frame.len, sizeof(arr) - 5);
-
-	for (int i = 0; i < sizeof(arr) - 5; i++)
-		ASSERT_EQ(frame.payload[i], arr[i + 5]);
-
-//	std::copy(std::begin(frame.payload), 
-//			std::end(frame.payload),
-//		   	std::ostream_iterator<int>(std::cout, " "));	
-	
-	frame.delHeader(5);
-	ASSERT_EQ(frame.len, 0);
-
-	for (int i = 0; i < sizeof(arr); i++)
-		ASSERT_EQ(frame.payload[i], 0);
+	vector<unsigned char> conv_res;
+	frame.convertRaw(conv_res);
+	ASSERT_EQ(conv_res == raw, true);
+	ASSERT_EQ(conv_res.size() == raw.size(), true);
 }
 
 

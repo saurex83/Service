@@ -1,0 +1,7 @@
+digraph "Иерархия классов. Графический вид."
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="fmt::formatter\< spdlog\l::details::dump_info\< T \> \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structfmt_1_1formatter_3_01spdlog_1_1details_1_1dump__info_3_01T_01_4_01_4.html"];
+}

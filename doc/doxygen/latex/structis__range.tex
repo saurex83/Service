@@ -1,0 +1,30 @@
+\hypertarget{structis__range}{}\section{Шаблон структуры is\+\_\+range$<$ T, Char $>$}
+\label{structis__range}\index{is\+\_\+range$<$ T, Char $>$@{is\+\_\+range$<$ T, Char $>$}}
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const bool {\bfseries value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{structis__range_a7fb8ce1b27032b372bb59ad66e8ae11a}\label{structis__range_a7fb8ce1b27032b372bb59ad66e8ae11a}} 
+\index{is\+\_\+range@{is\+\_\+range}!value@{value}}
+\index{value@{value}!is\+\_\+range@{is\+\_\+range}}
+\subsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T , typename Char $>$ \\
+F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const bool \hyperlink{structis__range}{is\+\_\+range}$<$ T, Char $>$\+::value\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+=
+      \hyperlink{structinternal_1_1is__range__}{internal::is\_range\_<T>::value} &&
+      !\hyperlink{classinternal_1_1is__like__std__string}{internal::is\_like\_std\_string<T>::value} &&
+      !std::is\_convertible<T, std::basic\_string<Char>>::value &&
+      !std::is\_constructible<internal::std\_string\_view<Char>, T>::value
+\end{DoxyCode}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/ranges.\+h\end{DoxyCompactItemize}

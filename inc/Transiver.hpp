@@ -47,7 +47,7 @@ namespace Transiver{
 	void close_slot(unsigned char ts);
 	int rx_frames();
 	int tx_frames();
-	void push_tx(Frame *frame);
-	unsigned int pop_rx(unsigned char *frame);
+	void push_tx(Frame& frame);
+	void pop_rx(Frame& frame);
 }
 

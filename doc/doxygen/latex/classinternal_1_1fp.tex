@@ -1,0 +1,62 @@
+\hypertarget{classinternal_1_1fp}{}\section{Класс internal\+:\+:fp}
+\label{classinternal_1_1fp}\index{internal\+::fp@{internal\+::fp}}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_a6697db0ca32b6662e0a87334e3400ac1}\label{classinternal_1_1fp_a6697db0ca32b6662e0a87334e3400ac1}} 
+{\bfseries fp} (uint64\+\_\+t f\+\_\+val, int e\+\_\+val)
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_a8829f486ec892cdd08e1f856facb5f9b}\label{classinternal_1_1fp_a8829f486ec892cdd08e1f856facb5f9b}} 
+{\footnotesize template$<$typename Double $>$ }\\{\bfseries fp} (Double d)
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_ab5e9137f1e2bc883afd2acd247c31cc0}\label{classinternal_1_1fp_ab5e9137f1e2bc883afd2acd247c31cc0}} 
+{\footnotesize template$<$typename Double , F\+M\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+F(sizeof(\+Double)==sizeof(uint64\+\_\+t)) $>$ }\\bool {\bfseries assign} (Double d)
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_aca64f41e030c9806c47a8e9c1b5dc2ac}\label{classinternal_1_1fp_aca64f41e030c9806c47a8e9c1b5dc2ac}} 
+{\footnotesize template$<$typename Double , F\+M\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+F(sizeof(\+Double) !=sizeof(uint64\+\_\+t)) $>$ }\\bool {\bfseries assign} (Double)
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_a0547a3b836871f9b50469d37e1fddf6f}\label{classinternal_1_1fp_a0547a3b836871f9b50469d37e1fddf6f}} 
+{\footnotesize template$<$typename Double $>$ }\\\hyperlink{structinternal_1_1boundaries}{boundaries} {\bfseries assign\+\_\+with\+\_\+boundaries} (Double d)
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_a6985974d83675666a09f106ae7ec6f05}\label{classinternal_1_1fp_a6985974d83675666a09f106ae7ec6f05}} 
+{\footnotesize template$<$typename Double $>$ }\\\hyperlink{structinternal_1_1boundaries}{boundaries} {\bfseries assign\+\_\+float\+\_\+with\+\_\+boundaries} (Double d)
+\end{DoxyCompactItemize}
+\subsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_a7e1a8d0bebdf6d95582c035034484ab4}\label{classinternal_1_1fp_a7e1a8d0bebdf6d95582c035034484ab4}} 
+significand\+\_\+type {\bfseries f}
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_aa68580ec0db366075ec0366dc7a74a34}\label{classinternal_1_1fp_aa68580ec0db366075ec0366dc7a74a34}} 
+int {\bfseries e}
+\end{DoxyCompactItemize}
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const int {\bfseries significand\+\_\+size}
+\end{DoxyCompactItemize}
+\subsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classinternal_1_1fp_a61a05e3b6143d1b04351f1204a2555d0}\label{classinternal_1_1fp_a61a05e3b6143d1b04351f1204a2555d0}} 
+{\footnotesize template$<$int S\+H\+I\+FT$>$ }\\\hyperlink{classinternal_1_1fp}{fp} {\bfseries normalize} (\hyperlink{classinternal_1_1fp}{fp} \hyperlink{classinternal_1_1value}{value})
+\end{DoxyCompactItemize}
+
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{classinternal_1_1fp_a226e27a91febae6a2d1d1501003be2f9}\label{classinternal_1_1fp_a226e27a91febae6a2d1d1501003be2f9}} 
+\index{internal\+::fp@{internal\+::fp}!significand\+\_\+size@{significand\+\_\+size}}
+\index{significand\+\_\+size@{significand\+\_\+size}!internal\+::fp@{internal\+::fp}}
+\subsubsection{\texorpdfstring{significand\+\_\+size}{significand\_size}}
+{\footnotesize\ttfamily F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const int internal\+::fp\+::significand\+\_\+size\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+=
+      bits<significand\_type>::value
+\end{DoxyCode}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/format-\/inl.\+h\end{DoxyCompactItemize}

@@ -91,6 +91,10 @@ frame.hpp
 /home/saurex83/Projects/Neocore/Service/src/frame.hpp
 cstring
 -
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
+stdexcept
+-
 
 /home/saurex83/Projects/Neocore/Service/src/gwthread.cpp
 gwthread.hpp
@@ -173,6 +177,14 @@ boost/chrono.hpp
 -
 license.hpp
 /home/saurex83/Projects/Neocore/Service/src/license.hpp
+
+/home/saurex83/Projects/Neocore/Service/src/meta.cpp
+meta.hpp
+/home/saurex83/Projects/Neocore/Service/src/meta.hpp
+stdexcept
+-
+cstring
+-
 
 /home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp
 debug.hpp
@@ -287,6 +299,10 @@ cstdint
 -
 string
 -
+vector
+-
+meta.hpp
+inc/meta.hpp
 
 inc/gwthread.hpp
 boost/thread.hpp
@@ -392,6 +408,16 @@ Poco/Dynamic/Struct.h
 Poco/Exception.h
 -
 Poco/AtomicCounter.h
+-
+
+inc/meta.hpp
+exception
+-
+cstdint
+-
+string
+-
+vector
 -
 
 inc/spdlog/cfg/log_levels.h

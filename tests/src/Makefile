@@ -314,6 +314,33 @@ main.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+meta_test.o: meta_test.cpp.o
+
+.PHONY : meta_test.o
+
+# target to build an object file
+meta_test.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/meta_test.cpp.o
+.PHONY : meta_test.cpp.o
+
+meta_test.i: meta_test.cpp.i
+
+.PHONY : meta_test.i
+
+# target to preprocess a source file
+meta_test.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/meta_test.cpp.i
+.PHONY : meta_test.cpp.i
+
+meta_test.s: meta_test.cpp.s
+
+.PHONY : meta_test.s
+
+# target to generate assembly for a file
+meta_test.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f tests/src/CMakeFiles/utest.dir/build.make tests/src/CMakeFiles/utest.dir/meta_test.cpp.s
+.PHONY : meta_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -344,6 +371,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... meta_test.o"
+	@echo "... meta_test.i"
+	@echo "... meta_test.s"
 .PHONY : help
 
 

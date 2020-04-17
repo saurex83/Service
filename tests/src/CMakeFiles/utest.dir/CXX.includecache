@@ -47,6 +47,8 @@ gtest/gtest.h
 /home/saurex83/Projects/Neocore/Service/tests/src/gtest/gtest.h
 frame.hpp
 /home/saurex83/Projects/Neocore/Service/tests/src/frame.hpp
+iostream
+-
 
 /home/saurex83/Projects/Neocore/Service/tests/src/license_test.cpp
 gtest/gtest.h
@@ -59,6 +61,12 @@ string
 /home/saurex83/Projects/Neocore/Service/tests/src/main.cpp
 gtest/gtest.h
 /home/saurex83/Projects/Neocore/Service/tests/src/gtest/gtest.h
+
+/home/saurex83/Projects/Neocore/Service/tests/src/meta_test.cpp
+gtest/gtest.h
+/home/saurex83/Projects/Neocore/Service/tests/src/gtest/gtest.h
+meta.hpp
+/home/saurex83/Projects/Neocore/Service/tests/src/meta.hpp
 
 /usr/include/postgresql/libpq-fe.h
 stdio.h
@@ -109,6 +117,10 @@ cstdint
 -
 string
 -
+vector
+-
+meta.hpp
+inc/meta.hpp
 
 inc/license.hpp
 Poco/SingletonHolder.h
@@ -124,6 +136,16 @@ Poco/Dynamic/Struct.h
 Poco/Exception.h
 -
 Poco/AtomicCounter.h
+-
+
+inc/meta.hpp
+exception
+-
+cstdint
+-
+string
+-
+vector
 -
 
 tests/gtest/src/gtest/googletest/include/gtest/gtest-death-test.h

@@ -52,6 +52,11 @@ bool License::loadStrDb(std::string& lic_str){
 	return true;	
 };
 
+/**
+ * @brief Разбор файла лицензии в обьект json 
+ *
+ * @param lic_str строка json
+ */
 void License::parseLic(std::string& lic_str){
 	Poco::JSON::Parser parser;
 	try{	

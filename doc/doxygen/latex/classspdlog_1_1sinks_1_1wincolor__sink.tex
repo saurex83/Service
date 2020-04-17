@@ -1,0 +1,106 @@
+\hypertarget{classspdlog_1_1sinks_1_1wincolor__sink}{}\section{Шаблон класса spdlog\+:\+:sinks\+:\+:wincolor\+\_\+sink$<$ Console\+Mutex $>$}
+\label{classspdlog_1_1sinks_1_1wincolor__sink}\index{spdlog\+::sinks\+::wincolor\+\_\+sink$<$ Console\+Mutex $>$@{spdlog\+::sinks\+::wincolor\+\_\+sink$<$ Console\+Mutex $>$}}
+
+
+Граф наследования\+:spdlog\+:\+:sinks\+:\+:wincolor\+\_\+sink$<$ Console\+Mutex $>$\+:
+% FIG 0
+
+
+Граф связей класса spdlog\+:\+:sinks\+:\+:wincolor\+\_\+sink$<$ Console\+Mutex $>$\+:
+% FIG 1
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a25febae337cfe9a8cce59b920a256069}\label{classspdlog_1_1sinks_1_1wincolor__sink_a25febae337cfe9a8cce59b920a256069}} 
+{\bfseries wincolor\+\_\+sink} (H\+A\+N\+D\+LE out\+\_\+handle, color\+\_\+mode mode)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a82cb0661d5cc108b0b866b4561919fda}\label{classspdlog_1_1sinks_1_1wincolor__sink_a82cb0661d5cc108b0b866b4561919fda}} 
+{\bfseries wincolor\+\_\+sink} (const \hyperlink{classspdlog_1_1sinks_1_1wincolor__sink}{wincolor\+\_\+sink} \&other)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a5fb56028b3d25c8aeee51621c4c118e9}\label{classspdlog_1_1sinks_1_1wincolor__sink_a5fb56028b3d25c8aeee51621c4c118e9}} 
+\hyperlink{classspdlog_1_1sinks_1_1wincolor__sink}{wincolor\+\_\+sink} \& {\bfseries operator=} (const \hyperlink{classspdlog_1_1sinks_1_1wincolor__sink}{wincolor\+\_\+sink} \&other)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_abd9dd95d6b4884b022eaedda4bda2c40}\label{classspdlog_1_1sinks_1_1wincolor__sink_abd9dd95d6b4884b022eaedda4bda2c40}} 
+void {\bfseries set\+\_\+color} (level\+::level\+\_\+enum level, W\+O\+RD color)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a3f19ee0cb993cf531d7c4edb12ef6e4c}\label{classspdlog_1_1sinks_1_1wincolor__sink_a3f19ee0cb993cf531d7c4edb12ef6e4c}} 
+void {\bfseries log} (const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg) final override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a16f1678905d7ae423b7f49d99de06dfa}\label{classspdlog_1_1sinks_1_1wincolor__sink_a16f1678905d7ae423b7f49d99de06dfa}} 
+void {\bfseries flush} () final override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_abc09d98503b36214276e88dd70677a10}\label{classspdlog_1_1sinks_1_1wincolor__sink_abc09d98503b36214276e88dd70677a10}} 
+void {\bfseries set\+\_\+pattern} (const std\+::string \&pattern) override final
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a8f4c177e11a5a4f8d18432b75737c79e}\label{classspdlog_1_1sinks_1_1wincolor__sink_a8f4c177e11a5a4f8d18432b75737c79e}} 
+void {\bfseries set\+\_\+formatter} (std\+::unique\+\_\+ptr$<$ \hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter} $>$ sink\+\_\+formatter) override final
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_aca6e9e0251b747eabe4ee859cb7306b0}\label{classspdlog_1_1sinks_1_1wincolor__sink_aca6e9e0251b747eabe4ee859cb7306b0}} 
+void {\bfseries set\+\_\+color\+\_\+mode} (color\+\_\+mode mode)
+\end{DoxyCompactItemize}
+\subsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_ab9370343b897d066d00735e401902c81}\label{classspdlog_1_1sinks_1_1wincolor__sink_ab9370343b897d066d00735e401902c81}} 
+const W\+O\+RD {\bfseries B\+O\+LD} = F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+I\+N\+T\+E\+N\+S\+I\+TY
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a7770e750368d34abe2c013ae218a064f}\label{classspdlog_1_1sinks_1_1wincolor__sink_a7770e750368d34abe2c013ae218a064f}} 
+const W\+O\+RD {\bfseries R\+ED} = F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+R\+ED
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_ae51b24782629cea19369148d202e83d4}\label{classspdlog_1_1sinks_1_1wincolor__sink_ae51b24782629cea19369148d202e83d4}} 
+const W\+O\+RD {\bfseries G\+R\+E\+EN} = F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+G\+R\+E\+EN
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a612bbcf26e98ba6db74634c60aaf7292}\label{classspdlog_1_1sinks_1_1wincolor__sink_a612bbcf26e98ba6db74634c60aaf7292}} 
+const W\+O\+RD {\bfseries C\+Y\+AN} = F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+G\+R\+E\+EN $\vert$ F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+B\+L\+UE
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a01318a5e5bcdf7816233483790c8f061}\label{classspdlog_1_1sinks_1_1wincolor__sink_a01318a5e5bcdf7816233483790c8f061}} 
+const W\+O\+RD {\bfseries W\+H\+I\+TE} = F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+R\+ED $\vert$ F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+G\+R\+E\+EN $\vert$ F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+B\+L\+UE
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_aab067632dff117a9ef5e2898cf3f743b}\label{classspdlog_1_1sinks_1_1wincolor__sink_aab067632dff117a9ef5e2898cf3f743b}} 
+const W\+O\+RD {\bfseries Y\+E\+L\+L\+OW} = F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+R\+ED $\vert$ F\+O\+R\+E\+G\+R\+O\+U\+N\+D\+\_\+\+G\+R\+E\+EN
+\end{DoxyCompactItemize}
+\subsection*{Защищенные типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_ae79569edf4d5eeaf89ef6dbd15d2192d}\label{classspdlog_1_1sinks_1_1wincolor__sink_ae79569edf4d5eeaf89ef6dbd15d2192d}} 
+using {\bfseries mutex\+\_\+t} = typename Console\+Mutex\+::mutex\+\_\+t
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a70cf48f75a9dea45cf1efd87ae95a933}\label{classspdlog_1_1sinks_1_1wincolor__sink_a70cf48f75a9dea45cf1efd87ae95a933}} 
+W\+O\+RD {\bfseries set\+\_\+foreground\+\_\+color\+\_\+} (W\+O\+RD attribs)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a83f157973bbc72592e58d7cc02485944}\label{classspdlog_1_1sinks_1_1wincolor__sink_a83f157973bbc72592e58d7cc02485944}} 
+void {\bfseries print\+\_\+range\+\_\+} (const memory\+\_\+buf\+\_\+t \&formatted, size\+\_\+t start, size\+\_\+t end)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a5cf97fd57b3863ba2a288d357ec0e579}\label{classspdlog_1_1sinks_1_1wincolor__sink_a5cf97fd57b3863ba2a288d357ec0e579}} 
+void {\bfseries write\+\_\+to\+\_\+file\+\_\+} (const memory\+\_\+buf\+\_\+t \&formatted)
+\end{DoxyCompactItemize}
+\subsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a99b305614c9da0eeef723a2eaee7e418}\label{classspdlog_1_1sinks_1_1wincolor__sink_a99b305614c9da0eeef723a2eaee7e418}} 
+H\+A\+N\+D\+LE {\bfseries out\+\_\+handle\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a629a4ad9f5d05d23b6b560634891eeee}\label{classspdlog_1_1sinks_1_1wincolor__sink_a629a4ad9f5d05d23b6b560634891eeee}} 
+mutex\+\_\+t \& {\bfseries mutex\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a35c1a1ccf302d2e77f3c8acfae58ae8e}\label{classspdlog_1_1sinks_1_1wincolor__sink_a35c1a1ccf302d2e77f3c8acfae58ae8e}} 
+bool {\bfseries in\+\_\+console\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a0cc52ce74e7c4d84867252697fe8ecf1}\label{classspdlog_1_1sinks_1_1wincolor__sink_a0cc52ce74e7c4d84867252697fe8ecf1}} 
+bool {\bfseries should\+\_\+do\+\_\+colors\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a758767c5ca0aaf9b7de3b29aceabfd89}\label{classspdlog_1_1sinks_1_1wincolor__sink_a758767c5ca0aaf9b7de3b29aceabfd89}} 
+std\+::unique\+\_\+ptr$<$ \hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter} $>$ {\bfseries formatter\+\_\+}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1wincolor__sink_a3d3384230860ad820259bf11c6596e74}\label{classspdlog_1_1sinks_1_1wincolor__sink_a3d3384230860ad820259bf11c6596e74}} 
+std\+::array$<$ W\+O\+RD, level\+::n\+\_\+levels $>$ {\bfseries colors\+\_\+}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/sinks/wincolor\+\_\+sink.\+h\item 
+inc/spdlog/sinks/wincolor\+\_\+sink-\/inl.\+h\end{DoxyCompactItemize}

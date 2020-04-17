@@ -1,0 +1,7 @@
+digraph "Иерархия классов. Графический вид."
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="formatter\< tuple_arg\l_join\< Char, T... \>,\l Char \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structformatter_3_01tuple__arg__join_3_01Char_00_01T_8_8_8_01_4_00_01Char_01_4.html"];
+}

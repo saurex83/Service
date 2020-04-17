@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Service: Класс spdlog::pattern_formatter</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Service
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Служба управления трансивером</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>spdlog</b></li><li class="navelem"><a class="el" href="classspdlog_1_1pattern__formatter.html">pattern_formatter</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="classspdlog_1_1pattern__formatter-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс spdlog::pattern_formatter<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:spdlog::pattern_formatter:</div>
+<div class="dyncontent">
+<div class="center"><img src="classspdlog_1_1pattern__formatter__inherit__graph.png" border="0" usemap="#spdlog_1_1pattern__formatter_inherit__map" alt="Inheritance graph"/></div>
+<!-- MAP 0 -->
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div class="dynheader">
+Граф связей класса spdlog::pattern_formatter:</div>
+<div class="dyncontent">
+<div class="center"><img src="classspdlog_1_1pattern__formatter__coll__graph.png" border="0" usemap="#spdlog_1_1pattern__formatter_coll__map" alt="Collaboration graph"/></div>
+<!-- MAP 1 -->
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ad6f7b25d7726347988c46fcf65b19bf9"><td class="memItemLeft" align="right" valign="top"><a id="ad6f7b25d7726347988c46fcf65b19bf9"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>custom_flags</b> = std::unordered_map&lt; char, std::unique_ptr&lt; <a class="el" href="classspdlog_1_1custom__flag__formatter.html">custom_flag_formatter</a> &gt; &gt;</td></tr>
+<tr class="separator:ad6f7b25d7726347988c46fcf65b19bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ae3bf5dc1c1e9556fcf97ad1ec1fa3dab"><td class="memItemLeft" align="right" valign="top"><a id="ae3bf5dc1c1e9556fcf97ad1ec1fa3dab"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pattern_formatter</b> (std::string pattern, pattern_time_type time_type=pattern_time_type::local, std::string eol=spdlog::details::os::default_eol, custom_flags custom_user_flags={})</td></tr>
+<tr class="separator:ae3bf5dc1c1e9556fcf97ad1ec1fa3dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b28756d44154881d51db40746b6e4e"><td class="memItemLeft" align="right" valign="top"><a id="a16b28756d44154881d51db40746b6e4e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pattern_formatter</b> (pattern_time_type time_type=pattern_time_type::local, std::string eol=spdlog::details::os::default_eol)</td></tr>
+<tr class="separator:a16b28756d44154881d51db40746b6e4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c7051314c9422b667e254cb27d81b80"><td class="memItemLeft" align="right" valign="top"><a id="a3c7051314c9422b667e254cb27d81b80"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>pattern_formatter</b> (const <a class="el" href="classspdlog_1_1pattern__formatter.html">pattern_formatter</a> &amp;other)=delete</td></tr>
+<tr class="separator:a3c7051314c9422b667e254cb27d81b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a868ba15a181c7a407780aaa84902de31"><td class="memItemLeft" align="right" valign="top"><a id="a868ba15a181c7a407780aaa84902de31"></a>
+<a class="el" href="classspdlog_1_1pattern__formatter.html">pattern_formatter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classspdlog_1_1pattern__formatter.html">pattern_formatter</a> &amp;other)=delete</td></tr>
+<tr class="separator:a868ba15a181c7a407780aaa84902de31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb24b06fbf11bb3872c8fa82382350a8"><td class="memItemLeft" align="right" valign="top"><a id="aeb24b06fbf11bb3872c8fa82382350a8"></a>
+std::unique_ptr&lt; <a class="el" href="classspdlog_1_1formatter.html">formatter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> () const override</td></tr>
+<tr class="separator:aeb24b06fbf11bb3872c8fa82382350a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7468a5fffcc75c4d449343d7788b5dd"><td class="memItemLeft" align="right" valign="top"><a id="af7468a5fffcc75c4d449343d7788b5dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>format</b> (const <a class="el" href="structspdlog_1_1details_1_1log__msg.html">details::log_msg</a> &amp;msg, memory_buf_t &amp;dest) override</td></tr>
+<tr class="separator:af7468a5fffcc75c4d449343d7788b5dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b5e725b44ccdc6c7d87089b2628131"><td class="memTemplParams" colspan="2"><a id="ae7b5e725b44ccdc6c7d87089b2628131"></a>
+template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:ae7b5e725b44ccdc6c7d87089b2628131"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classspdlog_1_1pattern__formatter.html">pattern_formatter</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>add_flag</b> (char flag, const Args &amp;... args)</td></tr>
+<tr class="separator:ae7b5e725b44ccdc6c7d87089b2628131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a374b378153d64904c26affa5741b24b2"><td class="memItemLeft" align="right" valign="top"><a id="a374b378153d64904c26affa5741b24b2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_pattern</b> (std::string pattern)</td></tr>
+<tr class="separator:a374b378153d64904c26affa5741b24b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d2a0b143720da0d1ead8a93eacd56f0"><td class="memTemplParams" colspan="2"><a id="a9d2a0b143720da0d1ead8a93eacd56f0"></a>
+template&lt;typename Padder &gt; </td></tr>
+<tr class="memitem:a9d2a0b143720da0d1ead8a93eacd56f0"><td class="memTemplItemLeft" align="right" valign="top">SPDLOG_INLINE void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>handle_flag_</b> (char flag, <a class="el" href="structspdlog_1_1details_1_1padding__info.html">details::padding_info</a> padding)</td></tr>
+<tr class="separator:a9d2a0b143720da0d1ead8a93eacd56f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>inc/spdlog/<a class="el" href="pattern__formatter_8h_source.html">pattern_formatter.h</a></li>
+<li>inc/spdlog/<a class="el" href="pattern__formatter-inl_8h_source.html">pattern_formatter-inl.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

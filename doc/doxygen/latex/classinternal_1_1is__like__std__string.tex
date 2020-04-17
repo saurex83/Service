@@ -1,0 +1,42 @@
+\hypertarget{classinternal_1_1is__like__std__string}{}\section{Шаблон класса internal\+:\+:is\+\_\+like\+\_\+std\+\_\+string$<$ T $>$}
+\label{classinternal_1_1is__like__std__string}\index{internal\+::is\+\_\+like\+\_\+std\+\_\+string$<$ T $>$@{internal\+::is\+\_\+like\+\_\+std\+\_\+string$<$ T $>$}}
+
+
+Return true value if T has std\+::string interface, like std\+::string\+\_\+view.  
+
+
+
+
+{\ttfamily \#include $<$ranges.\+h$>$}
+
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const bool {\bfseries value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$typename T$>$\newline
+class internal\+::is\+\_\+like\+\_\+std\+\_\+string$<$ T $>$}
+
+Return true value if T has std\+::string interface, like std\+::string\+\_\+view. 
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{classinternal_1_1is__like__std__string_a669d29cac2e005cbe132b885f482cdbf}\label{classinternal_1_1is__like__std__string_a669d29cac2e005cbe132b885f482cdbf}} 
+\index{internal\+::is\+\_\+like\+\_\+std\+\_\+string@{internal\+::is\+\_\+like\+\_\+std\+\_\+string}!value@{value}}
+\index{value@{value}!internal\+::is\+\_\+like\+\_\+std\+\_\+string@{internal\+::is\+\_\+like\+\_\+std\+\_\+string}}
+\subsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const bool \hyperlink{classinternal_1_1is__like__std__string}{internal\+::is\+\_\+like\+\_\+std\+\_\+string}$<$ T $>$\+::\hyperlink{classinternal_1_1value}{value}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+=
+      is\_string<T>::value || !std::is\_void<decltype(check<T>(\textcolor{keyword}{nullptr}))>::value
+\end{DoxyCode}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/ranges.\+h\end{DoxyCompactItemize}

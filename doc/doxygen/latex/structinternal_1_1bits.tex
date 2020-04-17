@@ -1,0 +1,27 @@
+\hypertarget{structinternal_1_1bits}{}\section{Шаблон структуры internal\+:\+:bits$<$ T $>$}
+\label{structinternal_1_1bits}\index{internal\+::bits$<$ T $>$@{internal\+::bits$<$ T $>$}}
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const int {\bfseries value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{structinternal_1_1bits_ad0f3f661fb4c3afa05a7bdd11dd9fe89}\label{structinternal_1_1bits_ad0f3f661fb4c3afa05a7bdd11dd9fe89}} 
+\index{internal\+::bits@{internal\+::bits}!value@{value}}
+\index{value@{value}!internal\+::bits@{internal\+::bits}}
+\subsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T$>$ \\
+F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const int \hyperlink{structinternal_1_1bits}{internal\+::bits}$<$ T $>$\+::\hyperlink{classinternal_1_1value}{value}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+=
+      \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\textcolor{keyword}{sizeof}(T) * std::numeric\_limits<unsigned char>::digits)
+\end{DoxyCode}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/format-\/inl.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,9 @@
+digraph "Иерархия классов. Графический вид."
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node328 [label="basic_ostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node328 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="internal::test_stream\l\< Char \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structinternal_1_1test__stream.html"];
+}

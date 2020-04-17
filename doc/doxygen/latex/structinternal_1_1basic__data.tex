@@ -1,0 +1,118 @@
+\hypertarget{structinternal_1_1basic__data}{}\section{Шаблон структуры internal\+:\+:basic\+\_\+data$<$ T $>$}
+\label{structinternal_1_1basic__data}\index{internal\+::basic\+\_\+data$<$ T $>$@{internal\+::basic\+\_\+data$<$ T $>$}}
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static const uint64\+\_\+t {\bfseries powers\+\_\+of\+\_\+10\+\_\+64} \mbox{[}$\,$\mbox{]}
+\item 
+static const uint32\+\_\+t {\bfseries zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+32} \mbox{[}$\,$\mbox{]}
+\item 
+static const uint64\+\_\+t {\bfseries zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+64} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{structinternal_1_1basic__data_a81bc13bdd6aecf5abc7800ac9f034274}\label{structinternal_1_1basic__data_a81bc13bdd6aecf5abc7800ac9f034274}} 
+static const uint64\+\_\+t {\bfseries pow10\+\_\+significands} \mbox{[}$\,$\mbox{]}
+\item 
+static const int16\+\_\+t {\bfseries pow10\+\_\+exponents} \mbox{[}$\,$\mbox{]}
+\item 
+static const char {\bfseries digits} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\Hypertarget{structinternal_1_1basic__data_afd2ae4259b9d03b654574086fd16dded}\label{structinternal_1_1basic__data_afd2ae4259b9d03b654574086fd16dded}} 
+static const char {\bfseries hex\+\_\+digits} \mbox{[}$\,$\mbox{]} = \char`\"{}0123456789abcdef\char`\"{}
+\item 
+\mbox{\Hypertarget{structinternal_1_1basic__data_a4b5201038e9be02ba1b1f6d101c0562e}\label{structinternal_1_1basic__data_a4b5201038e9be02ba1b1f6d101c0562e}} 
+static const char {\bfseries foreground\+\_\+color} \mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}x1b\mbox{[}38;2;\char`\"{}
+\item 
+\mbox{\Hypertarget{structinternal_1_1basic__data_a616a85f0ca705395591cefdafbc849e7}\label{structinternal_1_1basic__data_a616a85f0ca705395591cefdafbc849e7}} 
+static const char {\bfseries background\+\_\+color} \mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}x1b\mbox{[}48;2;\char`\"{}
+\item 
+\mbox{\Hypertarget{structinternal_1_1basic__data_a079c6fce96a2f63f4e96aa8d65ef7b5f}\label{structinternal_1_1basic__data_a079c6fce96a2f63f4e96aa8d65ef7b5f}} 
+static const char {\bfseries reset\+\_\+color} \mbox{[}5\mbox{]} = \char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}
+\item 
+\mbox{\Hypertarget{structinternal_1_1basic__data_ad840ca5ff1d5b4d754ecea1b46d34501}\label{structinternal_1_1basic__data_ad840ca5ff1d5b4d754ecea1b46d34501}} 
+static const wchar\+\_\+t {\bfseries wreset\+\_\+color} \mbox{[}5\mbox{]} = L\char`\"{}\textbackslash{}x1b\mbox{[}0m\char`\"{}
+\item 
+\mbox{\Hypertarget{structinternal_1_1basic__data_a1345cb0b3f04f131c62fe2ac418dfd80}\label{structinternal_1_1basic__data_a1345cb0b3f04f131c62fe2ac418dfd80}} 
+static const char {\bfseries signs} \mbox{[}$\,$\mbox{]} = \{0, \textquotesingle{}-\/\textquotesingle{}, \textquotesingle{}+\textquotesingle{}, \textquotesingle{} \textquotesingle{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{structinternal_1_1basic__data_aac1d31043025e15e817ec4a8e9071908}\label{structinternal_1_1basic__data_aac1d31043025e15e817ec4a8e9071908}} 
+\index{internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}!digits@{digits}}
+\index{digits@{digits}!internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}}
+\subsubsection{\texorpdfstring{digits}{digits}}
+{\footnotesize\ttfamily template$<$typename T = void$>$ \\
+const char \hyperlink{structinternal_1_1basic__data}{internal\+::basic\+\_\+data}$<$ T $>$\+::digits\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+=
+    \textcolor{stringliteral}{"0001020304050607080910111213141516171819"}
+    \textcolor{stringliteral}{"2021222324252627282930313233343536373839"}
+    \textcolor{stringliteral}{"4041424344454647484950515253545556575859"}
+    \textcolor{stringliteral}{"6061626364656667686970717273747576777879"}
+    \textcolor{stringliteral}{"8081828384858687888990919293949596979899"}
+\end{DoxyCode}
+\mbox{\Hypertarget{structinternal_1_1basic__data_a7d28089dfcffe91b6e88dc811a594b27}\label{structinternal_1_1basic__data_a7d28089dfcffe91b6e88dc811a594b27}} 
+\index{internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}!pow10\+\_\+exponents@{pow10\+\_\+exponents}}
+\index{pow10\+\_\+exponents@{pow10\+\_\+exponents}!internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}}
+\subsubsection{\texorpdfstring{pow10\+\_\+exponents}{pow10\_exponents}}
+{\footnotesize\ttfamily template$<$typename T = void$>$ \\
+const int16\+\_\+t \hyperlink{structinternal_1_1basic__data}{internal\+::basic\+\_\+data}$<$ T $>$\+::pow10\+\_\+exponents\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+    -1220, -1193, -1166, -1140, -1113, -1087, -1060, -1034, -1007, -980, -954,
+    -927,  -901,  -874,  -847,  -821,  -794,  -768,  -741,  -715,  -688, -661,
+    -635,  -608,  -582,  -555,  -529,  -502,  -475,  -449,  -422,  -396, -369,
+    -343,  -316,  -289,  -263,  -236,  -210,  -183,  -157,  -130,  -103, -77,
+    -50,   -24,   3,     30,    56,    83,    109,   136,   162,   189,  216,
+    242,   269,   295,   322,   348,   375,   402,   428,   455,   481,  508,
+    534,   561,   588,   614,   641,   667,   694,   720,   747,   774,  800,
+    827,   853,   880,   907,   933,   960,   986,   1013,  1039,  1066\}
+\end{DoxyCode}
+\mbox{\Hypertarget{structinternal_1_1basic__data_a671b5aa116ffcd14212d35aaa325e8b8}\label{structinternal_1_1basic__data_a671b5aa116ffcd14212d35aaa325e8b8}} 
+\index{internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}!powers\+\_\+of\+\_\+10\+\_\+64@{powers\+\_\+of\+\_\+10\+\_\+64}}
+\index{powers\+\_\+of\+\_\+10\+\_\+64@{powers\+\_\+of\+\_\+10\+\_\+64}!internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}}
+\subsubsection{\texorpdfstring{powers\+\_\+of\+\_\+10\+\_\+64}{powers\_of\_10\_64}}
+{\footnotesize\ttfamily template$<$typename T = void$>$ \\
+const uint64\+\_\+t \hyperlink{structinternal_1_1basic__data}{internal\+::basic\+\_\+data}$<$ T $>$\+::powers\+\_\+of\+\_\+10\+\_\+64\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+    1, FMT\_POWERS\_OF\_10(1), FMT\_POWERS\_OF\_10(1000000000ULL),
+    10000000000000000000ULL\}
+\end{DoxyCode}
+\mbox{\Hypertarget{structinternal_1_1basic__data_a1649ef8cb5f658de84007175ea0b94d6}\label{structinternal_1_1basic__data_a1649ef8cb5f658de84007175ea0b94d6}} 
+\index{internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}!zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+32@{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+32}}
+\index{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+32@{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+32}!internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}}
+\subsubsection{\texorpdfstring{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+32}{zero\_or\_powers\_of\_10\_32}}
+{\footnotesize\ttfamily template$<$typename T = void$>$ \\
+const uint32\+\_\+t \hyperlink{structinternal_1_1basic__data}{internal\+::basic\+\_\+data}$<$ T $>$\+::zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+32\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{0,
+                                                           FMT\_POWERS\_OF\_10(1)\}
+\end{DoxyCode}
+\mbox{\Hypertarget{structinternal_1_1basic__data_a03c8bccb2f6fe7d2956fba74b4fe35ac}\label{structinternal_1_1basic__data_a03c8bccb2f6fe7d2956fba74b4fe35ac}} 
+\index{internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}!zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+64@{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+64}}
+\index{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+64@{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+64}!internal\+::basic\+\_\+data@{internal\+::basic\+\_\+data}}
+\subsubsection{\texorpdfstring{zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+64}{zero\_or\_powers\_of\_10\_64}}
+{\footnotesize\ttfamily template$<$typename T = void$>$ \\
+const uint64\+\_\+t \hyperlink{structinternal_1_1basic__data}{internal\+::basic\+\_\+data}$<$ T $>$\+::zero\+\_\+or\+\_\+powers\+\_\+of\+\_\+10\+\_\+64\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+= \{
+    0, FMT\_POWERS\_OF\_10(1), FMT\_POWERS\_OF\_10(1000000000ULL),
+    10000000000000000000ULL\}
+\end{DoxyCode}
+
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/format.\+h\item 
+inc/spdlog/fmt/bundled/format-\/inl.\+h\end{DoxyCompactItemize}

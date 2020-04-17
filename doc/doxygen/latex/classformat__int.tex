@@ -1,0 +1,70 @@
+\hypertarget{classformat__int}{}\section{Класс format\+\_\+int}
+\label{classformat__int}\index{format\+\_\+int@{format\+\_\+int}}
+
+
+{\ttfamily \#include $<$format.\+h$>$}
+
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classformat__int_a3664fa2bb28b1636eb2ceb8f2a28c5d3}\label{classformat__int_a3664fa2bb28b1636eb2ceb8f2a28c5d3}} 
+{\bfseries format\+\_\+int} (int value)
+\item 
+\mbox{\Hypertarget{classformat__int_a473c02889ad9139f7b6c008de5be9224}\label{classformat__int_a473c02889ad9139f7b6c008de5be9224}} 
+{\bfseries format\+\_\+int} (long value)
+\item 
+\mbox{\Hypertarget{classformat__int_a72e64eccbef3c56539074d790c4f5811}\label{classformat__int_a72e64eccbef3c56539074d790c4f5811}} 
+{\bfseries format\+\_\+int} (long long value)
+\item 
+\mbox{\Hypertarget{classformat__int_ad474137ee4a9d0545f0c8a2b3f6f6cf8}\label{classformat__int_ad474137ee4a9d0545f0c8a2b3f6f6cf8}} 
+{\bfseries format\+\_\+int} (unsigned value)
+\item 
+\mbox{\Hypertarget{classformat__int_affccebfca726a18d469e726655401d35}\label{classformat__int_affccebfca726a18d469e726655401d35}} 
+{\bfseries format\+\_\+int} (unsigned long value)
+\item 
+\mbox{\Hypertarget{classformat__int_a04c207f578ee7611d897c77ab4a34ff0}\label{classformat__int_a04c207f578ee7611d897c77ab4a34ff0}} 
+{\bfseries format\+\_\+int} (unsigned long long value)
+\item 
+std\+::size\+\_\+t \hyperlink{classformat__int_a644fe6f2d0505d48ff08ab22448b5069}{size} () const
+\item 
+const char $\ast$ \hyperlink{classformat__int_a4ecc95eeed01911d1e2dcc4fabc5df5a}{data} () const
+\item 
+const char $\ast$ \hyperlink{classformat__int_a0ae1671f3ddacb00738133f29549b724}{c\+\_\+str} () const
+\item 
+std\+::string \hyperlink{classformat__int_ab14204962423d35a320f15e673b08e06}{str} () const
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Fast integer formatter. 
+
+\subsection{Методы}
+\mbox{\Hypertarget{classformat__int_a0ae1671f3ddacb00738133f29549b724}\label{classformat__int_a0ae1671f3ddacb00738133f29549b724}} 
+\index{format\+\_\+int@{format\+\_\+int}!c\+\_\+str@{c\+\_\+str}}
+\index{c\+\_\+str@{c\+\_\+str}!format\+\_\+int@{format\+\_\+int}}
+\subsubsection{\texorpdfstring{c\+\_\+str()}{c\_str()}}
+{\footnotesize\ttfamily const char$\ast$ format\+\_\+int\+::c\+\_\+str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a pointer to the output buffer content with terminating null character appended. \mbox{\Hypertarget{classformat__int_a4ecc95eeed01911d1e2dcc4fabc5df5a}\label{classformat__int_a4ecc95eeed01911d1e2dcc4fabc5df5a}} 
+\index{format\+\_\+int@{format\+\_\+int}!data@{data}}
+\index{data@{data}!format\+\_\+int@{format\+\_\+int}}
+\subsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily const char$\ast$ format\+\_\+int\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a pointer to the output buffer content. No terminating null character is appended. \mbox{\Hypertarget{classformat__int_a644fe6f2d0505d48ff08ab22448b5069}\label{classformat__int_a644fe6f2d0505d48ff08ab22448b5069}} 
+\index{format\+\_\+int@{format\+\_\+int}!size@{size}}
+\index{size@{size}!format\+\_\+int@{format\+\_\+int}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t format\+\_\+int\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of characters written to the output buffer. \mbox{\Hypertarget{classformat__int_ab14204962423d35a320f15e673b08e06}\label{classformat__int_ab14204962423d35a320f15e673b08e06}} 
+\index{format\+\_\+int@{format\+\_\+int}!str@{str}}
+\index{str@{str}!format\+\_\+int@{format\+\_\+int}}
+\subsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily std\+::string format\+\_\+int\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the content of the output buffer as an {\ttfamily std\+::string}.  
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/format.\+h\end{DoxyCompactItemize}

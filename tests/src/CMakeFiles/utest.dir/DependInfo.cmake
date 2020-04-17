@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/saurex83/Projects/Neocore/Service/tests/src/frame_test.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/frame_test.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/tests/src/license_test.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/license_test.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/tests/src/main.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/main.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/tests/src/meta_test.cpp" "/home/saurex83/Projects/Neocore/Service/tests/src/CMakeFiles/utest.dir/meta_test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

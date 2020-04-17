@@ -1,0 +1,47 @@
+\hypertarget{classSerialCom}{}\section{Класс Serial\+Com}
+\label{classSerialCom}\index{Serial\+Com@{Serial\+Com}}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSerialCom_ab0fe0b96216373e8f8f1c21237f3816e}\label{classSerialCom_ab0fe0b96216373e8f8f1c21237f3816e}} 
+void {\bfseries write} (const unsigned char $\ast$transmit\+Data, int write\+Size)
+\item 
+\mbox{\Hypertarget{classSerialCom_a519329985c4b1007930fe75d441facef}\label{classSerialCom_a519329985c4b1007930fe75d441facef}} 
+unsigned int {\bfseries read} (unsigned char $\ast$transmit\+Data, unsigned int read\+Size)
+\end{DoxyCompactItemize}
+\subsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSerialCom_ad20b8499de78afdeed41f0494d03f72c}\label{classSerialCom_ad20b8499de78afdeed41f0494d03f72c}} 
+static \hyperlink{classSerialCom}{Serial\+Com} \& {\bfseries get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSerialCom_ac29520ce005613d3fb487e75bbd5e833}\label{classSerialCom_ac29520ce005613d3fb487e75bbd5e833}} 
+{\bfseries Serial\+Com} (const \hyperlink{classSerialCom}{Serial\+Com} \&)
+\item 
+\mbox{\Hypertarget{classSerialCom_ae60739c5f6d1129feb980891a5013a00}\label{classSerialCom_ae60739c5f6d1129feb980891a5013a00}} 
+\hyperlink{classSerialCom}{Serial\+Com} \& {\bfseries operator=} (\hyperlink{classSerialCom}{Serial\+Com} \&)
+\end{DoxyCompactItemize}
+\subsection*{Защищенные статические члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSerialCom_a2700df9ffb1cfbc2f6bf32064abcbee3}\label{classSerialCom_a2700df9ffb1cfbc2f6bf32064abcbee3}} 
+static void {\bfseries flush\+\_\+serial\+\_\+port} (boost\+::asio\+::serial\+\_\+port \&serial\+\_\+port, flush\+\_\+type what, boost\+::system\+::error\+\_\+code \&error)
+\end{DoxyCompactItemize}
+\subsection*{Статические защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSerialCom_af9c471aeac11c13e3b90ac9cf71389b0}\label{classSerialCom_af9c471aeac11c13e3b90ac9cf71389b0}} 
+static boost\+::asio\+::serial\+\_\+port $\ast$ {\bfseries m\+\_\+\+Port}
+\item 
+\mbox{\Hypertarget{classSerialCom_a52fa53905af7d17e3216274e8dc9cb7e}\label{classSerialCom_a52fa53905af7d17e3216274e8dc9cb7e}} 
+static boost\+::asio\+::io\+\_\+service {\bfseries m\+\_\+\+Io}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+inc/Serial\+Com.\+hpp\item 
+src/Serial\+Com.\+cpp\end{DoxyCompactItemize}

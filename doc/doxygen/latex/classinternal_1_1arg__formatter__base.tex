@@ -1,0 +1,77 @@
+\hypertarget{classinternal_1_1arg__formatter__base}{}\section{Шаблон класса internal\+:\+:arg\+\_\+formatter\+\_\+base$<$ Range, Error\+Handler $>$}
+\label{classinternal_1_1arg__formatter__base}\index{internal\+::arg\+\_\+formatter\+\_\+base$<$ Range, Error\+Handler $>$@{internal\+::arg\+\_\+formatter\+\_\+base$<$ Range, Error\+Handler $>$}}
+\subsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structinternal_1_1arg__formatter__base_1_1char__spec__handler}{char\+\_\+spec\+\_\+handler}
+\item 
+struct \hyperlink{structinternal_1_1arg__formatter__base_1_1cstring__spec__handler}{cstring\+\_\+spec\+\_\+handler}
+\end{DoxyCompactItemize}
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a9f1f0e70d691700e200c8c52304e696e}\label{classinternal_1_1arg__formatter__base_a9f1f0e70d691700e200c8c52304e696e}} 
+using {\bfseries char\+\_\+type} = typename Range\+::value\+\_\+type
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a11232a436aedfe6665c8c04f808045d3}\label{classinternal_1_1arg__formatter__base_a11232a436aedfe6665c8c04f808045d3}} 
+using {\bfseries iterator} = typename Range\+::iterator
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a615fc4e1c3491b2084620350f6c17e28}\label{classinternal_1_1arg__formatter__base_a615fc4e1c3491b2084620350f6c17e28}} 
+using {\bfseries format\+\_\+specs} = \hyperlink{structbasic__format__specs}{basic\+\_\+format\+\_\+specs}$<$ char\+\_\+type $>$
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_acb302e3dd547282e48af7ab78c55d733}\label{classinternal_1_1arg__formatter__base_acb302e3dd547282e48af7ab78c55d733}} 
+{\bfseries arg\+\_\+formatter\+\_\+base} (Range r, \hyperlink{structbasic__format__specs}{format\+\_\+specs} $\ast$s, \hyperlink{classinternal_1_1locale__ref}{locale\+\_\+ref} loc)
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a21074f43ff793b9f4a16e5f725c17684}\label{classinternal_1_1arg__formatter__base_a21074f43ff793b9f4a16e5f725c17684}} 
+iterator {\bfseries operator()} (\hyperlink{structmonostate}{monostate})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a4f333f2828e3e0c55c02d30b863994f8}\label{classinternal_1_1arg__formatter__base_a4f333f2828e3e0c55c02d30b863994f8}} 
+{\footnotesize template$<$typename T , F\+M\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+F(is\+\_\+integral$<$ T $>$\+::value) $>$ }\\iterator {\bfseries operator()} (T \hyperlink{classinternal_1_1value}{value})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a96a1641c6524bbd53c0de2793296bdfc}\label{classinternal_1_1arg__formatter__base_a96a1641c6524bbd53c0de2793296bdfc}} 
+iterator {\bfseries operator()} (char\+\_\+type \hyperlink{classinternal_1_1value}{value})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a383e770d1976bdfc5215557f2fc31f36}\label{classinternal_1_1arg__formatter__base_a383e770d1976bdfc5215557f2fc31f36}} 
+iterator {\bfseries operator()} (bool \hyperlink{classinternal_1_1value}{value})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a4f333f2828e3e0c55c02d30b863994f8}\label{classinternal_1_1arg__formatter__base_a4f333f2828e3e0c55c02d30b863994f8}} 
+{\footnotesize template$<$typename T , F\+M\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+I\+F(std\+::is\+\_\+floating\+\_\+point$<$ T $>$\+::value) $>$ }\\iterator {\bfseries operator()} (T \hyperlink{classinternal_1_1value}{value})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_ab52f46c28768d20b6ebf677ad382071a}\label{classinternal_1_1arg__formatter__base_ab52f46c28768d20b6ebf677ad382071a}} 
+iterator {\bfseries operator()} (const char\+\_\+type $\ast$\hyperlink{classinternal_1_1value}{value})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a1699d3b1a167d32b8ac65bb81e940679}\label{classinternal_1_1arg__formatter__base_a1699d3b1a167d32b8ac65bb81e940679}} 
+iterator {\bfseries operator()} (\hyperlink{classbasic__string__view}{basic\+\_\+string\+\_\+view}$<$ char\+\_\+type $>$ \hyperlink{classinternal_1_1value}{value})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a2584e56901804c26c7f084007f3699eb}\label{classinternal_1_1arg__formatter__base_a2584e56901804c26c7f084007f3699eb}} 
+iterator {\bfseries operator()} (const void $\ast$\hyperlink{classinternal_1_1value}{value})
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a759de506080a0d3cc609c598557ccf41}\label{classinternal_1_1arg__formatter__base_a759de506080a0d3cc609c598557ccf41}} 
+\hyperlink{classinternal_1_1basic__writer}{writer\+\_\+type} \& {\bfseries writer} ()
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_ab16497a1781b854f7b04fd51704f2fe1}\label{classinternal_1_1arg__formatter__base_ab16497a1781b854f7b04fd51704f2fe1}} 
+F\+M\+T\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED \hyperlink{structbasic__format__specs}{format\+\_\+specs} $\ast$ {\bfseries spec} ()
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a04811dbf9aab54fc4893851c82ba4ea4}\label{classinternal_1_1arg__formatter__base_a04811dbf9aab54fc4893851c82ba4ea4}} 
+\hyperlink{structbasic__format__specs}{format\+\_\+specs} $\ast$ {\bfseries specs} ()
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_aa09d371038f31903ed1eb6c69b228230}\label{classinternal_1_1arg__formatter__base_aa09d371038f31903ed1eb6c69b228230}} 
+iterator {\bfseries out} ()
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a3805229a1e49c6203a0d6f92e0d6ec86}\label{classinternal_1_1arg__formatter__base_a3805229a1e49c6203a0d6f92e0d6ec86}} 
+void {\bfseries write} (bool \hyperlink{classinternal_1_1value}{value})
+\item 
+\mbox{\Hypertarget{classinternal_1_1arg__formatter__base_a3d38e42d3e5b5b05a9c892a1ff2fa343}\label{classinternal_1_1arg__formatter__base_a3d38e42d3e5b5b05a9c892a1ff2fa343}} 
+void {\bfseries write} (const char\+\_\+type $\ast$\hyperlink{classinternal_1_1value}{value})
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/format.\+h\end{DoxyCompactItemize}

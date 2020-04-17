@@ -1,0 +1,76 @@
+\hypertarget{classbasic__format__args}{}\section{Шаблон класса basic\+\_\+format\+\_\+args$<$ Context $>$}
+\label{classbasic__format__args}\index{basic\+\_\+format\+\_\+args$<$ Context $>$@{basic\+\_\+format\+\_\+args$<$ Context $>$}}
+
+
+{\ttfamily \#include $<$core.\+h$>$}
+
+
+
+Граф связей класса basic\+\_\+format\+\_\+args$<$ Context $>$\+:
+% FIG 0
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbasic__format__args_a7569a8c7f913b1f906619701ab3150e6}\label{classbasic__format__args_a7569a8c7f913b1f906619701ab3150e6}} 
+using {\bfseries size\+\_\+type} = int
+\item 
+\mbox{\Hypertarget{classbasic__format__args_af22c7ecd69cc9c3dc2a9a113b5ff5088}\label{classbasic__format__args_af22c7ecd69cc9c3dc2a9a113b5ff5088}} 
+using {\bfseries format\+\_\+arg} = \hyperlink{classbasic__format__arg}{basic\+\_\+format\+\_\+arg}$<$ Context $>$
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\\hyperlink{classbasic__format__args_aff6e7b681609f33b18afb00281259ce2}{basic\+\_\+format\+\_\+args} (const \hyperlink{classformat__arg__store}{format\+\_\+arg\+\_\+store}$<$ Context, Args... $>$ \&store)
+\item 
+\hyperlink{classbasic__format__args_a6d735ccb56f6c4f64ba1199f223c8a6b}{basic\+\_\+format\+\_\+args} (const \hyperlink{classbasic__format__arg}{format\+\_\+arg} $\ast$args, int count)
+\item 
+\hyperlink{classbasic__format__arg}{format\+\_\+arg} \hyperlink{classbasic__format__args_aeddde6f5786c567b2054a6cf7f6c1876}{get} (int index) const
+\item 
+\mbox{\Hypertarget{classbasic__format__args_a05543f32ef2b5278e60464b1b9e6a183}\label{classbasic__format__args_a05543f32ef2b5278e60464b1b9e6a183}} 
+int {\bfseries max\+\_\+size} () const
+\end{DoxyCompactItemize}
+\subsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbasic__format__args_a7974100f026be256213827458684be38}\label{classbasic__format__args_a7974100f026be256213827458684be38}} 
+class {\bfseries internal\+::arg\+\_\+map$<$ Context $>$}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$typename Context$>$\newline
+class basic\+\_\+format\+\_\+args$<$ Context $>$}
+
+Formatting arguments. 
+
+\subsection{Конструктор(ы)}
+\mbox{\Hypertarget{classbasic__format__args_aff6e7b681609f33b18afb00281259ce2}\label{classbasic__format__args_aff6e7b681609f33b18afb00281259ce2}} 
+\index{basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}!basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}}
+\index{basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}!basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}}
+\subsubsection{\texorpdfstring{basic\+\_\+format\+\_\+args()}{basic\_format\_args()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Context$>$ \\
+template$<$typename... Args$>$ \\
+\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}$<$ Context $>$\+::\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args} (\begin{DoxyParamCaption}\item[{const \hyperlink{classformat__arg__store}{format\+\_\+arg\+\_\+store}$<$ Context, Args... $>$ \&}]{store }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs a {\ttfamily \hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}} object from {\ttfamily $\sim$fmt\hyperlink{classformat__arg__store}{format\+\_\+arg\+\_\+store}}.  \mbox{\Hypertarget{classbasic__format__args_a6d735ccb56f6c4f64ba1199f223c8a6b}\label{classbasic__format__args_a6d735ccb56f6c4f64ba1199f223c8a6b}} 
+\index{basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}!basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}}
+\index{basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}!basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}}
+\subsubsection{\texorpdfstring{basic\+\_\+format\+\_\+args()}{basic\_format\_args()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Context$>$ \\
+\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}$<$ Context $>$\+::\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args} (\begin{DoxyParamCaption}\item[{const \hyperlink{classbasic__format__arg}{format\+\_\+arg} $\ast$}]{args,  }\item[{int}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs a {\ttfamily \hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}} object from a dynamic set of arguments.  
+
+\subsection{Методы}
+\mbox{\Hypertarget{classbasic__format__args_aeddde6f5786c567b2054a6cf7f6c1876}\label{classbasic__format__args_aeddde6f5786c567b2054a6cf7f6c1876}} 
+\index{basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}!get@{get}}
+\index{get@{get}!basic\+\_\+format\+\_\+args@{basic\+\_\+format\+\_\+args}}
+\subsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename Context$>$ \\
+\hyperlink{classbasic__format__arg}{format\+\_\+arg} \hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}$<$ Context $>$\+::get (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the argument at specified index. 
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/core.\+h\end{DoxyCompactItemize}

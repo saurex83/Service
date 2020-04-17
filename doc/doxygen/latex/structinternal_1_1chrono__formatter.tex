@@ -1,0 +1,157 @@
+\hypertarget{structinternal_1_1chrono__formatter}{}\section{Шаблон структуры internal\+:\+:chrono\+\_\+formatter$<$ Format\+Context, Output\+It, Rep, Period $>$}
+\label{structinternal_1_1chrono__formatter}\index{internal\+::chrono\+\_\+formatter$<$ Format\+Context, Output\+It, Rep, Period $>$@{internal\+::chrono\+\_\+formatter$<$ Format\+Context, Output\+It, Rep, Period $>$}}
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a0d2cf0ef93d14d1ce3a44b9ef48cf218}\label{structinternal_1_1chrono__formatter_a0d2cf0ef93d14d1ce3a44b9ef48cf218}} 
+using {\bfseries rep} = conditional\+\_\+t$<$ std\+::is\+\_\+integral$<$ Rep $>$\+::\hyperlink{classinternal_1_1value}{value} \&\&sizeof(Rep)$<$ sizeof(int), unsigned, typename \hyperlink{structinternal_1_1make__unsigned__or__unchanged}{make\+\_\+unsigned\+\_\+or\+\_\+unchanged}$<$ Rep $>$\+::type $>$
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ad45e80d4cf0805176cc980f93f99e95e}\label{structinternal_1_1chrono__formatter_ad45e80d4cf0805176cc980f93f99e95e}} 
+using {\bfseries seconds} = std\+::chrono\+::duration$<$ rep $>$
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a9435a37e3cd01a35f2e84d5b8a0ac95e}\label{structinternal_1_1chrono__formatter_a9435a37e3cd01a35f2e84d5b8a0ac95e}} 
+using {\bfseries milliseconds} = std\+::chrono\+::duration$<$ rep, std\+::milli $>$
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a00dde15800a2da0d4740c04757420f78}\label{structinternal_1_1chrono__formatter_a00dde15800a2da0d4740c04757420f78}} 
+using {\bfseries char\+\_\+type} = typename Format\+Context\+::char\+\_\+type
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a55af30f2aea49dc895ae838b4aca5419}\label{structinternal_1_1chrono__formatter_a55af30f2aea49dc895ae838b4aca5419}} 
+{\bfseries chrono\+\_\+formatter} (Format\+Context \&ctx, Output\+It o, std\+::chrono\+::duration$<$ Rep, Period $>$ d)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a944612c1e2f326456dbf58450730a9cd}\label{structinternal_1_1chrono__formatter_a944612c1e2f326456dbf58450730a9cd}} 
+bool {\bfseries handle\+\_\+nan\+\_\+inf} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a493a7da3effd57445d8f30a836dae62b}\label{structinternal_1_1chrono__formatter_a493a7da3effd57445d8f30a836dae62b}} 
+Rep {\bfseries hour} () const
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ac88e9a05d649c871711fa44e74d6f381}\label{structinternal_1_1chrono__formatter_ac88e9a05d649c871711fa44e74d6f381}} 
+Rep {\bfseries hour12} () const
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a3da339b84345f3387d7a3576fe9a947a}\label{structinternal_1_1chrono__formatter_a3da339b84345f3387d7a3576fe9a947a}} 
+Rep {\bfseries minute} () const
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a284556b16bf61863e1e09e37f605c9ba}\label{structinternal_1_1chrono__formatter_a284556b16bf61863e1e09e37f605c9ba}} 
+Rep {\bfseries second} () const
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a6db7bd9594c704d8820efe85e0efea3c}\label{structinternal_1_1chrono__formatter_a6db7bd9594c704d8820efe85e0efea3c}} 
+std\+::tm {\bfseries time} () const
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a90e6f92821c52c30ca912cc6ccc2e5ba}\label{structinternal_1_1chrono__formatter_a90e6f92821c52c30ca912cc6ccc2e5ba}} 
+void {\bfseries write\+\_\+sign} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ac794f6fadb1f9ca1db842f065b27e347}\label{structinternal_1_1chrono__formatter_ac794f6fadb1f9ca1db842f065b27e347}} 
+void {\bfseries write} (Rep \hyperlink{classinternal_1_1value}{value}, int width)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a53c32b87fb16b7f0d5431b6bbd4f8133}\label{structinternal_1_1chrono__formatter_a53c32b87fb16b7f0d5431b6bbd4f8133}} 
+void {\bfseries write\+\_\+nan} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a0b5a1c8606fc46eef627fb1f5068a6ab}\label{structinternal_1_1chrono__formatter_a0b5a1c8606fc46eef627fb1f5068a6ab}} 
+void {\bfseries write\+\_\+pinf} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a87f67d63e1191923387de7cb3a2b8da9}\label{structinternal_1_1chrono__formatter_a87f67d63e1191923387de7cb3a2b8da9}} 
+void {\bfseries write\+\_\+ninf} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a8f71a707d3945556dace9e1d3d74bc1d}\label{structinternal_1_1chrono__formatter_a8f71a707d3945556dace9e1d3d74bc1d}} 
+void {\bfseries format\+\_\+localized} (const tm \&time, const char $\ast$format)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_abba76d8a6a28c064a6d68b941901f174}\label{structinternal_1_1chrono__formatter_abba76d8a6a28c064a6d68b941901f174}} 
+void {\bfseries on\+\_\+text} (const char\+\_\+type $\ast$begin, const char\+\_\+type $\ast$end)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_aaed60a2f6f5b3f9adf2fb96dbe5aa892}\label{structinternal_1_1chrono__formatter_aaed60a2f6f5b3f9adf2fb96dbe5aa892}} 
+void {\bfseries on\+\_\+abbr\+\_\+weekday} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a98d3ab2ed7b03a57fea663e823893275}\label{structinternal_1_1chrono__formatter_a98d3ab2ed7b03a57fea663e823893275}} 
+void {\bfseries on\+\_\+full\+\_\+weekday} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_af676eef777c4660b0e52871fbb6b22ce}\label{structinternal_1_1chrono__formatter_af676eef777c4660b0e52871fbb6b22ce}} 
+void {\bfseries on\+\_\+dec0\+\_\+weekday} (numeric\+\_\+system)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a4b79d5263e285b9b490b55dbf6c326b3}\label{structinternal_1_1chrono__formatter_a4b79d5263e285b9b490b55dbf6c326b3}} 
+void {\bfseries on\+\_\+dec1\+\_\+weekday} (numeric\+\_\+system)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ac38a1ba3aeeb629c046c5dbc0bc49e0e}\label{structinternal_1_1chrono__formatter_ac38a1ba3aeeb629c046c5dbc0bc49e0e}} 
+void {\bfseries on\+\_\+abbr\+\_\+month} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a97a50945ba209b1d314866dfd07df23a}\label{structinternal_1_1chrono__formatter_a97a50945ba209b1d314866dfd07df23a}} 
+void {\bfseries on\+\_\+full\+\_\+month} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a0fa8f6743655989d24b1ecfb24a0242c}\label{structinternal_1_1chrono__formatter_a0fa8f6743655989d24b1ecfb24a0242c}} 
+void {\bfseries on\+\_\+datetime} (numeric\+\_\+system)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a1f1984edfda89a14f9db3bd0f1b724c0}\label{structinternal_1_1chrono__formatter_a1f1984edfda89a14f9db3bd0f1b724c0}} 
+void {\bfseries on\+\_\+loc\+\_\+date} (numeric\+\_\+system)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_abe92c0c304cf699b11e18c635a270121}\label{structinternal_1_1chrono__formatter_abe92c0c304cf699b11e18c635a270121}} 
+void {\bfseries on\+\_\+loc\+\_\+time} (numeric\+\_\+system)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a21a715964023e5affdfcbafd41617915}\label{structinternal_1_1chrono__formatter_a21a715964023e5affdfcbafd41617915}} 
+void {\bfseries on\+\_\+us\+\_\+date} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a35101fcd82a8b9ffef6927e3eae860c6}\label{structinternal_1_1chrono__formatter_a35101fcd82a8b9ffef6927e3eae860c6}} 
+void {\bfseries on\+\_\+iso\+\_\+date} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a814af1f55ba38dd4ff495b41ddfa07f8}\label{structinternal_1_1chrono__formatter_a814af1f55ba38dd4ff495b41ddfa07f8}} 
+void {\bfseries on\+\_\+utc\+\_\+offset} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a69745462c35a45ecb487c22d4cd90ad2}\label{structinternal_1_1chrono__formatter_a69745462c35a45ecb487c22d4cd90ad2}} 
+void {\bfseries on\+\_\+tz\+\_\+name} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a87660031e58a3805167e4319b05b2aef}\label{structinternal_1_1chrono__formatter_a87660031e58a3805167e4319b05b2aef}} 
+void {\bfseries on\+\_\+24\+\_\+hour} (numeric\+\_\+system ns)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a7fd2cc7a664e63aa577f62f548fe45f1}\label{structinternal_1_1chrono__formatter_a7fd2cc7a664e63aa577f62f548fe45f1}} 
+void {\bfseries on\+\_\+12\+\_\+hour} (numeric\+\_\+system ns)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a7a027568968a6d8358fccc1345f5c725}\label{structinternal_1_1chrono__formatter_a7a027568968a6d8358fccc1345f5c725}} 
+void {\bfseries on\+\_\+minute} (numeric\+\_\+system ns)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a749f6645acc8aed79b00cad12e7c913b}\label{structinternal_1_1chrono__formatter_a749f6645acc8aed79b00cad12e7c913b}} 
+void {\bfseries on\+\_\+second} (numeric\+\_\+system ns)
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a58481c3b24968dee0e2fb569e25eb7f7}\label{structinternal_1_1chrono__formatter_a58481c3b24968dee0e2fb569e25eb7f7}} 
+void {\bfseries on\+\_\+12\+\_\+hour\+\_\+time} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a10a4b3ed5d4c949c5322c3dd708f144b}\label{structinternal_1_1chrono__formatter_a10a4b3ed5d4c949c5322c3dd708f144b}} 
+void {\bfseries on\+\_\+24\+\_\+hour\+\_\+time} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_abfb1c828ba7da8bdf5cd255e97115a9c}\label{structinternal_1_1chrono__formatter_abfb1c828ba7da8bdf5cd255e97115a9c}} 
+void {\bfseries on\+\_\+iso\+\_\+time} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a1d5f87f734f21ec3f211f4d4cb9ae490}\label{structinternal_1_1chrono__formatter_a1d5f87f734f21ec3f211f4d4cb9ae490}} 
+void {\bfseries on\+\_\+am\+\_\+pm} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a01c9749fe3745f0f337c0fd38256a438}\label{structinternal_1_1chrono__formatter_a01c9749fe3745f0f337c0fd38256a438}} 
+void {\bfseries on\+\_\+duration\+\_\+value} ()
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a6017bb9c581bfd434b982011a5473703}\label{structinternal_1_1chrono__formatter_a6017bb9c581bfd434b982011a5473703}} 
+void {\bfseries on\+\_\+duration\+\_\+unit} ()
+\end{DoxyCompactItemize}
+\subsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ad80a2fffd1e8491f2abdad94dab346cd}\label{structinternal_1_1chrono__formatter_ad80a2fffd1e8491f2abdad94dab346cd}} 
+Format\+Context \& {\bfseries context}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ac906e02120e826534b1266ede2e09198}\label{structinternal_1_1chrono__formatter_ac906e02120e826534b1266ede2e09198}} 
+Output\+It {\bfseries out}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ab005c313cfaed2ea8b4b140819f59c9b}\label{structinternal_1_1chrono__formatter_ab005c313cfaed2ea8b4b140819f59c9b}} 
+int {\bfseries precision}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a397c0efe678abd21a2993bcb41019f31}\label{structinternal_1_1chrono__formatter_a397c0efe678abd21a2993bcb41019f31}} 
+rep {\bfseries val}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_ae3ef230affdecbe54a4d2cc48595b259}\label{structinternal_1_1chrono__formatter_ae3ef230affdecbe54a4d2cc48595b259}} 
+seconds {\bfseries s}
+\item 
+\mbox{\Hypertarget{structinternal_1_1chrono__formatter_a04a27f319fe9eeac0516053734fb4aeb}\label{structinternal_1_1chrono__formatter_a04a27f319fe9eeac0516053734fb4aeb}} 
+bool {\bfseries negative}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/chrono.\+h\end{DoxyCompactItemize}

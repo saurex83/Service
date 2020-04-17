@@ -1,0 +1,11 @@
+digraph "internal::truncating_iterator_base&lt; OutputIt &gt;"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="internal::truncating\l_iterator_base\< OutputIt \>",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="internal::truncating\l_iterator\< OutputIt,\l std::false_type \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classinternal_1_1truncating__iterator_3_01OutputIt_00_01std_1_1false__type_01_4.html"];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="internal::truncating\l_iterator\< OutputIt,\l std::true_type \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classinternal_1_1truncating__iterator_3_01OutputIt_00_01std_1_1true__type_01_4.html"];
+}

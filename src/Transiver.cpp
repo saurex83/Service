@@ -291,14 +291,23 @@ int Transiver::tx_frames(){
 };
 
 
-void Transiver::push_tx(Frame *frame){
+void Transiver::push_tx(Frame& frame){
 	unsigned char cmd[256];
-	unsigned char cmd_size = sizeof(meta) + 1 + frame->len + 1;
-
+	unsigned char cmd_size = frame.meta.size() + 1 + frame.size() + 1;
 	cmd[0] = 0x0B;
-	memcpy(&cmd[1], &frame->meta, sizeof(meta));
-	cmd[sizeof(meta) + 1] = frame->len;
-	memcpy(&cmd[sizeof(meta) + 2], frame->payload, frame->len);
+	
+	vector<unsigned char> meta_data;
+	frame.meta.convertRaw(meta_data);
+
+	// Копируем мету
+	memcpy(&cmd[1], &meta_data.front(), meta_data.size());
+	
+	// Устанавливаем размер полезной нагрузки
+	cmd[meta_data.size() + 1] = frame.size();
+
+	// Копируем полезнцю нагрузку
+	memcpy(&cmd[meta_data.size() + 2], &frame.payload.front(), frame.size());
+
 	int read_bytes = send_cmd(cmd, cmd_size);
 	
 	if (read_bytes != 4){
@@ -309,7 +318,7 @@ void Transiver::push_tx(Frame *frame){
 	SPDLOG_TRACE("CMD 0x0B. Frame pushed in TX buffer");
 };
 
-unsigned int Transiver::pop_rx(unsigned char *frame){
+void Transiver::pop_rx(Frame& frame){
 	unsigned char cmd;
 	cmd = 0x0C;
 

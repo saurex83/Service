@@ -1,0 +1,50 @@
+\hypertarget{classformat__arg__store}{}\section{Шаблон класса format\+\_\+arg\+\_\+store$<$ Context, Args $>$}
+\label{classformat__arg__store}\index{format\+\_\+arg\+\_\+store$<$ Context, Args $>$@{format\+\_\+arg\+\_\+store$<$ Context, Args $>$}}
+
+
+{\ttfamily \#include $<$core.\+h$>$}
+
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classformat__arg__store_a785430d11d4e8e5dcd9f231e7d69695e}\label{classformat__arg__store_a785430d11d4e8e5dcd9f231e7d69695e}} 
+{\bfseries format\+\_\+arg\+\_\+store} (const Args \&... args)
+\end{DoxyCompactItemize}
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr unsigned long long {\bfseries types}
+\end{DoxyCompactItemize}
+\subsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classformat__arg__store_ab8e9e33cc7b78829001a86ef6110ebb6}\label{classformat__arg__store_ab8e9e33cc7b78829001a86ef6110ebb6}} 
+class {\bfseries basic\+\_\+format\+\_\+args$<$ Context $>$}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$typename Context, typename... Args$>$\newline
+class format\+\_\+arg\+\_\+store$<$ Context, Args $>$}
+
+An array of references to arguments. It can be implicitly converted into {\ttfamily $\sim$fmt\hyperlink{classbasic__format__args}{basic\+\_\+format\+\_\+args}} for passing into type-\/erased formatting functions such as {\ttfamily $\sim$fmt\+::vformat}.  
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{classformat__arg__store_aa68b8300886c4203a390ded3ad056254}\label{classformat__arg__store_aa68b8300886c4203a390ded3ad056254}} 
+\index{format\+\_\+arg\+\_\+store@{format\+\_\+arg\+\_\+store}!types@{types}}
+\index{types@{types}!format\+\_\+arg\+\_\+store@{format\+\_\+arg\+\_\+store}}
+\subsubsection{\texorpdfstring{types}{types}}
+{\footnotesize\ttfamily template$<$typename Context, typename... Args$>$ \\
+constexpr unsigned long long \hyperlink{classformat__arg__store}{format\+\_\+arg\+\_\+store}$<$ Context, Args $>$\+::types\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+=
+      is\_packed ? internal::encode\_types<Context, Args...>()
+                : internal::is\_unpacked\_bit | num\_args
+\end{DoxyCode}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/core.\+h\end{DoxyCompactItemize}

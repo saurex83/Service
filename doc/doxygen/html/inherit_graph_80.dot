@@ -1,0 +1,7 @@
+digraph "Иерархия классов. Графический вид."
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="internal::char_t_impl\l\< S, enable_if_t\< is\l_string\< S \>::value \> \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structinternal_1_1char__t__impl_3_01S_00_01enable__if__t_3_01is__string_3_01S_01_4_1_1value_01_4_01_4.html"];
+}

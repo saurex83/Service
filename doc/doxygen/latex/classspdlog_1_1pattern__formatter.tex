@@ -1,0 +1,52 @@
+\hypertarget{classspdlog_1_1pattern__formatter}{}\section{Класс spdlog\+:\+:pattern\+\_\+formatter}
+\label{classspdlog_1_1pattern__formatter}\index{spdlog\+::pattern\+\_\+formatter@{spdlog\+::pattern\+\_\+formatter}}
+
+
+Граф наследования\+:spdlog\+:\+:pattern\+\_\+formatter\+:
+% FIG 0
+
+
+Граф связей класса spdlog\+:\+:pattern\+\_\+formatter\+:
+% FIG 1
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_ad6f7b25d7726347988c46fcf65b19bf9}\label{classspdlog_1_1pattern__formatter_ad6f7b25d7726347988c46fcf65b19bf9}} 
+using {\bfseries custom\+\_\+flags} = std\+::unordered\+\_\+map$<$ char, std\+::unique\+\_\+ptr$<$ \hyperlink{classspdlog_1_1custom__flag__formatter}{custom\+\_\+flag\+\_\+formatter} $>$ $>$
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_ae3bf5dc1c1e9556fcf97ad1ec1fa3dab}\label{classspdlog_1_1pattern__formatter_ae3bf5dc1c1e9556fcf97ad1ec1fa3dab}} 
+{\bfseries pattern\+\_\+formatter} (std\+::string pattern, pattern\+\_\+time\+\_\+type time\+\_\+type=pattern\+\_\+time\+\_\+type\+::local, std\+::string eol=spdlog\+::details\+::os\+::default\+\_\+eol, custom\+\_\+flags custom\+\_\+user\+\_\+flags=\{\})
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_a16b28756d44154881d51db40746b6e4e}\label{classspdlog_1_1pattern__formatter_a16b28756d44154881d51db40746b6e4e}} 
+{\bfseries pattern\+\_\+formatter} (pattern\+\_\+time\+\_\+type time\+\_\+type=pattern\+\_\+time\+\_\+type\+::local, std\+::string eol=spdlog\+::details\+::os\+::default\+\_\+eol)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_a3c7051314c9422b667e254cb27d81b80}\label{classspdlog_1_1pattern__formatter_a3c7051314c9422b667e254cb27d81b80}} 
+{\bfseries pattern\+\_\+formatter} (const \hyperlink{classspdlog_1_1pattern__formatter}{pattern\+\_\+formatter} \&other)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_a868ba15a181c7a407780aaa84902de31}\label{classspdlog_1_1pattern__formatter_a868ba15a181c7a407780aaa84902de31}} 
+\hyperlink{classspdlog_1_1pattern__formatter}{pattern\+\_\+formatter} \& {\bfseries operator=} (const \hyperlink{classspdlog_1_1pattern__formatter}{pattern\+\_\+formatter} \&other)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_aeb24b06fbf11bb3872c8fa82382350a8}\label{classspdlog_1_1pattern__formatter_aeb24b06fbf11bb3872c8fa82382350a8}} 
+std\+::unique\+\_\+ptr$<$ \hyperlink{classspdlog_1_1formatter}{formatter} $>$ {\bfseries clone} () const override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_af7468a5fffcc75c4d449343d7788b5dd}\label{classspdlog_1_1pattern__formatter_af7468a5fffcc75c4d449343d7788b5dd}} 
+void {\bfseries format} (const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg, memory\+\_\+buf\+\_\+t \&dest) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_ae7b5e725b44ccdc6c7d87089b2628131}\label{classspdlog_1_1pattern__formatter_ae7b5e725b44ccdc6c7d87089b2628131}} 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\\hyperlink{classspdlog_1_1pattern__formatter}{pattern\+\_\+formatter} \& {\bfseries add\+\_\+flag} (char flag, const Args \&... args)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_a374b378153d64904c26affa5741b24b2}\label{classspdlog_1_1pattern__formatter_a374b378153d64904c26affa5741b24b2}} 
+void {\bfseries set\+\_\+pattern} (std\+::string pattern)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1pattern__formatter_a9d2a0b143720da0d1ead8a93eacd56f0}\label{classspdlog_1_1pattern__formatter_a9d2a0b143720da0d1ead8a93eacd56f0}} 
+{\footnotesize template$<$typename Padder $>$ }\\S\+P\+D\+L\+O\+G\+\_\+\+I\+N\+L\+I\+NE void {\bfseries handle\+\_\+flag\+\_\+} (char flag, \hyperlink{structspdlog_1_1details_1_1padding__info}{details\+::padding\+\_\+info} padding)
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/pattern\+\_\+formatter.\+h\item 
+inc/spdlog/pattern\+\_\+formatter-\/inl.\+h\end{DoxyCompactItemize}

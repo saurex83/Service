@@ -1,0 +1,41 @@
+\hypertarget{classspdlog_1_1details_1_1thread__pool}{}\section{Класс spdlog\+:\+:details\+:\+:thread\+\_\+pool}
+\label{classspdlog_1_1details_1_1thread__pool}\index{spdlog\+::details\+::thread\+\_\+pool@{spdlog\+::details\+::thread\+\_\+pool}}
+\subsection*{Открытые типы}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a997d954a51e8fa8aa92071d1a9c08536}\label{classspdlog_1_1details_1_1thread__pool_a997d954a51e8fa8aa92071d1a9c08536}} 
+using {\bfseries item\+\_\+type} = \hyperlink{structspdlog_1_1details_1_1async__msg}{async\+\_\+msg}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a77d633d56b0b5e1fe37965faa4642df5}\label{classspdlog_1_1details_1_1thread__pool_a77d633d56b0b5e1fe37965faa4642df5}} 
+using {\bfseries q\+\_\+type} = \hyperlink{classspdlog_1_1details_1_1mpmc__blocking__queue}{details\+::mpmc\+\_\+blocking\+\_\+queue}$<$ \hyperlink{structspdlog_1_1details_1_1async__msg}{item\+\_\+type} $>$
+\end{DoxyCompactItemize}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a4f45ddae2c3d077bb9ea3441895a5b9d}\label{classspdlog_1_1details_1_1thread__pool_a4f45ddae2c3d077bb9ea3441895a5b9d}} 
+{\bfseries thread\+\_\+pool} (size\+\_\+t q\+\_\+max\+\_\+items, size\+\_\+t threads\+\_\+n, std\+::function$<$ void()$>$ on\+\_\+thread\+\_\+start)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a1f49d7e178718170271c72da9e165053}\label{classspdlog_1_1details_1_1thread__pool_a1f49d7e178718170271c72da9e165053}} 
+{\bfseries thread\+\_\+pool} (size\+\_\+t q\+\_\+max\+\_\+items, size\+\_\+t threads\+\_\+n)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a5e8f86d40f81af1d22a21ee0368287b2}\label{classspdlog_1_1details_1_1thread__pool_a5e8f86d40f81af1d22a21ee0368287b2}} 
+{\bfseries thread\+\_\+pool} (const \hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool} \&)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a1a62f3ab1474d69cd1e25143664e856d}\label{classspdlog_1_1details_1_1thread__pool_a1a62f3ab1474d69cd1e25143664e856d}} 
+\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool} \& {\bfseries operator=} (\hyperlink{classspdlog_1_1details_1_1thread__pool}{thread\+\_\+pool} \&\&)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a4b05c446cb5f534a48252c01a3dd0a68}\label{classspdlog_1_1details_1_1thread__pool_a4b05c446cb5f534a48252c01a3dd0a68}} 
+void {\bfseries post\+\_\+log} (async\+\_\+logger\+\_\+ptr \&\&worker\+\_\+ptr, const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg, async\+\_\+overflow\+\_\+policy overflow\+\_\+policy)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a956aff0a28fa1e2dcd895cbfaf7d2044}\label{classspdlog_1_1details_1_1thread__pool_a956aff0a28fa1e2dcd895cbfaf7d2044}} 
+void {\bfseries post\+\_\+flush} (async\+\_\+logger\+\_\+ptr \&\&worker\+\_\+ptr, async\+\_\+overflow\+\_\+policy overflow\+\_\+policy)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1details_1_1thread__pool_a2b5a7b2160603f01d0d65ce23aa9a733}\label{classspdlog_1_1details_1_1thread__pool_a2b5a7b2160603f01d0d65ce23aa9a733}} 
+size\+\_\+t {\bfseries overrun\+\_\+counter} ()
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/details/thread\+\_\+pool.\+h\item 
+inc/spdlog/details/thread\+\_\+pool-\/inl.\+h\end{DoxyCompactItemize}

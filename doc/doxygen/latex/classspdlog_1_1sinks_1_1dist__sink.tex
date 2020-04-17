@@ -1,0 +1,60 @@
+\hypertarget{classspdlog_1_1sinks_1_1dist__sink}{}\section{Шаблон класса spdlog\+:\+:sinks\+:\+:dist\+\_\+sink$<$ Mutex $>$}
+\label{classspdlog_1_1sinks_1_1dist__sink}\index{spdlog\+::sinks\+::dist\+\_\+sink$<$ Mutex $>$@{spdlog\+::sinks\+::dist\+\_\+sink$<$ Mutex $>$}}
+
+
+Граф наследования\+:spdlog\+:\+:sinks\+:\+:dist\+\_\+sink$<$ Mutex $>$\+:
+% FIG 0
+
+
+Граф связей класса spdlog\+:\+:sinks\+:\+:dist\+\_\+sink$<$ Mutex $>$\+:
+% FIG 1
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a87c2a61eaad208239402383ad3bed705}\label{classspdlog_1_1sinks_1_1dist__sink_a87c2a61eaad208239402383ad3bed705}} 
+{\bfseries dist\+\_\+sink} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink} $>$$>$ sinks)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_afadef20aeb435c8b62b2efa2f0906de5}\label{classspdlog_1_1sinks_1_1dist__sink_afadef20aeb435c8b62b2efa2f0906de5}} 
+{\bfseries dist\+\_\+sink} (const \hyperlink{classspdlog_1_1sinks_1_1dist__sink}{dist\+\_\+sink} \&)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a6f91b5522c12fd448ca2fd7cb8fe0097}\label{classspdlog_1_1sinks_1_1dist__sink_a6f91b5522c12fd448ca2fd7cb8fe0097}} 
+\hyperlink{classspdlog_1_1sinks_1_1dist__sink}{dist\+\_\+sink} \& {\bfseries operator=} (const \hyperlink{classspdlog_1_1sinks_1_1dist__sink}{dist\+\_\+sink} \&)=delete
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_ae2250f59f23ecaf3214da6059198ad3c}\label{classspdlog_1_1sinks_1_1dist__sink_ae2250f59f23ecaf3214da6059198ad3c}} 
+void {\bfseries add\+\_\+sink} (std\+::shared\+\_\+ptr$<$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink} $>$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink})
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_ac1537fdc6225fd57cc819e1fb9c5f8c7}\label{classspdlog_1_1sinks_1_1dist__sink_ac1537fdc6225fd57cc819e1fb9c5f8c7}} 
+void {\bfseries remove\+\_\+sink} (std\+::shared\+\_\+ptr$<$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink} $>$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink})
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_aa0e154cef03e368fefaa7bc845d682a1}\label{classspdlog_1_1sinks_1_1dist__sink_aa0e154cef03e368fefaa7bc845d682a1}} 
+void {\bfseries set\+\_\+sinks} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink} $>$$>$ sinks)
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a26bb64a6c281f617252acbf5af107fa6}\label{classspdlog_1_1sinks_1_1dist__sink_a26bb64a6c281f617252acbf5af107fa6}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink} $>$ $>$ \& {\bfseries sinks} ()
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a516ef929a8cd73df2ead2e0086e04607}\label{classspdlog_1_1sinks_1_1dist__sink_a516ef929a8cd73df2ead2e0086e04607}} 
+void {\bfseries sink\+\_\+it\+\_\+} (const \hyperlink{structspdlog_1_1details_1_1log__msg}{details\+::log\+\_\+msg} \&msg) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a790a80f63276473cedbce99047adcab0}\label{classspdlog_1_1sinks_1_1dist__sink_a790a80f63276473cedbce99047adcab0}} 
+void {\bfseries flush\+\_\+} () override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a6f77a1e2f45ed85ee8ed554cf7442d4e}\label{classspdlog_1_1sinks_1_1dist__sink_a6f77a1e2f45ed85ee8ed554cf7442d4e}} 
+void {\bfseries set\+\_\+pattern\+\_\+} (const std\+::string \&pattern) override
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a5e83e285fcceaab7ee4c4736c2decef0}\label{classspdlog_1_1sinks_1_1dist__sink_a5e83e285fcceaab7ee4c4736c2decef0}} 
+void {\bfseries set\+\_\+formatter\+\_\+} (std\+::unique\+\_\+ptr$<$ \hyperlink{classspdlog_1_1formatter}{spdlog\+::formatter} $>$ sink\+\_\+formatter) override
+\end{DoxyCompactItemize}
+\subsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classspdlog_1_1sinks_1_1dist__sink_a3d9d8c330d7d6455f45db77d4e6977f4}\label{classspdlog_1_1sinks_1_1dist__sink_a3d9d8c330d7d6455f45db77d4e6977f4}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{classspdlog_1_1sinks_1_1sink}{sink} $>$ $>$ {\bfseries sinks\+\_\+}
+\end{DoxyCompactItemize}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/sinks/dist\+\_\+sink.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\hypertarget{classinternal_1_1is__tuple__like__}{}\section{Шаблон класса internal\+:\+:is\+\_\+tuple\+\_\+like\+\_\+$<$ T $>$}
+\label{classinternal_1_1is__tuple__like__}\index{internal\+::is\+\_\+tuple\+\_\+like\+\_\+$<$ T $>$@{internal\+::is\+\_\+tuple\+\_\+like\+\_\+$<$ T $>$}}
+
+
+tuple\+\_\+size and tuple\+\_\+element check.  
+
+
+
+
+{\ttfamily \#include $<$ranges.\+h$>$}
+
+\subsection*{Статические открытые данные}
+\begin{DoxyCompactItemize}
+\item 
+static F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const bool {\bfseries value}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$typename T$>$\newline
+class internal\+::is\+\_\+tuple\+\_\+like\+\_\+$<$ T $>$}
+
+tuple\+\_\+size and tuple\+\_\+element check. 
+
+\subsection{Данные класса}
+\mbox{\Hypertarget{classinternal_1_1is__tuple__like___a2d78d2520f310397d1bad082dc3e3fa0}\label{classinternal_1_1is__tuple__like___a2d78d2520f310397d1bad082dc3e3fa0}} 
+\index{internal\+::is\+\_\+tuple\+\_\+like\+\_\+@{internal\+::is\+\_\+tuple\+\_\+like\+\_\+}!value@{value}}
+\index{value@{value}!internal\+::is\+\_\+tuple\+\_\+like\+\_\+@{internal\+::is\+\_\+tuple\+\_\+like\+\_\+}}
+\subsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+F\+M\+T\+\_\+\+C\+O\+N\+S\+T\+E\+X\+P\+R\+\_\+\+D\+E\+CL const bool \hyperlink{classinternal_1_1is__tuple__like__}{internal\+::is\+\_\+tuple\+\_\+like\+\_\+}$<$ T $>$\+::\hyperlink{classinternal_1_1value}{value}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Инициализатор}
+\begin{DoxyCode}
+=
+      !std::is\_void<decltype(check<T>(\textcolor{keyword}{nullptr}))>::value
+\end{DoxyCode}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/fmt/bundled/ranges.\+h\end{DoxyCompactItemize}

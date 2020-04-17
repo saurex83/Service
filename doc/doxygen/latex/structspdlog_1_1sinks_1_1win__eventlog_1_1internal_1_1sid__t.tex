@@ -1,0 +1,53 @@
+\hypertarget{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t}{}\section{Структура spdlog\+:\+:sinks\+:\+:win\+\_\+eventlog\+:\+:internal\+:\+:sid\+\_\+t}
+\label{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t}\index{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t@{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t}}
+
+
+{\ttfamily \#include $<$win\+\_\+eventlog\+\_\+sink.\+h$>$}
+
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+S\+ID $\ast$ \hyperlink{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a1b5162419a2f0e134252610f06d00cd6}{as\+\_\+sid} () const
+\end{DoxyCompactItemize}
+\subsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t}{sid\+\_\+t} \hyperlink{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a3baa3e05ef65fdc703b47e702013505b}{duplicate\+\_\+sid} (P\+S\+ID psid)
+\item 
+static \hyperlink{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t}{sid\+\_\+t} \hyperlink{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_ad6c8ed4cae2d0aae1d20339c5d4cbf53}{get\+\_\+current\+\_\+user\+\_\+sid} ()
+\end{DoxyCompactItemize}
+\subsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a06d7af3607477dd79757dfa00bba815f}\label{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a06d7af3607477dd79757dfa00bba815f}} 
+std\+::vector$<$ char $>$ {\bfseries buffer\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Wrapper for security identifiers (S\+ID) on Windows 
+
+\subsection{Методы}
+\mbox{\Hypertarget{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a1b5162419a2f0e134252610f06d00cd6}\label{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a1b5162419a2f0e134252610f06d00cd6}} 
+\index{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t@{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t}!as\+\_\+sid@{as\+\_\+sid}}
+\index{as\+\_\+sid@{as\+\_\+sid}!spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t@{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t}}
+\subsubsection{\texorpdfstring{as\+\_\+sid()}{as\_sid()}}
+{\footnotesize\ttfamily S\+ID$\ast$ spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t\+::as\+\_\+sid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves pointer to the internal buffer contents as S\+I\+D$\ast$ \mbox{\Hypertarget{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a3baa3e05ef65fdc703b47e702013505b}\label{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_a3baa3e05ef65fdc703b47e702013505b}} 
+\index{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t@{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t}!duplicate\+\_\+sid@{duplicate\+\_\+sid}}
+\index{duplicate\+\_\+sid@{duplicate\+\_\+sid}!spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t@{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t}}
+\subsubsection{\texorpdfstring{duplicate\+\_\+sid()}{duplicate\_sid()}}
+{\footnotesize\ttfamily static \hyperlink{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t}{sid\+\_\+t} spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t\+::duplicate\+\_\+sid (\begin{DoxyParamCaption}\item[{P\+S\+ID}]{psid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+creates a wrapped S\+ID copy \mbox{\Hypertarget{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_ad6c8ed4cae2d0aae1d20339c5d4cbf53}\label{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t_ad6c8ed4cae2d0aae1d20339c5d4cbf53}} 
+\index{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t@{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t}!get\+\_\+current\+\_\+user\+\_\+sid@{get\+\_\+current\+\_\+user\+\_\+sid}}
+\index{get\+\_\+current\+\_\+user\+\_\+sid@{get\+\_\+current\+\_\+user\+\_\+sid}!spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t@{spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+user\+\_\+sid()}{get\_current\_user\_sid()}}
+{\footnotesize\ttfamily static \hyperlink{structspdlog_1_1sinks_1_1win__eventlog_1_1internal_1_1sid__t}{sid\+\_\+t} spdlog\+::sinks\+::win\+\_\+eventlog\+::internal\+::sid\+\_\+t\+::get\+\_\+current\+\_\+user\+\_\+sid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Get S\+ID for the current user 
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+inc/spdlog/sinks/win\+\_\+eventlog\+\_\+sink.\+h\end{DoxyCompactItemize}
