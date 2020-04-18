@@ -3,9 +3,9 @@
 #include "ServiceConfig.hpp"
 #include <iostream>
 #include "frame.hpp"
+#include "debug.hpp"
 
 TEST(Transiver, cmd_is_network_seed){
-	
 	Transiver::network_seed(true);
 	bool seed = Transiver::is_network_seed();
 
@@ -20,6 +20,22 @@ TEST(Transiver, rx_frames){
 	int rx = Transiver::rx_frames();
 	ASSERT_EQ(rx , 0);
 }
+
+TEST(Transiver, read_erergy){
+	Transiver::network_seed(true);
+	vector<signed char> energy;	
+	Transiver::read_energy(energy);
+	
+	vector<signed char> tst_energy;
+	for (int i = 0; i < 18; i++)
+		tst_energy.push_back(-127);
+
+	for ( signed char it : energy)
+		cout<< signed(it) <<" ";
+	cout << endl;
+
+	ASSERT_EQ(energy == tst_energy, true);	
+};
 
 TEST(Transiver, tx_frames){
 	Transiver::network_seed(true);
@@ -55,13 +71,15 @@ TEST(Transiver, cmd_set_rtc){
 
 TEST(Transiver, cmd_load_streem_iv){
 	Transiver::network_seed(false);
-	unsigned char iv[16] = {10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26};
+	vector<unsigned char> iv =
+   		{10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26};
 	Transiver::load_streem_iv(iv);
 }
 
 TEST(Transiver, cmd_load_streem_key){
 	Transiver::network_seed(false);
-	unsigned char key[16] = {10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26};
+	vector<unsigned char> key =
+   		{10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26};
 	Transiver::load_streem_key(key);
 }
 

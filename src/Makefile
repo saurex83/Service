@@ -545,6 +545,36 @@ meta.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/meta.cpp.s
 .PHONY : meta.cpp.s
 
+neocore_stack.o: neocore_stack.cpp.o
+
+.PHONY : neocore_stack.o
+
+# target to build an object file
+neocore_stack.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/neocore_stack.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o
+.PHONY : neocore_stack.cpp.o
+
+neocore_stack.i: neocore_stack.cpp.i
+
+.PHONY : neocore_stack.i
+
+# target to preprocess a source file
+neocore_stack.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/neocore_stack.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.i
+.PHONY : neocore_stack.cpp.i
+
+neocore_stack.s: neocore_stack.cpp.s
+
+.PHONY : neocore_stack.s
+
+# target to generate assembly for a file
+neocore_stack.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/neocore_stack.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.s
+.PHONY : neocore_stack.cpp.s
+
 sysconfig.o: sysconfig.cpp.o
 
 .PHONY : sysconfig.o
@@ -655,6 +685,9 @@ help:
 	@echo "... meta.o"
 	@echo "... meta.i"
 	@echo "... meta.s"
+	@echo "... neocore_stack.o"
+	@echo "... neocore_stack.i"
+	@echo "... neocore_stack.s"
 	@echo "... sysconfig.o"
 	@echo "... sysconfig.i"
 	@echo "... sysconfig.s"

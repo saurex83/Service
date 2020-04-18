@@ -15,8 +15,10 @@ iostream
 -
 string
 -
-blocking_reader.hpp
-/home/saurex83/Projects/Neocore/Service/src/blocking_reader.hpp
+boost/asio/serial_port.hpp
+-
+boost/bind.hpp
+-
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
 
@@ -113,6 +115,8 @@ database.hpp
 /home/saurex83/Projects/Neocore/Service/src/database.hpp
 valuechecker.hpp
 /home/saurex83/Projects/Neocore/Service/src/valuechecker.hpp
+neocore_stack.hpp
+/home/saurex83/Projects/Neocore/Service/src/neocore_stack.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/httpserver.cpp
 httpserver.hpp
@@ -186,6 +190,10 @@ stdexcept
 cstring
 -
 
+/home/saurex83/Projects/Neocore/Service/src/neocore_stack.cpp
+neocore_stack.hpp
+/home/saurex83/Projects/Neocore/Service/src/neocore_stack.hpp
+
 /home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp
 debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
@@ -225,6 +233,8 @@ pg_config_ext.h
 inc/SerialCom.hpp
 boost/asio.hpp
 inc/boost/asio.hpp
+vector
+-
 
 inc/ServiceConfig.hpp
 string
@@ -258,12 +268,6 @@ Poco/Dynamic/Var.h
 Poco/Exception.h
 -
 mutex
--
-
-inc/blocking_reader.hpp
-boost/asio/serial_port.hpp
--
-boost/bind.hpp
 -
 
 inc/database.hpp
@@ -419,6 +423,14 @@ string
 -
 vector
 -
+
+inc/neocore_stack.hpp
+vector
+-
+debug.hpp
+-
+frame.hpp
+inc/frame.hpp
 
 inc/spdlog/cfg/log_levels.h
 spdlog/common.h

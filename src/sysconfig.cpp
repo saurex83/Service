@@ -29,7 +29,7 @@ void sysConfig(){
 //******************************************************************	
 // Инициализация трансивера
 //******************************************************************	
-	SerialCom& com = SerialCom::getInstance();
+	comm::connect();
 	SPDLOG_INFO("SerialCom open port");
 
 	Transiver::network_seed(false);	

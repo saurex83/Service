@@ -1,5 +1,14 @@
 \hypertarget{classGWThread}{}\section{Класс G\+W\+Thread}
 \label{classGWThread}\index{G\+W\+Thread@{G\+W\+Thread}}
+
+
+Поток шлюза  
+
+
+
+
+{\ttfamily \#include $<$gwthread.\+hpp$>$}
+
 \subsection*{Открытые члены}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,15 +24,37 @@ void {\bfseries stop} ()
 \mbox{\Hypertarget{classGWThread_ae579300486967f67e1539d29af919056}\label{classGWThread_ae579300486967f67e1539d29af919056}} 
 bool {\bfseries is\+Runnig} ()
 \item 
-\mbox{\Hypertarget{classGWThread_a29349a2536b59b5725d847394103d081}\label{classGWThread_a29349a2536b59b5725d847394103d081}} 
-void {\bfseries add\+G\+W\+Task} (\hyperlink{classGWTask}{G\+W\+Task} \&task)
-\end{DoxyCompactItemize}
+void \hyperlink{classGWThread_a29349a2536b59b5725d847394103d081}{add\+G\+W\+Task} (\hyperlink{classGWTask}{G\+W\+Task} \&task)
+\begin{DoxyCompactList}\small\item\em Добавляет задачу потока \hyperlink{classGWThread}{G\+W\+Thread}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Открытые атрибуты}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classGWThread_a1d7e6882391aa132c708cd1b178bfb82}\label{classGWThread_a1d7e6882391aa132c708cd1b178bfb82}} 
 std\+::string {\bfseries thread\+\_\+error}
 \end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Поток шлюза 
+
+Занимается комуникацией с трансивером и реализует протокол neocore 
+
+\subsection{Методы}
+\mbox{\Hypertarget{classGWThread_a29349a2536b59b5725d847394103d081}\label{classGWThread_a29349a2536b59b5725d847394103d081}} 
+\index{G\+W\+Thread@{G\+W\+Thread}!add\+G\+W\+Task@{add\+G\+W\+Task}}
+\index{add\+G\+W\+Task@{add\+G\+W\+Task}!G\+W\+Thread@{G\+W\+Thread}}
+\subsubsection{\texorpdfstring{add\+G\+W\+Task()}{addGWTask()}}
+{\footnotesize\ttfamily void G\+W\+Thread\+::add\+G\+W\+Task (\begin{DoxyParamCaption}\item[{\hyperlink{classGWTask}{G\+W\+Task} \&}]{task }\end{DoxyParamCaption})}
+
+
+
+Добавляет задачу потока \hyperlink{classGWThread}{G\+W\+Thread}. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em task} & указатель на задачу \\
+\hline
+\end{DoxyParams}
 
 
 Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}

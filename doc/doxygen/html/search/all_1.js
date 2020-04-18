@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['blocking_5freader',['blocking_reader',['../classblocking__reader.html',1,'']]]
+  ['blocking_5freader',['blocking_reader',['../classcomm_1_1blocking__reader.html',1,'comm']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['parseraw',['parseRaw',['../classMeta.html#a75ca6d184c5d5af3148f7657ba6671e4',1,'Meta']]]
+  ['addgwtask',['addGWTask',['../classGWThread.html#a29349a2536b59b5725d847394103d081',1,'GWThread']]],
+  ['addheader',['addHeader',['../classFrame.html#ae845a5e715edc77627ca09a68ec02b81',1,'Frame']]]
 ];

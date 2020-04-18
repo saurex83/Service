@@ -13,6 +13,11 @@ class GWTask{
 		bool registrated;
 };
 
+/**
+ * @brief Поток шлюза
+ *
+ * Занимается комуникацией с трансивером и реализует протокол neocore
+ */
 class GWThread{
 	public:
 		GWThread(AgrThread* agr);
@@ -39,6 +44,7 @@ class GWThread{
 		void clearPools();
 		void serveRXPool();
 		void serveTXPool();
+		void energyScan();
 	
 		std::vector<Frame> tx_pool;
 		std::vector<Frame> rx_pool;

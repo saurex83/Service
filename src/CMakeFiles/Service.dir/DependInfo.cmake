@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/saurex83/Projects/Neocore/Service/src/license.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service.dir/license.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/main.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service.dir/main.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/meta.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service.dir/meta.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/src/neocore_stack.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service.dir/neocore_stack.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service.dir/sysconfig.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/valuechecker.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service.dir/valuechecker.cpp.o"
   )

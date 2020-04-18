@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['requesthandlerfactory',['RequestHandlerFactory',['../classRequestHandlerFactory.html',1,'']]]
+  ['serviceconfig',['ServiceConfig',['../classServiceConfig.html',1,'']]]
 ];

@@ -7,27 +7,101 @@
 \subsection*{Открытые члены}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFrame_aa3f98757207f815181e9042e0cd8d1ee}\label{classFrame_aa3f98757207f815181e9042e0cd8d1ee}} 
-void {\bfseries add\+Header} (unsigned char $\ast$head, char len)
-\item 
-\mbox{\Hypertarget{classFrame_ab5ea62775d91f4e653fcd52952fa1d3e}\label{classFrame_ab5ea62775d91f4e653fcd52952fa1d3e}} 
-void {\bfseries parse\+Raw\+Data} (vector$<$ unsigned char $>$ \&raw)
-\item 
-\mbox{\Hypertarget{classFrame_a802d4c73bb22cb7185fdcd83e69efcb7}\label{classFrame_a802d4c73bb22cb7185fdcd83e69efcb7}} 
-void {\bfseries del\+Header} (char len)
-\end{DoxyCompactItemize}
+void \hyperlink{classFrame_ae845a5e715edc77627ca09a68ec02b81}{add\+Header} (vector$<$ unsigned char $>$ \&head)
+\begin{DoxyCompactList}\small\item\em Добавить заголовок \end{DoxyCompactList}\item 
+void \hyperlink{classFrame_a47a5ecad8d5d88037796906e0e515c7f}{parse\+Raw} (vector$<$ unsigned char $>$ \&raw)
+\begin{DoxyCompactList}\small\item\em Разбирает сырые данные \end{DoxyCompactList}\item 
+void \hyperlink{classFrame_aa8b25be717e5d4879629b2c19afc4c8d}{convert\+Raw} (vector$<$ unsigned char $>$ \&raw)
+\begin{DoxyCompactList}\small\item\em Преобразует кадр в вектор байт \end{DoxyCompactList}\item 
+void \hyperlink{classFrame_a5a966008fbd55ba69ef8cff07ca39bf4}{del\+Header} (size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Удаление начала заголовка \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{classFrame_a451c2d259d060e8d0467378cc8eaa640}{size} ()
+\begin{DoxyCompactList}\small\item\em Размер полезной нагрузки \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Открытые атрибуты}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFrame_a42d43d986443fd544d0d9517cfcdcb6a}\label{classFrame_a42d43d986443fd544d0d9517cfcdcb6a}} 
-struct \hyperlink{structmeta}{meta} {\bfseries meta}
-\item 
-\mbox{\Hypertarget{classFrame_a9fd98c626bbb063a4895fcdb76dfc3e7}\label{classFrame_a9fd98c626bbb063a4895fcdb76dfc3e7}} 
-unsigned char {\bfseries len}
+\mbox{\Hypertarget{classFrame_a23708d5954409d03046a364f82363abf}\label{classFrame_a23708d5954409d03046a364f82363abf}} 
+\hyperlink{classMeta}{Meta} {\bfseries meta}
 \item 
 \mbox{\Hypertarget{classFrame_aa21300efdb7e1dfff11153c39cda931c}\label{classFrame_aa21300efdb7e1dfff11153c39cda931c}} 
 vector$<$ unsigned char $>$ {\bfseries payload}
 \end{DoxyCompactItemize}
+
+
+\subsection{Методы}
+\mbox{\Hypertarget{classFrame_ae845a5e715edc77627ca09a68ec02b81}\label{classFrame_ae845a5e715edc77627ca09a68ec02b81}} 
+\index{Frame@{Frame}!add\+Header@{add\+Header}}
+\index{add\+Header@{add\+Header}!Frame@{Frame}}
+\subsubsection{\texorpdfstring{add\+Header()}{addHeader()}}
+{\footnotesize\ttfamily void Frame\+::add\+Header (\begin{DoxyParamCaption}\item[{vector$<$ unsigned char $>$ \&}]{head }\end{DoxyParamCaption})}
+
+
+
+Добавить заголовок 
+
+Заголовок вставляется перед в начало существующих данных. Если размер превышет максимальный, то будет выбрашено исключение runtime\+\_\+error 
+\begin{DoxyParams}{Аргументы}
+{\em head} & указатель на вставляемые данные \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFrame_aa8b25be717e5d4879629b2c19afc4c8d}\label{classFrame_aa8b25be717e5d4879629b2c19afc4c8d}} 
+\index{Frame@{Frame}!convert\+Raw@{convert\+Raw}}
+\index{convert\+Raw@{convert\+Raw}!Frame@{Frame}}
+\subsubsection{\texorpdfstring{convert\+Raw()}{convertRaw()}}
+{\footnotesize\ttfamily void Frame\+::convert\+Raw (\begin{DoxyParamCaption}\item[{vector$<$ unsigned char $>$ \&}]{raw }\end{DoxyParamCaption})}
+
+
+
+Преобразует кадр в вектор байт 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em raw} & указатель на вектор байт \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFrame_a5a966008fbd55ba69ef8cff07ca39bf4}\label{classFrame_a5a966008fbd55ba69ef8cff07ca39bf4}} 
+\index{Frame@{Frame}!del\+Header@{del\+Header}}
+\index{del\+Header@{del\+Header}!Frame@{Frame}}
+\subsubsection{\texorpdfstring{del\+Header()}{delHeader()}}
+{\footnotesize\ttfamily void Frame\+::del\+Header (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Удаление начала заголовка 
+
+Удаляет данные с начала заголовка. Если размер удаляемых данных превышает размер заголовка, то будет выброшенно исключение runtime\+\_\+error 
+\begin{DoxyParams}{Аргументы}
+{\em len} & размер удаляемых данных \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFrame_a47a5ecad8d5d88037796906e0e515c7f}\label{classFrame_a47a5ecad8d5d88037796906e0e515c7f}} 
+\index{Frame@{Frame}!parse\+Raw@{parse\+Raw}}
+\index{parse\+Raw@{parse\+Raw}!Frame@{Frame}}
+\subsubsection{\texorpdfstring{parse\+Raw()}{parseRaw()}}
+{\footnotesize\ttfamily void Frame\+::parse\+Raw (\begin{DoxyParamCaption}\item[{vector$<$ unsigned char $>$ \&}]{raw }\end{DoxyParamCaption})}
+
+
+
+Разбирает сырые данные 
+
+Сырые данные состоят из метаданных, байта длинны и полезной нагрузки. 
+\begin{DoxyParams}{Аргументы}
+{\em raw} & указатель на сырые данные \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFrame_a451c2d259d060e8d0467378cc8eaa640}\label{classFrame_a451c2d259d060e8d0467378cc8eaa640}} 
+\index{Frame@{Frame}!size@{size}}
+\index{size@{size}!Frame@{Frame}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Frame\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Размер полезной нагрузки 
+
+\begin{DoxyReturn}{Возвращает}
+размер в байтах 
+\end{DoxyReturn}
 
 
 Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}

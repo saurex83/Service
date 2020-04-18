@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['end',['end',['../classbasic__format__parse__context.html#a02391d628854caf8c3416f21dec43b46',1,'basic_format_parse_context']]]
+  ['size',['size',['../classFrame.html#a451c2d259d060e8d0467378cc8eaa640',1,'Frame']]]
 ];

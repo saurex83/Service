@@ -68,6 +68,11 @@ $(function() {
 <div class="title">Класс GWThread</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Поток шлюза  
+ <a href="classGWThread.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="gwthread_8hpp_source.html">gwthread.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
@@ -83,8 +88,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
 <tr class="memitem:ae579300486967f67e1539d29af919056"><td class="memItemLeft" align="right" valign="top"><a id="ae579300486967f67e1539d29af919056"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRunnig</b> ()</td></tr>
 <tr class="separator:ae579300486967f67e1539d29af919056"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29349a2536b59b5725d847394103d081"><td class="memItemLeft" align="right" valign="top"><a id="a29349a2536b59b5725d847394103d081"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addGWTask</b> (<a class="el" href="classGWTask.html">GWTask</a> &amp;task)</td></tr>
+<tr class="memitem:a29349a2536b59b5725d847394103d081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGWThread.html#a29349a2536b59b5725d847394103d081">addGWTask</a> (<a class="el" href="classGWTask.html">GWTask</a> &amp;task)</td></tr>
+<tr class="memdesc:a29349a2536b59b5725d847394103d081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет задачу потока <a class="el" href="classGWThread.html" title="Поток шлюза ">GWThread</a>.  <a href="#a29349a2536b59b5725d847394103d081">Подробнее...</a><br /></td></tr>
 <tr class="separator:a29349a2536b59b5725d847394103d081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -93,6 +98,36 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addGWTask</b> (<a cla
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>thread_error</b></td></tr>
 <tr class="separator:a1d7e6882391aa132c708cd1b178bfb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Поток шлюза </p>
+<p>Занимается комуникацией с трансивером и реализует протокол neocore </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a29349a2536b59b5725d847394103d081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29349a2536b59b5725d847394103d081">&#9670;&nbsp;</a></span>addGWTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GWThread::addGWTask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGWTask.html">GWTask</a> &amp;&#160;</td>
+          <td class="paramname"><em>task</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Добавляет задачу потока <a class="el" href="classGWThread.html" title="Поток шлюза ">GWThread</a>. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>указатель на задачу </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>inc/<a class="el" href="gwthread_8hpp_source.html">gwthread.hpp</a></li>
 <li>src/gwthread.cpp</li>

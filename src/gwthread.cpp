@@ -6,6 +6,7 @@
 #include "Transiver.hpp"
 #include "database.hpp"
 #include "valuechecker.hpp"
+#include "neocore_stack.hpp"
 
 using namespace Transiver;
 
@@ -63,7 +64,9 @@ void GWThread::stop(){
 void GWThread::gatewayThread(){
 	this->threadStarted = true;
 	SPDLOG_INFO("Gateway thread started");
-	
+
+	neocore::init(&tx_pool, &rx_pool);	
+
 	try{
 		transiverInit();
 	} CATCH_THREAD_EXC("transiverInit");
@@ -146,8 +149,8 @@ void GWThread::transiverInit(){
 
 	// Теперь инициализируем передатчик
 	set_panid(pan_id);
-	load_streem_iv(&stream_iv.front());
-	load_streem_key(&stream_key.front());
+	load_streem_iv(stream_iv);
+	load_streem_key(stream_key);
 	//set_rtc(..)
 	
 	clearPools();
@@ -181,6 +184,11 @@ void GWThread::transiverDeInit(){
 	clearPools();
 }
 
+/**
+ * @brief Добавляет задачу потока GWThread
+ * 
+ * @param task указатель на задачу
+ */
 void GWThread::addGWTask(GWTask& task){
 	this->mutexTask.lock();
 	this->taskPool.push_back(task);
@@ -193,28 +201,102 @@ void GWThread::clearPools(){
 };
 
 
+/**
+ * @brief Сбор принятых пакетов трансивером
+ *
+ * За один раз забирается ограниченное количество пакетов
+ */
 void GWThread::serveRXPool(){
+	#define MAX_RX_FRAME 5
 	int rx_cnt = rx_frames();
 	if (!rx_cnt)
 		return;
 	// Ограничем количество забираемых пакетов за 1 раз
-	if (rx_cnt > 5) 
-		rx_cnt = 5;
+	if (rx_cnt > MAX_RX_FRAME) 
+		rx_cnt = MAX_RX_FRAME;
 
 	Frame frame;
 	while (rx_cnt > 0 ){
-//		pop_rx(frame);
+		boost::this_thread::sleep_for(boost::chrono::milliseconds(10));
+		pop_rx(frame);
 		rx_pool.push_back(frame);
 		rx_cnt--;
 	};
 };
 
+/**
+ * @brief Выбирает пакеты из очереди tx_pool и передает из трансиверу.
+ *
+ * Перед отправкой пакета трансиверу, производится проверка количества
+ * пакетов, содержащихся в очереди.
+ */
 void GWThread::serveTXPool(){
+	#define MAX_TX_FRAME 5 
+	int tx_cnt = tx_frames();
+	if (tx_cnt > MAX_TX_FRAME)
+		return;
+
+	
+	// Заботимся о том что бы кол-во пакетов не превышало 5
+	int cnt_for_send = MAX_TX_FRAME - tx_cnt;
+	for (Frame fr : tx_pool){
+		boost::this_thread::sleep_for(boost::chrono::milliseconds(10));
+		push_tx(fr);
+		cnt_for_send--;
+		if (!cnt_for_send)
+			return;
+	}
+
 };
 
+/**
+ * @brief Считывает значения энергий по каналам из трансивера
+ *
+ * Значения сохраняет в базу данных. Период чтения фиксирован
+ */
+void GWThread::energyScan(){
+	#define ENERGY_SCAN_INTERVAL (duration<double>)30
+	using namespace boost::chrono;
+	static system_clock::time_point last_pool = system_clock::now();
+	
+	// Проверяем интервал
+	duration<double> sec_dur = system_clock::now() - last_pool;
+	if (sec_dur < ENERGY_SCAN_INTERVAL)
+		return;
+
+	last_pool = system_clock::now();
+
+	vector<signed char> energy;	
+	Transiver::read_energy(energy);
+
+	// Проверим что все значения корректны
+	for (signed char it : energy)
+		if (it == -127)
+			return;
+
+	for (signed char it : energy)
+		cout << signed(it) << " ";
+	cout << endl;
+};
+
+/**
+ * @brief Главный процедура потока
+ *
+ * Она обеспечивает обмен данными с трансивером и функционирование протокола
+ */
 void GWThread::threadActions(){
-	boost::this_thread::sleep_for(boost::chrono::milliseconds(10000));
-	throw (std::runtime_error("This is test exception!! Not a problem!"));
+	serveRXPool();
+	serveTXPool();
+	neocore::process();
+	energyScan();
+	// energyScan() опрашивает трансивер.
+	// neocoreStack(tx_pool, rx_pool); Разбор пакетов
+	// dataCollection() - сбор данных. нет зависимостей
+	// routeRibs() - сбор данных. нет зависимостей
+	// statCollection() сбор данных. нет зависимостей
+	// Авторизация - есть зависимость. Нужно отправлять ответы
+	// Соседи - 
+	boost::this_thread::sleep_for(boost::chrono::milliseconds(100));
 }
 
 

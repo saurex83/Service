@@ -20,319 +20,373 @@
 #define CMD_RX_EMPTY 6 
 
 
-static unsigned char rx_buffer[READ_BUFF_SIZE];	
-static unsigned char tx_buffer[WRITE_BUFF_SIZE];	
+using namespace std;
 
-static unsigned short crc16(unsigned char *pcBlock, unsigned int len){
+/**
+ * @brief Расчет кода crc16
+ *
+ * @param raw указатель на данные
+ *
+ * @return возвращает 2 байта crc16
+ */
+static unsigned short crc16(vector<unsigned char> raw){
     unsigned short crc = 0xFFFF;
     unsigned char i;
- 
+ 	unsigned char *pcBlock = &raw.front();
+	size_t len = raw.size();
+
     while (len--) {
         crc ^= *pcBlock++ << 8;
         for (i = 0; i < 8; i++)
             crc = crc & 0x8000 ? (crc << 1) ^ 0x1021 : crc << 1;
     }
     return crc;
-}
-
-static void serial_write(unsigned char *data, unsigned int len){
-	unsigned int buf_len = len + 3;
-	unsigned short crc = crc16(data, len);
-
-	tx_buffer[0] = len + 2;
-	std::memcpy(&tx_buffer[1], data, len);
-	tx_buffer[len+1] = ((unsigned char*)(&crc))[0];
-	tx_buffer[len+2] = ((unsigned char*)(&crc))[1];
-	SerialCom& serial = SerialCom::getInstance();
-	serial.write(tx_buffer, buf_len);
 };
 
-static int serial_read(){
-	SerialCom& serial = SerialCom::getInstance();
-	unsigned int read_bytes = serial.read(rx_buffer, READ_BUFF_SIZE);
-	// Ничего не прочитали
-	if (!read_bytes)
-		return 0;	
+/**
+ * @brief Передача данных передатчику
+ *
+ * К данным добавляется размер и crc16
+ * @param raw указатель на данные
+ */
+static void write_data(vector<unsigned char> raw){
+	unsigned short crc = crc16(raw);
+	//Увеличим длинну на 2 байта кода CRC16
+	unsigned char len = raw.size() + 2; 
+	raw.push_back(((unsigned char*)(&crc))[0]);
+	raw.push_back(((unsigned char*)(&crc))[1]);
+	raw.insert(raw.begin(), len);
+	comm::write(raw);
+};
+
+/**
+ * @brief Читает данные от трансивера
+ *
+ * Ответ должен соответствовать формату LEN, DATA, CRC16
+ * Если ответ не верен, то вызывается исключение runtime_error
+ * @param raw
+ */
+static void read_data(vector<unsigned char>& raw){
+	comm::read(raw);
+	size_t read_len = raw.size();
+	if (!read_len)
+		return;
 	
-	// Указаный размер передачи не соотетсвует фактическому
-	if (rx_buffer[0] != read_bytes - 1){
-		SPDLOG_ERROR("rx_buffer[0]=", rx_buffer[0], " .read_bytes=", read_bytes);
-		throw ParserError("Received size not match to specified");	
+	// Фактический размер на 1 байт больше указаного в пакете
+	if (read_len != raw[0] + 1){
+		SPDLOG_ERROR("Read data size is: {}. Byte LEN is {}",
+			   	read_len, raw[0]);
+
+		for (unsigned char it : raw)
+			cout << unsigned(it) << " ";
+		cout << endl;
+		throw(runtime_error("Received size not match to specified"));
 	};
 
-	// Произошла ошибка парсера
-	if (rx_buffer[1] == ATYPE_PAR_ERR)
-		switch(rx_buffer[2]){
-			case PAR_CRC16:
-				SPDLOG_ERROR("crc16");
-				return -1;
-			case PAR_NOCMD:
-				SPDLOG_ERROR("No CMD");
-				throw ParserError("Command not found");
-			default:
-				SPDLOG_ERROR("Unexpected error");
-				throw ParserError("Unexpected parser error");
-		}
+	// Извлекаем crc16
+	unsigned short crc = 0;
+	vector<unsigned char>::iterator	it = raw.end();
+	crc |= (unsigned short)(*it--) << 8;
+	crc |= (unsigned short)(*it); 
 
-	// Команда выдала ошибку при исполнении
-	if (rx_buffer[1] == ATYPE_CMD_ERR)
-		switch(rx_buffer[2]){
-			case CMD_LEN:
-				SPDLOG_ERROR("Incorrect args length"); 
-				throw CMDError("Incorrect args length");
-			case CMD_ARG_VAL:
-				SPDLOG_ERROR("Incorrect args value"); 
-				throw CMDError("Incorrect args value");
-			case CMD_SEEDING:
-				SPDLOG_ERROR("Network seed must be stoped"); 
-				throw CMDError("Network seed must be stopped");
-			case CMD_NOSEEDING:
-				SPDLOG_ERROR("Network seed must be start"); 
-				throw CMDError("Network seed must be start");
-			case CMD_TX_FULL:
-				SPDLOG_ERROR("TX buffer full"); 
-				throw CMDError("TX buffer full");
-			case CMD_RX_EMPTY:
-				SPDLOG_ERROR("RX buffer empty"); 
-				throw CMDError("RX buffer empty");
-			default:
-				SPDLOG_ERROR("Unexpected cmd error answer"); 
-				throw CMDError("Unexpected cmd error answer");
-		}
+	// Удаляем поля LEN и CRC16
+	raw.erase(raw.begin());
+	raw.pop_back();
+	raw.pop_back();
 
-	// Ожидаемы ответ ATYPE_CMD_OK
-	if (rx_buffer[1] != ATYPE_CMD_OK){
-		SPDLOG_ERROR("Expected ATYPE_CMD_OK, but something go wrong. rx_buffer[1] = ", 
-			 unsigned(rx_buffer[1]));
-		throw ParserError("Expected ATYPE_CMD_OK");
-	};
-	return read_bytes;  	
+// TODO Разобраться с crc16. Трансивер их не создает 
+//	unsigned short crc_calc = crc16(raw);
+//	if (crc_calc != crc){
+//		SPDLOG_ERROR("CRC16 wrong");
+//		throw(runtime_error("CRC16 wrong"));
+//	};
 };
 
 
-static int send_cmd(unsigned char *cmd, int size){
-	bool cmd_notsended = true;
-	int read_bytes;
-	while (cmd_notsended){
-		serial_write(cmd, size);	
-		read_bytes = serial_read();
-		if (read_bytes == -1){
-			SPDLOG_ERROR("CRC16 error"); 
-			continue;	
-		}
-		cmd_notsended = false;
-	}
-	return read_bytes;
-}
+/**
+ * @brief Отправляет команду транисиверу и возвращает ответ
+ *
+ * @param cmd номер команды
+ * @param args аргументы команды
+ *
+ * При ошибки выбрасывает исключение runtime_error
+ * @return вектор с данными ответа
+ */
+static vector<unsigned char> 
+	send_cmd(unsigned char cmd, vector<unsigned char> args){
+	// Отправляем команду в формате CMD,ARGS
+	
+	args.insert(args.begin(), cmd);
+	write_data(args);
+// TODO Может добавить повторную отправку если была ошибка CRC16?
+	// Принимает ответ
+	
+	vector<unsigned char> answer;
+	read_data(answer);
+	
+	if (answer.size() == 0){
+		SPDLOG_ERROR("Transiver answer has zero size");
+		throw(runtime_error("Transiver answer has zero size"));
+	};
 
+	// Первый байт содержит тип ответа
+	if (answer[0] == ATYPE_CMD_OK){
+		answer.erase(answer.begin());
+		return answer;
+	};
+
+#define ERR_MSG(msg){\
+		SPDLOG_ERROR(msg);\
+		throw runtime_error(msg);\
+	};
+
+	if (answer[0] == ATYPE_PAR_ERR){
+		switch(answer[1]){
+			case PAR_CRC16:
+				ERR_MSG("Transiver read wrong crc16");
+			case PAR_NOCMD:
+				ERR_MSG("Transiver receive unknown cmd");
+			default:
+				ERR_MSG("Unknown ATYPE_PAR_ERR");
+		};
+	};
+
+	if (answer[0] == ATYPE_CMD_ERR){
+		switch(answer[1]){
+			case CMD_LEN:
+				ERR_MSG("CMD error. Incorrect args length");
+			case CMD_ARG_VAL:
+				ERR_MSG("CMD error. Incorrect args value");
+			case CMD_SEEDING:
+				ERR_MSG("CMD error. Network seed must be stoped");
+			case CMD_NOSEEDING:
+				ERR_MSG("CMD error. Network seed must be start");
+			case CMD_TX_FULL:
+				ERR_MSG("CMD error. TX buffer full");
+			case CMD_RX_EMPTY:
+				ERR_MSG("CMD error. RX buffer empty");
+			default:
+				ERR_MSG("Unknown ATYPE_CMD_ERR");
+		};
+	};
+
+};
+
+static void check_cmd_answer_len(vector<unsigned char>& answ, 
+		unsigned char cmd,size_t exp_size){
+	if (answ.size() == exp_size)
+		return;
+	SPDLOG_ERROR("CMD {}. Expected answer size is {}, but received {}",
+			unsigned(cmd), to_string(exp_size), answ.size());
+	throw runtime_error("Unexpected answer size");
+};
+
+/**
+ * @brief Проверка состояния сети
+ *
+ * @return состояние сети
+ */
 bool Transiver::is_network_seed(){
 	unsigned char cmd = 0x00;
-		
-	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
-	
-	if (read_bytes != 5){
-		SPDLOG_ERROR("cmd 0x00 incorrect answer length = ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x00 is not 5 bytes");
-	;}
-
-	SPDLOG_TRACE("CMD 0x00. Network ", ((rx_buffer[2]? "seeding":"not seeding"))); 
-	
-	if (rx_buffer[2])
-		return true;
-	return false;
+	vector<unsigned char> args;
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 1);
+	return answ[0];	
 };
 
+/**
+ * @brief Устанавка значения panid
+ *
+ * @param panid 
+ */
 void Transiver::set_panid(unsigned char panid){
-	unsigned char cmd[2];
-	cmd[0] = 0x01;
-	cmd[1] = panid;
+	unsigned char cmd = 0x01;
+	vector<unsigned char> args;
+	args.push_back(panid);
 
-	int read_bytes = send_cmd(cmd, sizeof(cmd));
-
-	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x01 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x01 is not 4 bytes");
-	;}
-	
-	SPDLOG_TRACE("CMD 0x01. Network set panid ", panid); 
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
+/**
+ * @brief Установка значения часов реального времени сети
+ *
+ * @param rtc
+ */
 void Transiver::set_rtc(uint32_t rtc){
-	unsigned char cmd[5];
-	cmd[0] = 0x02;
-	cmd[1] = ((unsigned char*)&rtc)[0];
-	cmd[2] = ((unsigned char*)&rtc)[1];
-	cmd[3] = ((unsigned char*)&rtc)[2];
-	cmd[4] = ((unsigned char*)&rtc)[3];
+	unsigned char cmd = 0x02;
+	vector<unsigned char> args;
+	args.push_back(((unsigned char*)&rtc)[0]);
+	args.push_back(((unsigned char*)&rtc)[1]);
+	args.push_back(((unsigned char*)&rtc)[2]);
+	args.push_back(((unsigned char*)&rtc)[3]);
 
-	int read_bytes = send_cmd(cmd, sizeof(cmd));
-	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x02 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x02 is not 4 bytes");
-	;}
-
-	SPDLOG_TRACE("CMD 0x02. Set RTC =  ", rtc); 
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
+/**
+ * @brief Изменение состояние транисивера
+ *
+ * @param status true-трансивер включен
+ */
 void Transiver::network_seed(bool status){
-	unsigned char cmd[2];
-	cmd[0] = 0x03;
-	cmd[1] = status;
+	unsigned char cmd = 0x03;
+	vector<unsigned char> args;
+	args.push_back((unsigned char)status);
 
-	int read_bytes = send_cmd(cmd, sizeof(cmd));
-	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x03 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x03 is not 4 bytes");
-	;}
-	
-	SPDLOG_TRACE("CMD 0x03. Set network seeding =  ", (status? "true":"false")); 
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
-void Transiver::load_streem_iv(unsigned char *iv){
-	unsigned char cmd[17];
-	cmd[0] = 0x04;
-	for (int i = 0; i < 16; i++)
-		cmd[i + 1] = iv[i];
+/**
+ * @brief Загрузка вектора инициализации потокового шифрования сети
+ *
+ * @param iv Вектор из 16 байт
+ */
+void Transiver::load_streem_iv(vector<unsigned char>& iv){
+	if (iv.size() != 16){
+		SPDLOG_ERROR("Stream IV size is :{}, not 16", iv.size());
+		throw runtime_error("Stream IV size is not 16");
+	};
 
-	int read_bytes = send_cmd(cmd, sizeof(cmd));
+	unsigned char cmd = 0x04;
+	vector<unsigned char> args;
+	args = iv;
 	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x04 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x04 is not 4 bytes");
-	;}
-	
-	SPDLOG_TRACE("CMD 0x04. New IV loaded"); 
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
-void Transiver::load_streem_key(unsigned char *key){
-	unsigned char cmd[17];
-	cmd[0] = 0x05;
-	for (int i = 0; i < 16; i++)
-		cmd[i + 1] = key[i];
-
-	int read_bytes = send_cmd(cmd, sizeof(cmd));
-	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x05 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x05 is not 4 bytes");
+/**
+ * @brief Загрузка ключа сети потокового шифрования
+ *
+ * @param key Вектор из 16 байт
+ */
+void Transiver::load_streem_key(vector<unsigned char>& key){
+	if (key.size() != 16){
+		SPDLOG_ERROR("Stream KEY size is :{}, not 16", key.size());
+		throw runtime_error("Stream KEY size is not 16");
 	};
 	
-	SPDLOG_TRACE("CMD 0x05. New KEY loaded"); 
+	unsigned char cmd = 0x05;
+	vector<unsigned char> args;
+	args = key;
+
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
+/**
+ * @brief Открытие слота приема пакетов трансивера
+ *
+ * @param ts номер временого слота
+ * @param ch номер частотного канала
+ */
 void Transiver::open_slot(unsigned char ts, unsigned char ch){
-	unsigned char cmd[3];
-	cmd[0] = 0x07;
-	cmd[1] = ts;
-	cmd[2] = ch;
+	unsigned char cmd = 0x07;
+	vector<unsigned char> args;
+	args.push_back(ts);
+	args.push_back(ch);
 
-	int read_bytes = send_cmd(cmd, sizeof(cmd));
-	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x07 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x07 is not 4 bytes");
-	};
-
-	SPDLOG_TRACE("CMD 0x07. Opened slot: ", unsigned(ts), " on ch: ", unsigned(ch)) ; 
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
+/**
+ * @brief Закрытие временого слота
+ *
+ * @param ts номер временого слота
+ */
 void Transiver::close_slot(unsigned char ts){
-	unsigned char cmd[2];
-	cmd[0] = 0x08;
-	cmd[1] = ts;
+	unsigned char cmd = 0x08;
+	vector<unsigned char> args;
+	args.push_back(ts);
 
-	int read_bytes = send_cmd(cmd, sizeof(cmd));
-	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x08 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x08 is not 4 bytes");
-	};
-
-	SPDLOG_TRACE("CMD 0x08. Closed slot: ", unsigned(ts)) ; 
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
 
+/**
+ * @brief Количество принятых пакетоа
+ *
+ * @return 
+ */
 int Transiver::rx_frames(){
-	unsigned char cmd;
-	cmd = 0x09;
+	unsigned char cmd = 0x09;
+	vector<unsigned char> args;
 
-	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
-	
-	if (read_bytes != 5){
-		SPDLOG_ERROR("cmd 0x09 incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x09 is not 4 bytes");
-	};
-	
-	int rx_frames = rx_buffer[2];
-	SPDLOG_TRACE("CMD 0x09. Frames in RX buffer: ", rx_frames);
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 1);
 
-	return rx_frames;
+	return answ[0];	
 };
 
 
+/**
+ * @brief Количество пакетов в очеренди на передачу
+ *
+ * @return 
+ */
 int Transiver::tx_frames(){
-	unsigned char cmd;
-	cmd = 0x0A;
+	unsigned char cmd = 0x0A;
+	vector<unsigned char> args;
 
-	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
-	
-	if (read_bytes != 5){
-		SPDLOG_ERROR("cmd 0x0A incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x0A is not 4 bytes");
-	};
-	
-	int tx_frames = rx_buffer[2];
-	SPDLOG_TRACE("CMD 0x0A. Frames in TX buffer: ",tx_frames) ;
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 1);
 
-	return tx_frames;
+	return answ[0];	
 };
 
 
+/**
+ * @brief Добавить пакет в очередь на передачу
+ *
+ * @param frame указатель на пакет
+ */
 void Transiver::push_tx(Frame& frame){
-	unsigned char cmd[256];
-	unsigned char cmd_size = frame.meta.size() + 1 + frame.size() + 1;
-	cmd[0] = 0x0B;
-	
-	vector<unsigned char> meta_data;
-	frame.meta.convertRaw(meta_data);
+	unsigned char cmd = 0x0B;
+	vector<unsigned char> args;
+	frame.convertRaw(args);
 
-	// Копируем мету
-	memcpy(&cmd[1], &meta_data.front(), meta_data.size());
-	
-	// Устанавливаем размер полезной нагрузки
-	cmd[meta_data.size() + 1] = frame.size();
-
-	// Копируем полезнцю нагрузку
-	memcpy(&cmd[meta_data.size() + 2], &frame.payload.front(), frame.size());
-
-	int read_bytes = send_cmd(cmd, cmd_size);
-	
-	if (read_bytes != 4){
-		SPDLOG_ERROR("cmd 0x0B incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x0B is not 4 bytes");
-	};
-	
-	SPDLOG_TRACE("CMD 0x0B. Frame pushed in TX buffer");
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 };
 
+/**
+ * @brief Извлеч пакет из приемного буфера трансивера
+ *
+ * @param frame указатель на пакет
+ */
 void Transiver::pop_rx(Frame& frame){
-	unsigned char cmd;
-	cmd = 0x0C;
+	unsigned char cmd = 0x0C;
+	vector<unsigned char> args;
 
-	int read_bytes = send_cmd(&cmd, sizeof(unsigned char));
-	
-	if (read_bytes < 4){
-		SPDLOG_ERROR("cmd 0x0C incorrect answer length ", read_bytes); 
-		throw std::runtime_error("Answer length for cmd 0x0C less 4 bytes");
-	};
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
 
-	for (int i = 0; i < read_bytes; i++)
-		frame[i] = rx_buffer[i+2];	
-	
-	SPDLOG_TRACE("cmd 0x0B. Frames pop from RX buffer (bytes): %d ", read_bytes);
-
-	return read_bytes;
+	frame.parseRaw(answ);
 };
+
+/**
+ * @brief Считать данные об энергии в канале
+ *
+ * После считывания, трансивер сбрасывает значения на минимальное значение 
+ * в дБм. По мере сканирования радиоэфира, значения заполняются пиковыми
+ * значениями энергии в канале.
+ * @param energy
+ */
+void Transiver::read_energy(vector<signed char>& energy){
+	energy.clear();
+	
+	unsigned char cmd = 0x11;
+	vector<unsigned char> args;
+
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 18);
+	
+	for ( unsigned char it : answ)
+		energy.push_back((signed char)it);			
+};
+
