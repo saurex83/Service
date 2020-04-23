@@ -35,6 +35,12 @@ class DataBase {
 		bool record_JOURNAL(std::string lvl, std::string src, std::string msg);
 		bool getLastRecords(std::vector<JRecord> &j_vec, size_t n_rec);
 		bool getLicense(std::string &lic);
+		
+		bool get_NODELIST_by_MAC(std::vector<unsigned char>& mac,int& ipaddr,
+	   			std::string& name, std::string& comment, std::string& location,
+			   	bool& search_res);
+		
+		bool set_ENERGYSCAN(std::vector<signed char>& energy);
 	private:
 		bool getValueFromCONFIG(const char* NAME, std::string& result);
 		bool setValueToCONFIG(const char* NAME, std::string& value);

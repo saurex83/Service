@@ -364,7 +364,7 @@ void Transiver::pop_rx(Frame& frame){
 	vector<unsigned char> args;
 
 	vector<unsigned char> answ = send_cmd(cmd, args);
-	check_cmd_answer_len(answ, cmd, 0);
+//	check_cmd_answer_len(answ, cmd, 0);
 
 	frame.parseRaw(answ);
 };

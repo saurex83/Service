@@ -23,6 +23,15 @@ void Frame::addHeader(vector<unsigned char> &head){
 	payload.insert(payload.begin(), head.begin(), head.end());	
 }
 
+void Frame::addHeader(unsigned char *head, size_t len){
+  int new_len = payload.size() + len;
+  if (new_len > MAX_PAYLOAD_SIZE)
+    throw(runtime_error("Add header data more then MAX_PAYLOAD_SIZE"));
+
+ 	payload.reserve(new_len);
+	for (int i = len - 1; i >= 0; i--)
+		payload.insert(payload.begin(), head[i]);
+};
 /**
  * @brief Удаление начала заголовка
  *

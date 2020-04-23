@@ -581,10 +581,15 @@ src/CMakeFiles/Service.dir/meta.cpp.o
  inc/meta.hpp
 src/CMakeFiles/Service.dir/neocore_stack.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/neocore_stack.cpp
+ /usr/include/postgresql/libpq-fe.h
+ /usr/include/postgresql/pg_config_ext.h
+ /usr/include/postgresql/postgres_ext.h
+ inc/database.hpp
  inc/debug.hpp
  inc/frame.hpp
  inc/meta.hpp
  inc/neocore_stack.hpp
+ inc/neocore_stack_def.hpp
  inc/spdlog/cfg/log_levels.h
  inc/spdlog/common-inl.h
  inc/spdlog/common.h

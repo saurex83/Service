@@ -2,6 +2,7 @@
 #include "gtest/gtest.h"
 #include <iostream>
 #include <string>
+#include "debug.hpp"
 
 TEST(Database, db_create){
 	DataBase db;
@@ -26,6 +27,37 @@ TEST(Database, config_sys_channel){
 	res = db.set_SYS_CHANNEL(sys_channel_old);
 	ASSERT_EQ(res, true);
 }
+
+TEST(Database, nodelist_get_by_mac){
+	DataBase db;
+	std::vector<unsigned char> mac =
+   		{0x11, 0x22, 0x33, 0x44, 0x55, 0xaa, 0xee, 0xff};
+	int ipaddr;
+	std::string comment;
+	std::string location;
+	std::string name;
+	bool search_res;
+	bool res =db.get_NODELIST_by_MAC(mac, ipaddr, name, comment, location,
+		   	search_res);
+
+
+	ASSERT_EQ(res, true);
+	ASSERT_EQ(ipaddr, 83);
+	ASSERT_EQ(name, "NODE1");
+	ASSERT_EQ(comment, "test node");
+	ASSERT_EQ(location, "near notebook");
+	ASSERT_EQ(search_res, true);
+
+
+	std::vector<unsigned char> mac_not_av =
+   		{0xee, 0x32, 0x33, 0x44, 0x55, 0xaa, 0xee, 0xff};
+	
+	res =db.get_NODELIST_by_MAC(mac_not_av, ipaddr, name, comment, location,
+		   	search_res);
+
+	ASSERT_EQ(res, true);
+	ASSERT_EQ(search_res, false);
+};
 
 TEST(Database, config_sync_channel){
 	DataBase db;

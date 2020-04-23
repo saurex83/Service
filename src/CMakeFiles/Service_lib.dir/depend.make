@@ -580,10 +580,15 @@ src/CMakeFiles/Service_lib.dir/meta.cpp.o: src/meta.cpp
 src/CMakeFiles/Service_lib.dir/meta.cpp.o: inc/meta.hpp
 
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: src/neocore_stack.cpp
+src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: /usr/include/postgresql/libpq-fe.h
+src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: /usr/include/postgresql/pg_config_ext.h
+src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: /usr/include/postgresql/postgres_ext.h
+src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/database.hpp
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/debug.hpp
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/frame.hpp
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/meta.hpp
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/neocore_stack.hpp
+src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/neocore_stack_def.hpp
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/spdlog/cfg/log_levels.h
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/spdlog/common-inl.h
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: inc/spdlog/common.h

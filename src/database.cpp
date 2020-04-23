@@ -31,11 +31,11 @@ DataBase::DataBase(){
 		throw std::runtime_error(PQerrorMessage(m_connection.get()));
     }
 
-	SPDLOG_INFO("Connected to dababase");
+//	SPDLOG_INFO("Connected to dababase");
 }
 
 DataBase::~DataBase(){
-	SPDLOG_INFO("Connection with database closed");
+//	SPDLOG_INFO("Connection with database closed");
 }
 
 
@@ -134,6 +134,11 @@ void DataBase::createTables(){
 		SPDLOG_ERROR("Error while table VIRT_DATA_INT creating");
 	
 	if (tableActions(DB_VIRT_DATA_BOOL))
+		SPDLOG_INFO("Table VIRT_DATA_BOOL created");
+	else
+		SPDLOG_ERROR("Error while table DATA_BOOL creating");
+
+	if (tableActions(DB_ENERGYSCAN))
 		SPDLOG_INFO("Table VIRT_DATA_BOOL created");
 	else
 		SPDLOG_ERROR("Error while table DATA_BOOL creating");
@@ -515,5 +520,91 @@ bool DataBase::getLicense(std::string &lic){
 	}
 
 	lic = PQgetvalue(res, 0, 0);
+	return true;
+};
+
+//***********************************************************
+//ENERGYSCAN
+//***********************************************************
+bool DataBase::set_ENERGYSCAN(std::vector<signed char>& energy){
+	PGresult   *res;
+	std::string sqlcmd;
+	sqlcmd += "insert into ENERGYSCAN (CH11,CH12,CH13,CH14,CH15,CH16,CH17,";
+	sqlcmd += "CH18,CH19,CH20,CH21,CH22,CH23,CH24,CH25,CH26,CH27,CH28) ";
+	sqlcmd += "VALUES (";
+	for (signed char it : energy){
+		sqlcmd += std::to_string(signed(it)) + ",";
+	};
+
+	sqlcmd.resize(sqlcmd.size() - 1);
+	sqlcmd += ");";
+
+	res = PQexec(this->m_connection.get(), sqlcmd.c_str());
+	if (PQresultStatus(res) != PGRES_COMMAND_OK){
+		SPDLOG_ERROR("Insert to ENERGYSCAN faild: {}",
+			   	PQerrorMessage(this->m_connection.get()));
+		PQclear(res);
+		return false;
+	}
+
+	PQclear(res);
+	return true;
+};
+
+bool DataBase::get_NODELIST_by_MAC(std::vector<unsigned char>& mac,int& ipaddr,
+	   std::string& name, std::string& comment, std::string& location,
+	   bool& search_res){
+	
+	if (mac.size() != 8){
+		SPDLOG_ERROR("Requested mac size is {}, but i need 8", mac.size());
+		return false;
+	};
+
+	// Превращаем вектор с мак адресом в строку
+	std::stringstream stream;
+	std::string mac_str;
+	for (unsigned char it : mac)
+		stream << std::hex << unsigned(it);
+
+	mac_str = stream.str();
+
+	PGresult   *res;
+	std::string sqlcmd;
+	sqlcmd += "select mac, comment, location, ipaddr, name ";
+	sqlcmd += "from nodelist where mac = '";
+	sqlcmd += mac_str;
+	sqlcmd += "'";
+	
+	res = PQexec(this->m_connection.get(), sqlcmd.c_str());
+	if (PQresultStatus(res) != PGRES_TUPLES_OK){
+		SPDLOG_ERROR("Get from NODELIST faild: {}",
+			   	PQerrorMessage(this->m_connection.get()));
+		PQclear(res);
+		return false;
+	}
+	
+	int nFields = PQnfields(res);
+	int nTuples = PQntuples(res);
+	
+	if (nTuples != 1){
+		PQclear(res);
+		// Если нету нужного макадреса
+		search_res = false;
+		return true;
+	}
+
+	if (nFields != 5){
+		SPDLOG_ERROR("nFields = {}. Must be 5", nFields);
+		PQclear(res);
+		return false;
+	}
+
+	ipaddr = std::stoi(PQgetvalue(res, 0, 3));
+	name = PQgetvalue(res, 0, 4);
+	comment = PQgetvalue(res, 0, 1);
+	location = PQgetvalue(res, 0, 2);
+
+	PQclear(res);
+	search_res = true;
 	return true;
 };

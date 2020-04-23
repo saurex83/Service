@@ -209,6 +209,8 @@ void GWThread::clearPools(){
 void GWThread::serveRXPool(){
 	#define MAX_RX_FRAME 5
 	int rx_cnt = rx_frames();
+	int rx_cnt_save = rx_cnt;
+
 	if (!rx_cnt)
 		return;
 	// Ограничем количество забираемых пакетов за 1 раз
@@ -222,6 +224,9 @@ void GWThread::serveRXPool(){
 		rx_pool.push_back(frame);
 		rx_cnt--;
 	};
+
+	if (!rx_cnt_save)
+		SPDLOG_TRACE("Received {} frames from transiver", rx_cnt_save);
 };
 
 /**
@@ -236,17 +241,13 @@ void GWThread::serveTXPool(){
 	if (tx_cnt > MAX_TX_FRAME)
 		return;
 
-	
-	// Заботимся о том что бы кол-во пакетов не превышало 5
-	int cnt_for_send = MAX_TX_FRAME - tx_cnt;
-	for (Frame fr : tx_pool){
-		boost::this_thread::sleep_for(boost::chrono::milliseconds(10));
-		push_tx(fr);
-		cnt_for_send--;
-		if (!cnt_for_send)
-			return;
-	}
+	if (!tx_pool.size())
+		return;
 
+	push_tx(tx_pool[0]);
+	tx_pool.erase(tx_pool.begin());
+
+	SPDLOG_TRACE("Frame sended");
 };
 
 /**
@@ -255,7 +256,7 @@ void GWThread::serveTXPool(){
  * Значения сохраняет в базу данных. Период чтения фиксирован
  */
 void GWThread::energyScan(){
-	#define ENERGY_SCAN_INTERVAL (duration<double>)30
+	#define ENERGY_SCAN_INTERVAL (duration<double>)300
 	using namespace boost::chrono;
 	static system_clock::time_point last_pool = system_clock::now();
 	
@@ -274,9 +275,9 @@ void GWThread::energyScan(){
 		if (it == -127)
 			return;
 
-	for (signed char it : energy)
-		cout << signed(it) << " ";
-	cout << endl;
+	DataBase db;
+	db.set_ENERGYSCAN(energy);
+	SPDLOG_TRACE("Energy scan complited");
 };
 
 /**

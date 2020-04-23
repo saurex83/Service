@@ -45,6 +45,8 @@ iostream
 -
 string
 -
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/tests/src/debug.hpp
 
 /home/saurex83/Projects/Neocore/Service/tests/src/frame_test.cpp
 gtest/gtest.h

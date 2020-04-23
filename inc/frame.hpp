@@ -20,6 +20,7 @@ class Frame{
 
 		Frame();
 		void addHeader(vector<unsigned char> &head);
+		void addHeader(unsigned char *head, size_t len);
 		void parseRaw(vector<unsigned char>& raw);
 		void convertRaw(vector<unsigned char>& raw);
 		void delHeader(size_t len);
