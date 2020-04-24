@@ -377,6 +377,7 @@ src/CMakeFiles/Service.dir/gwthread.cpp.o
  inc/gwthread.hpp
  inc/meta.hpp
  inc/neocore_stack.hpp
+ inc/neocore_stack_def.hpp
  inc/spdlog/cfg/log_levels.h
  inc/spdlog/common-inl.h
  inc/spdlog/common.h

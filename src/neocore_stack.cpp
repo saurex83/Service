@@ -1,5 +1,4 @@
 #include "neocore_stack.hpp"
-#include "neocore_stack_def.hpp"
 #include "database.hpp"
 #include <sstream>
 #include  <iomanip>
@@ -228,6 +227,22 @@ static void AUTH_ETH_Receive(Frame& frame){
 //********************************************
 
 /**
+ * @brief Вычисление значения XOR для ETH заголовка
+ *
+ * @param eth указатель на заголовок
+ *
+ * @return значение XOR
+ */
+static unsigned char calc_xor(struct ETH_LAY *eth){
+  unsigned char xor_val = 0x57;
+  unsigned char *ptr = (unsigned char*)eth;
+  // Ксорим все кроме последнего байта структуы. он XOR
+  for (int i = 0; i < sizeof(struct ETH_LAY) - 1; i++)
+    xor_val ^=ptr[i]; 
+  return xor_val;
+};
+
+/**
  * @brief Добавление заголовка ETH и постановка пакета в очередь на отправку
  *
  * @param frame указатель на пакет
@@ -239,7 +254,9 @@ static void eth_send(Frame& frame){
 	eth_header.NETID = MODEL.pan_id;
 	eth_header.NDST = frame.meta.meta.NDST;
 	eth_header.NSRC = frame.meta.meta.NSRC;
-  
+	eth_header.NSRC_TS = 0xff;
+	eth_header.NSRC_CH = 0xff;
+ 	eth_header.XOR = calc_xor(&eth_header); 
 	frame.addHeader((unsigned char*)&eth_header, sizeof(struct ETH_LAY));
  
  	frame.meta.meta.tx_attempts = 5;
@@ -253,7 +270,9 @@ static void eth_fill_metadata(Frame& frame){
 	struct ETH_LAY& eth_header = *((struct ETH_LAY*)&frame.payload.front());
 	frame.meta.meta.NDST = eth_header.NDST;
 	frame.meta.meta.NSRC = eth_header.NSRC;
-	frame.meta.meta.PID = eth_header.ETH_T.bits.PID; 
+	frame.meta.meta.PID = eth_header.ETH_T.bits.PID;
+   	frame.meta.meta.NSRC_TS = eth_header.NSRC_TS;	
+   	frame.meta.meta.NSRC_CH = eth_header.NSRC_CH;	
 	SPDLOG_TRACE("ETH header: NDST = {}, NSRC = {}, PID = {}", 
 			eth_header.NDST, eth_header.NSRC, eth_header.ETH_T.bits.PID);
 };
@@ -265,27 +284,46 @@ static bool eth_frame_filter(Frame& frame){
 	if (frame.size() < ETH_LAY_SIZE){
  		SPDLOG_TRACE("Frame filtered by size");
 		return false;
-  }
-
-  	// Фильтр 2: по версии протокола
+	};
+  
+	// Фильтр 2: по XOR
+	unsigned char xor_val = calc_xor(&eth_header);
+	if (xor_val != eth_header.XOR){
+		SPDLOG_TRACE("Filtered XOR");
+		return false;
+	};
+  	
+  	// Фильтр 3: по версии протокола
 	if (eth_header.ETH_T.bits.ETH_VER != HEADER_ETH_VER){
  		SPDLOG_TRACE("Frame filtered by eth protocol version");
     	return false;
-	}
+	};
 
-  	// Фильтр 3: по идентификатору сети
+  	// Фильтр 4: по идентификатору сети
 	if (eth_header.NETID!= MODEL.pan_id){
  		SPDLOG_TRACE("Frame filtered by netid");
     	return false;
-	}
+	};
 
-  	// Фильтр 4: по адресу получателю
+  	// Фильтр 5: по адресу получателю
   	if (eth_header.NDST != 0xffff )
     	if (eth_header.NDST != 0x0000){
  			SPDLOG_TRACE("Frame NDST address field");
       		return false;
-		}
-  	
+		};
+  
+	// Фильтр 6: по каналу отправителя
+  	if (eth_header.NSRC_CH  < 11 || eth_header.NSRC_CH  > 28){
+    	SPDLOG_TRACE("Filtered NSRC_CH");
+    	return false;
+  	};
+
+  	// Фильтр 7: по таймслоту отправителя
+  	if (eth_header.NSRC_TS  < 1 || eth_header.NSRC_TS  > 49){
+    	SPDLOG_TRACE("Filtered NSRC_TS");
+    	return false;
+  	};
+
 	return true;
 };
 };

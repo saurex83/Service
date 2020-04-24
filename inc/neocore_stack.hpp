@@ -1,6 +1,7 @@
 #include <vector>
 #include <debug.hpp>
 #include "frame.hpp"
+#include "neocore_stack_def.hpp"
 
 using namespace std;
 
@@ -18,4 +19,5 @@ namespace neocore{
 	static void NP_Receive(Frame& frame);
 	static void AUTH_ETH_Receive(Frame& frame);
 	static void eth_send(Frame& frame);
+	static unsigned char calc_xor(struct ETH_LAY *eth);
 };

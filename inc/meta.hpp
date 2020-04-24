@@ -17,6 +17,8 @@ public:
 		unsigned char PID;
 		unsigned short int NDST;
 		unsigned short int NSRC;
+		unsigned char NSRC_TS;
+   		unsigned char NSRC_CH;
 		unsigned char ETX;
 		unsigned short int FDST;
 		unsigned short int FSRC;

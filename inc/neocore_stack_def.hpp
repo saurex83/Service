@@ -41,4 +41,7 @@ struct ETH_LAY{
   char NETID;
   unsigned short int NDST;
   unsigned short int NSRC;
+  unsigned char NSRC_TS;
+  unsigned char NSRC_CH;
+  unsigned char XOR;
 }__attribute__((packed));
