@@ -365,6 +365,36 @@ debug.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/debug.cpp.s
 .PHONY : debug.cpp.s
 
+exptimer.o: exptimer.cpp.o
+
+.PHONY : exptimer.o
+
+# target to build an object file
+exptimer.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/exptimer.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/exptimer.cpp.o
+.PHONY : exptimer.cpp.o
+
+exptimer.i: exptimer.cpp.i
+
+.PHONY : exptimer.i
+
+# target to preprocess a source file
+exptimer.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/exptimer.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/exptimer.cpp.i
+.PHONY : exptimer.cpp.i
+
+exptimer.s: exptimer.cpp.s
+
+.PHONY : exptimer.s
+
+# target to generate assembly for a file
+exptimer.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/exptimer.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/exptimer.cpp.s
+.PHONY : exptimer.cpp.s
+
 frame.o: frame.cpp.o
 
 .PHONY : frame.o
@@ -667,6 +697,9 @@ help:
 	@echo "... debug.o"
 	@echo "... debug.i"
 	@echo "... debug.s"
+	@echo "... exptimer.o"
+	@echo "... exptimer.i"
+	@echo "... exptimer.s"
 	@echo "... frame.o"
 	@echo "... frame.i"
 	@echo "... frame.s"

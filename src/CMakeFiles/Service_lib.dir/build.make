@@ -57,9 +57,33 @@ include src/CMakeFiles/Service_lib.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/Service_lib.dir/flags.make
 
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.o: src/exptimer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/Service_lib.dir/exptimer.cpp.o"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/exptimer.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/exptimer.cpp
+
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Service_lib.dir/exptimer.cpp.i"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/saurex83/Projects/Neocore/Service/src/exptimer.cpp > CMakeFiles/Service_lib.dir/exptimer.cpp.i
+
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Service_lib.dir/exptimer.cpp.s"
+	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/saurex83/Projects/Neocore/Service/src/exptimer.cpp -o CMakeFiles/Service_lib.dir/exptimer.cpp.s
+
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.requires:
+
+.PHONY : src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.requires
+
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.provides: src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.provides.build
+.PHONY : src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.provides
+
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.provides.build: src/CMakeFiles/Service_lib.dir/exptimer.cpp.o
+
+
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o: src/neocore_stack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/neocore_stack.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/neocore_stack.cpp
 
 src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.i: cmake_force
@@ -83,7 +107,7 @@ src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o.provides.build: src/CMakeFile
 
 src/CMakeFiles/Service_lib.dir/meta.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/meta.cpp.o: src/meta.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/Service_lib.dir/meta.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/Service_lib.dir/meta.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/meta.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/meta.cpp
 
 src/CMakeFiles/Service_lib.dir/meta.cpp.i: cmake_force
@@ -107,7 +131,7 @@ src/CMakeFiles/Service_lib.dir/meta.cpp.o.provides.build: src/CMakeFiles/Service
 
 src/CMakeFiles/Service_lib.dir/license.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/license.cpp.o: src/license.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/Service_lib.dir/license.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/Service_lib.dir/license.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/license.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/license.cpp
 
 src/CMakeFiles/Service_lib.dir/license.cpp.i: cmake_force
@@ -131,7 +155,7 @@ src/CMakeFiles/Service_lib.dir/license.cpp.o.provides.build: src/CMakeFiles/Serv
 
 src/CMakeFiles/Service_lib.dir/valuechecker.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/valuechecker.cpp.o: src/valuechecker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/Service_lib.dir/valuechecker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/Service_lib.dir/valuechecker.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/valuechecker.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/valuechecker.cpp
 
 src/CMakeFiles/Service_lib.dir/valuechecker.cpp.i: cmake_force
@@ -155,7 +179,7 @@ src/CMakeFiles/Service_lib.dir/valuechecker.cpp.o.provides.build: src/CMakeFiles
 
 src/CMakeFiles/Service_lib.dir/sysconfig.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/sysconfig.cpp.o: src/sysconfig.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/Service_lib.dir/sysconfig.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/Service_lib.dir/sysconfig.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/sysconfig.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp
 
 src/CMakeFiles/Service_lib.dir/sysconfig.cpp.i: cmake_force
@@ -179,7 +203,7 @@ src/CMakeFiles/Service_lib.dir/sysconfig.cpp.o.provides.build: src/CMakeFiles/Se
 
 src/CMakeFiles/Service_lib.dir/main.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/Service_lib.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/Service_lib.dir/main.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/main.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/main.cpp
 
 src/CMakeFiles/Service_lib.dir/main.cpp.i: cmake_force
@@ -203,7 +227,7 @@ src/CMakeFiles/Service_lib.dir/main.cpp.o.provides.build: src/CMakeFiles/Service
 
 src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o: src/ServiceConfig.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/ServiceConfig.cpp
 
 src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.i: cmake_force
@@ -227,7 +251,7 @@ src/CMakeFiles/Service_lib.dir/ServiceConfig.cpp.o.provides.build: src/CMakeFile
 
 src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o: src/SerialCom.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/SerialCom.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/SerialCom.cpp
 
 src/CMakeFiles/Service_lib.dir/SerialCom.cpp.i: cmake_force
@@ -251,7 +275,7 @@ src/CMakeFiles/Service_lib.dir/SerialCom.cpp.o.provides.build: src/CMakeFiles/Se
 
 src/CMakeFiles/Service_lib.dir/Transiver.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/Transiver.cpp.o: src/Transiver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/Service_lib.dir/Transiver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/Service_lib.dir/Transiver.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/Transiver.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/Transiver.cpp
 
 src/CMakeFiles/Service_lib.dir/Transiver.cpp.i: cmake_force
@@ -275,7 +299,7 @@ src/CMakeFiles/Service_lib.dir/Transiver.cpp.o.provides.build: src/CMakeFiles/Se
 
 src/CMakeFiles/Service_lib.dir/frame.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/frame.cpp.o: src/frame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/Service_lib.dir/frame.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/Service_lib.dir/frame.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/frame.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/frame.cpp
 
 src/CMakeFiles/Service_lib.dir/frame.cpp.i: cmake_force
@@ -299,7 +323,7 @@ src/CMakeFiles/Service_lib.dir/frame.cpp.o.provides.build: src/CMakeFiles/Servic
 
 src/CMakeFiles/Service_lib.dir/debug.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/debug.cpp.o: src/debug.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/Service_lib.dir/debug.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/Service_lib.dir/debug.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/debug.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/debug.cpp
 
 src/CMakeFiles/Service_lib.dir/debug.cpp.i: cmake_force
@@ -323,7 +347,7 @@ src/CMakeFiles/Service_lib.dir/debug.cpp.o.provides.build: src/CMakeFiles/Servic
 
 src/CMakeFiles/Service_lib.dir/database.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/database.cpp.o: src/database.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/Service_lib.dir/database.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/Service_lib.dir/database.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/database.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/database.cpp
 
 src/CMakeFiles/Service_lib.dir/database.cpp.i: cmake_force
@@ -347,7 +371,7 @@ src/CMakeFiles/Service_lib.dir/database.cpp.o.provides.build: src/CMakeFiles/Ser
 
 src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o: src/dbdecthread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/dbdecthread.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/dbdecthread.cpp
 
 src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.i: cmake_force
@@ -371,7 +395,7 @@ src/CMakeFiles/Service_lib.dir/dbdecthread.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/Service_lib.dir/agrthread.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/agrthread.cpp.o: src/agrthread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/Service_lib.dir/agrthread.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/Service_lib.dir/agrthread.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/agrthread.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/agrthread.cpp
 
 src/CMakeFiles/Service_lib.dir/agrthread.cpp.i: cmake_force
@@ -395,7 +419,7 @@ src/CMakeFiles/Service_lib.dir/agrthread.cpp.o.provides.build: src/CMakeFiles/Se
 
 src/CMakeFiles/Service_lib.dir/gwthread.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/gwthread.cpp.o: src/gwthread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/Service_lib.dir/gwthread.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/Service_lib.dir/gwthread.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/gwthread.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/gwthread.cpp
 
 src/CMakeFiles/Service_lib.dir/gwthread.cpp.i: cmake_force
@@ -419,7 +443,7 @@ src/CMakeFiles/Service_lib.dir/gwthread.cpp.o.provides.build: src/CMakeFiles/Ser
 
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: src/CMakeFiles/Service_lib.dir/flags.make
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.o: src/httpserver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/Service_lib.dir/httpserver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/Service_lib.dir/httpserver.cpp.o"
 	cd /home/saurex83/Projects/Neocore/Service/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Service_lib.dir/httpserver.cpp.o -c /home/saurex83/Projects/Neocore/Service/src/httpserver.cpp
 
 src/CMakeFiles/Service_lib.dir/httpserver.cpp.i: cmake_force
@@ -443,6 +467,7 @@ src/CMakeFiles/Service_lib.dir/httpserver.cpp.o.provides.build: src/CMakeFiles/S
 
 # Object files for target Service_lib
 Service_lib_OBJECTS = \
+"CMakeFiles/Service_lib.dir/exptimer.cpp.o" \
 "CMakeFiles/Service_lib.dir/neocore_stack.cpp.o" \
 "CMakeFiles/Service_lib.dir/meta.cpp.o" \
 "CMakeFiles/Service_lib.dir/license.cpp.o" \
@@ -463,6 +488,7 @@ Service_lib_OBJECTS = \
 # External object files for target Service_lib
 Service_lib_EXTERNAL_OBJECTS =
 
+src/libService_lib.a: src/CMakeFiles/Service_lib.dir/exptimer.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/meta.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/license.cpp.o
@@ -481,7 +507,7 @@ src/libService_lib.a: src/CMakeFiles/Service_lib.dir/gwthread.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/httpserver.cpp.o
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/build.make
 src/libService_lib.a: src/CMakeFiles/Service_lib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX static library libService_lib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saurex83/Projects/Neocore/Service/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX static library libService_lib.a"
 	cd /home/saurex83/Projects/Neocore/Service/src && $(CMAKE_COMMAND) -P CMakeFiles/Service_lib.dir/cmake_clean_target.cmake
 	cd /home/saurex83/Projects/Neocore/Service/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Service_lib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -490,6 +516,7 @@ src/CMakeFiles/Service_lib.dir/build: src/libService_lib.a
 
 .PHONY : src/CMakeFiles/Service_lib.dir/build
 
+src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/exptimer.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/meta.cpp.o.requires
 src/CMakeFiles/Service_lib.dir/requires: src/CMakeFiles/Service_lib.dir/license.cpp.o.requires

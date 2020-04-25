@@ -20,4 +20,8 @@ namespace neocore{
 	static void AUTH_ETH_Receive(Frame& frame);
 	static void eth_send(Frame& frame);
 	static unsigned char calc_xor(struct ETH_LAY *eth);
+	static void NP_TimeAlloc();
+	static void NP_Send_gw_card();   
+	static void NP_Periodic_Send_GWCard();
+
 };

@@ -318,6 +318,9 @@ src/CMakeFiles/Service_lib.dir/debug.cpp.o
  inc/spdlog/spdlog.h
  inc/spdlog/tweakme.h
  inc/spdlog/version.h
+src/CMakeFiles/Service_lib.dir/exptimer.cpp.o
+ /home/saurex83/Projects/Neocore/Service/src/exptimer.cpp
+ inc/exptimer.hpp
 src/CMakeFiles/Service_lib.dir/frame.cpp.o
  /home/saurex83/Projects/Neocore/Service/src/frame.cpp
  inc/debug.hpp
@@ -587,6 +590,7 @@ src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o
  /usr/include/postgresql/postgres_ext.h
  inc/database.hpp
  inc/debug.hpp
+ inc/exptimer.hpp
  inc/frame.hpp
  inc/meta.hpp
  inc/neocore_stack.hpp

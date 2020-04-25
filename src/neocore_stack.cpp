@@ -2,6 +2,7 @@
 #include "database.hpp"
 #include <sstream>
 #include  <iomanip>
+#include "exptimer.hpp"
 
 namespace neocore{
 
@@ -41,7 +42,11 @@ void init(vector<Frame> *tx, vector<Frame> *rx){
  * @brief Обрабатывает принятые пакеты согласно правилам протокола
  */
 void process(){
+	// Обработка принятых пакетов
 	eth_processRxPool();
+	
+	// Выделение времени протоколам
+	NP_TimeAlloc();
 };
 
 
@@ -89,6 +94,50 @@ static void IP_Receive(Frame& frame){
 static void NP_Receive(Frame& frame){
 	SPDLOG_TRACE("Received NP frame");
 };
+
+static void NP_TimeAlloc(){
+	NP_Periodic_Send_GWCard();
+};
+
+/**
+ * @brief Создает и отправляет карту шлюза по протоколу соседей
+ */
+static void NP_Send_gw_card(){   
+	struct NP_CARD card;
+	// Не имеет значения чем заполним. Главное что бы проходили фильтры
+	card.TS = 5; 
+	card.CH = 11;
+	// У шлюза ETX всегда равен 0
+	card.ETX = 0;
+  
+	Frame fr;
+	fr.addHeader((unsigned char*)&card, sizeof(struct NP_CARD));
+
+	vector<unsigned char> cmd_vec = {NP_CMD_CARD};
+	fr.addHeader(cmd_vec);
+
+	fr.meta.meta.TS = SYS_TS;
+	fr.meta.meta.CH = MODEL.sys_channel;
+	fr.meta.meta.PID = PID_NP;
+	fr.meta.meta.NDST = 0xffff;
+	fr.meta.meta.NSRC = 0;
+
+	eth_send(fr);
+
+  	SPDLOG_TRACE("NP gateway card sended");
+};
+
+/**
+ * @brief Периодическая передача карточки шлюза
+ */
+static void NP_Periodic_Send_GWCard(){
+	static ExpTimer timer(60);
+	if (!timer.Expired())
+		return;
+
+	NP_Send_gw_card();
+	timer.Start();	
+}
 
 //********************************************
 // Протокол ROUTE
