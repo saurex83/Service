@@ -594,6 +594,7 @@ src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/frame.hpp
 src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/meta.hpp
 src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/neocore_stack.hpp
 src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/neocore_stack_def.hpp
+src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/route_table.hpp
 src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/spdlog/cfg/log_levels.h
 src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/spdlog/common-inl.h
 src/CMakeFiles/Service.dir/neocore_stack.cpp.o: inc/spdlog/common.h

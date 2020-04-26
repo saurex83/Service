@@ -595,6 +595,7 @@ src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o
  inc/meta.hpp
  inc/neocore_stack.hpp
  inc/neocore_stack_def.hpp
+ inc/route_table.hpp
  inc/spdlog/cfg/log_levels.h
  inc/spdlog/common-inl.h
  inc/spdlog/common.h

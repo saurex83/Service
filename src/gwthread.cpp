@@ -157,6 +157,16 @@ void GWThread::transiverInit(){
 	network_seed(true);
 	open_slot(0x01, sys_channel);
 
+	// Шлюз имеет предопределенные частотные каналы и временые слоты
+	// для связи. {временой слот, канал}. Узлы используют такуюже таблицу 
+	std::vector<pair<unsigned char, unsigned char>> gw_slots = {
+  		{49, 11}, {48, 13}, {47, 15}, {46, 17}, {45, 19},
+  		{44, 20}, {43, 21}, {42, 22}, {41, 23}, {40, 25}
+	};
+
+	for (auto it : gw_slots)
+		open_slot(it.first, it.second);
+
 	SPDLOG_INFO("Transiver inited");
 }
 
@@ -247,7 +257,7 @@ void GWThread::serveTXPool(){
 	push_tx(tx_pool[0]);
 	tx_pool.erase(tx_pool.begin());
 
-	SPDLOG_TRACE("Frame sended");
+	//SPDLOG_TRACE("Frame sended");
 };
 
 /**

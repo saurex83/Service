@@ -23,5 +23,10 @@ namespace neocore{
 	static void NP_TimeAlloc();
 	static void NP_Send_gw_card();   
 	static void NP_Periodic_Send_GWCard();
+	static bool ip_frame_filter(Frame& frame); 
+	static void IPP_Process(Frame& frame);
+	static void TCP_Recive(Frame& frame);
+	static void UDP_Recive(Frame& frame);
+	static void AUTH_IP_Recive(Frame& frame);
 
 };

@@ -3,12 +3,14 @@
 #include <sstream>
 #include  <iomanip>
 #include "exptimer.hpp"
+#include "route_table.hpp"
 
 namespace neocore{
 
 
 static vector<Frame> *tx_pool;
 static vector<Frame> *rx_pool;
+static RouteTable RT;
 
 struct {
 	unsigned char pan_id;
@@ -35,6 +37,8 @@ void init(vector<Frame> *tx, vector<Frame> *rx){
 		SPDLOG_TRACE("MODEL data loaded");
 	else
 		SPDLOG_ERROR("MODEL data not loaded");
+
+	RT.Clear();
 };
 
 
@@ -47,6 +51,9 @@ void process(){
 	
 	// Выделение времени протоколам
 	NP_TimeAlloc();
+	
+	// Проверям таблицу маршрутов
+	RT.analyseTable();
 };
 
 
@@ -84,15 +91,119 @@ static void eth_processRxPool(){
 //********************************************
 // Протокол IP
 //********************************************
+
+static bool ip_frame_filter(Frame& frame){ 
+	if (frame.size() < sizeof(struct IP_H)){
+		SPDLOG_TRACE("Filtered by size= {}", frame.size());
+		return false;
+	};
+	return true;
+};
+
+static void ip_fill_meta(Frame& frame){
+	struct IP_H& iph = *(struct IP_H*)&frame.payload.front();
+	frame.meta.meta.ETX = iph.ETX;
+	frame.meta.meta.FDST = iph.FDST;
+	frame.meta.meta.FSRC = iph.FSRC;
+	frame.meta.meta.IPP = iph.IPP;
+};
+
+static void IPP_Process(Frame& frame){
+	switch(frame.meta.meta.IPP){
+		case IPP_UDP:
+			SPDLOG_TRACE("IP is UDP");
+			UDP_Recive(frame);
+			break;
+		case IPP_TCP:
+			SPDLOG_TRACE("IP is TCP");
+			TCP_Recive(frame);
+			break;    
+		case IPP_AUTH:
+			SPDLOG_TRACE("IP is AUTH");
+			AUTH_IP_Recive(frame);
+			break;  
+		default:
+			SPDLOG_TRACE("Unrecognized IPP");
+  };
+};
+
 static void IP_Receive(Frame& frame){
 	SPDLOG_TRACE("Received IP frame");
+	
+	if (!ip_frame_filter(frame))
+		return;
+
+	ip_fill_meta(frame);
+
+
+	if (frame.meta.meta.FDST != 0){
+		SPDLOG_TRACE("IP frame FDST not for gateway");
+		return;
+	}
+
+	// Добавляем новый маршрут
+	RT.addRoute(frame.meta.meta.NSRC, frame.meta.meta.FSRC, 
+			frame.meta.meta.NSRC_TS, frame.meta.meta.NSRC_CH);
+
+	// Обрабатываем пакеты только для шлюза
+	IPP_Process(frame);
+
+};
+
+static void IP_Send(Frame& frame){
+	unsigned short int fsrc = frame.meta.meta.FDST;
+   	unsigned short int nsrc;
+	unsigned char ts;
+   	unsigned char ch;
+
+	bool res = RT.getRoute(fsrc, &nsrc, &ts, &ch);	
+	if (!res){
+		SPDLOG_TRACE("No route to {}", fsrc);
+	};
+
+	struct IP_H iph;
+	iph.ETX = 0;
+	iph.FDST = frame.meta.meta.FDST;
+	iph.FSRC = 0;
+	iph.IPP = frame.meta.meta.IPP;
+
+	frame.addHeader((unsigned char*)&iph, sizeof(IP_H));
+	frame.meta.meta.PID = PID_IP;
+	
+	//Выбор через протокол ROUTE
+	frame.meta.meta.CH = ch;
+	frame.meta.meta.TS = ts;
+	frame.meta.meta.NDST = nsrc;
+		
+	eth_send(frame);   
+};
+
+//********************************************
+// Протокол UDP
+//********************************************
+static void UDP_Recive(Frame& frame){
+	SPDLOG_TRACE("UDP recived");
+};
+
+//********************************************
+// Протокол TCP
+//********************************************
+static void TCP_Recive(Frame& frame){
+	SPDLOG_TRACE("TCP recived");
+};
+
+//********************************************
+// Протокол AUTH_IP
+//********************************************
+static void AUTH_IP_Recive(Frame& frame){
+	SPDLOG_TRACE("AUTH_IP received");
 };
 
 //********************************************
 // Протокол NEIGHBORS
 //********************************************
 static void NP_Receive(Frame& frame){
-	SPDLOG_TRACE("Received NP frame");
+	SPDLOG_TRACE("Received NP frame card. Gateway dont use neighbor table.");
 };
 
 static void NP_TimeAlloc(){
@@ -172,21 +283,12 @@ static void AUTH_ETH_Receive(Frame& frame){
 		SPDLOG_TRACE("Filtered by size");
 		return;
 	}
-	// Кадр передан в системном слоте
-	if (frame.meta.meta.TS != SYS_TS){
+	// Кадр передан в системном слоте не принимаем
+	if (frame.meta.meta.TS == SYS_TS){
 		SPDLOG_TRACE("Filtered by sys_channel");
 		return;
 	}
-	// Источником кадра является отправитель с адресом 0
-	if (frame.meta.meta.NSRC != 0){
-		SPDLOG_TRACE("Filtered by NSRC={}", frame.meta.meta.NSRC );
-		return;
-	}
-	// Сообщение должно быть передано как ШВС
-	if (frame.meta.meta.NDST != 0xffff){
-		SPDLOG_TRACE("Filtered by NDST");
-		return;
-	}
+	// Адресс отправителя значения не имеет так как у узла нет адреса
 	
 	// Смотрим что за пакет
 	unsigned char cmd = frame.payload[0];
@@ -309,8 +411,8 @@ static void eth_send(Frame& frame){
 	frame.addHeader((unsigned char*)&eth_header, sizeof(struct ETH_LAY));
  
  	frame.meta.meta.tx_attempts = 5;
-  	SPDLOG_TRACE("Frame params. LEN:{}, ETH_VER:{}, PID:{}", frame.size(),
-			eth_header.ETH_T.bits.ETH_VER,eth_header.ETH_T.bits.PID); 
+  //	SPDLOG_TRACE("Frame params. LEN:{}, ETH_VER:{}, PID:{}", frame.size(),
+	//		eth_header.ETH_T.bits.ETH_VER,eth_header.ETH_T.bits.PID); 
 	tx_pool->push_back(frame);	
 };
 
@@ -322,8 +424,8 @@ static void eth_fill_metadata(Frame& frame){
 	frame.meta.meta.PID = eth_header.ETH_T.bits.PID;
    	frame.meta.meta.NSRC_TS = eth_header.NSRC_TS;	
    	frame.meta.meta.NSRC_CH = eth_header.NSRC_CH;	
-	SPDLOG_TRACE("ETH header: NDST = {}, NSRC = {}, PID = {}", 
-			eth_header.NDST, eth_header.NSRC, eth_header.ETH_T.bits.PID);
+	//SPDLOG_TRACE("ETH header: NDST = {}, NSRC = {}, PID = {}", 
+	//		eth_header.NDST, eth_header.NSRC, eth_header.ETH_T.bits.PID);
 };
 
 static bool eth_frame_filter(Frame& frame){
@@ -331,26 +433,26 @@ static bool eth_frame_filter(Frame& frame){
 
 	// Фильтр 1: по размеру кадра
 	if (frame.size() < ETH_LAY_SIZE){
- 		SPDLOG_TRACE("Frame filtered by size");
+ 		//SPDLOG_TRACE("Frame filtered by size");
 		return false;
 	};
   
 	// Фильтр 2: по XOR
 	unsigned char xor_val = calc_xor(&eth_header);
 	if (xor_val != eth_header.XOR){
-		SPDLOG_TRACE("Filtered XOR");
+		//SPDLOG_TRACE("Filtered XOR");
 		return false;
 	};
   	
   	// Фильтр 3: по версии протокола
 	if (eth_header.ETH_T.bits.ETH_VER != HEADER_ETH_VER){
- 		SPDLOG_TRACE("Frame filtered by eth protocol version");
+ 		//SPDLOG_TRACE("Frame filtered by eth protocol version");
     	return false;
 	};
 
   	// Фильтр 4: по идентификатору сети
 	if (eth_header.NETID!= MODEL.pan_id){
- 		SPDLOG_TRACE("Frame filtered by netid");
+ 		//SPDLOG_TRACE("Frame filtered by netid");
     	return false;
 	};
 

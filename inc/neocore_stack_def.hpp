@@ -14,6 +14,13 @@
 enum AUTH_ETH_TYPES {AUTH_CMD_REQ = 0, AUTH_CMD_RESP = 1};
 enum {NP_CMD_CARD = 0, NP_CMD_CARD_REQ = 1} NP_CMD_ENUM;
 
+struct IP_H{
+  char ETX;
+  unsigned short int FDST;
+  unsigned short int FSRC;
+  unsigned char IPP;
+} __attribute__((packed));
+
 struct NP_CARD{
   unsigned char TS;
   unsigned char CH;
