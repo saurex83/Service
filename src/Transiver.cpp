@@ -208,6 +208,15 @@ void Transiver::set_panid(unsigned char panid){
 	check_cmd_answer_len(answ, cmd, 0);
 };
 
+void Transiver::set_tx_power(unsigned char power){
+	unsigned char cmd = 0x10;
+	vector<unsigned char> args;
+	args.push_back(power);
+
+	vector<unsigned char> answ = send_cmd(cmd, args);
+	check_cmd_answer_len(answ, cmd, 0);
+}
+
 /**
  * @brief Установка значения часов реального времени сети
  *

@@ -14,6 +14,7 @@ namespace Transiver{
 	void load_streem_key(vector<unsigned char>& key);
 	void open_slot(unsigned char ts, unsigned char ch);
 	void close_slot(unsigned char ts);
+	void set_tx_power(unsigned char power);
 	void read_energy(vector<signed char>& energy);
 	int rx_frames();
 	int tx_frames();

@@ -24,6 +24,8 @@ class DataBase {
 		bool set_SYNC_CHANNEL(unsigned char& SYNC_CHANNEL);
 		bool get_PAN_ID(unsigned char& PAN_ID);
 		bool set_PAN_ID(unsigned char& PAN_ID);
+		bool get_TX_POWER(unsigned char& power);
+		bool set_TX_POWER(unsigned char& power);
 		bool get_STREAM_IV(std::vector<unsigned char>& STREAM_IV);
 		bool set_STREAM_IV(std::vector<unsigned char>& STREAM_IV);
 		bool set_STREAM_KEY(std::vector<unsigned char>& STREAM_KEY);

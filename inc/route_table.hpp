@@ -3,12 +3,12 @@
 #include "exptimer.hpp"
 #include <vector>
 #include <map>
-#include "boost/date_time/posix_time/posix_time.hpp"
+#include "boost/chrono.hpp"
 #include "debug.hpp"
 
 using namespace std;
 using namespace boost::posix_time;
-
+using namespace std::chrono;
 
 /**
  * @brief Время жизни пути в секундах
@@ -17,7 +17,7 @@ using namespace boost::posix_time;
 
 struct RRec{
 	unsigned short int nsrc;
-	ptime live_time;
+	time_point<steady_clock> live_time; 
 	unsigned char NSRC_TS;
 	unsigned char NSRC_CH;
 };
@@ -25,9 +25,13 @@ struct RRec{
 class RouteTable{
 public:
 
+/**
+ * @brief Очистка таблицы 
+ */
 void Clear(){
 	ROUTE_TABLE.clear();
 };
+
 /**
  * @brief Анализ и удаление старых узлов 
  */
@@ -38,24 +42,25 @@ void analyseTable(){
 		return;
 
 	exp.Start();
-	
-	ptime now = second_clock::local_time();
-    time_duration diff;
-	time_duration LT = seconds(ROUTE_LIVE_TIME);
+	time_point<steady_clock> now = steady_clock::now();
+    duration<double> diff_sec;
 
 	// Элементы для удаления
 	vector<map<unsigned int, struct RRec>::iterator> del_rec;
 
 	// Перебираем таблицу в поисках просроченых записей
 	for (auto it = ROUTE_TABLE.begin(); it!= ROUTE_TABLE.end(); it++){
-		diff = now - it->second.live_time;
-		if (diff > LT)
+		diff_sec = now - it->second.live_time;
+		if (diff_sec.count() > ROUTE_LIVE_TIME){
+			SPDLOG_TRACE("Route to {} thrue {} mark to delete. Diff time {}",
+				   	it->first, it->second.nsrc, diff_sec.count());
 			del_rec.push_back(it);
+		}
 	};
 
 	// Удаляем записи
 	for (auto it : del_rec){
-		SPDLOG_TRACE("Route to {} deleted", it->second.nsrc);
+		SPDLOG_TRACE("Route to {}->{} deleted", it->first, it->second.nsrc);
 		ROUTE_TABLE.erase(it);
 	};
 
@@ -75,10 +80,13 @@ void addRoute(unsigned short int nsrc, unsigned short int fsrc,
 	rec.nsrc = nsrc;
 	rec.NSRC_TS = ts;
 	rec.NSRC_CH = ch;
-	rec.live_time = second_clock::local_time();
+	rec.live_time = steady_clock::now();
 
-	ROUTE_TABLE.insert(pair<unsigned int, struct RRec>(fsrc, rec));
+	
+	ROUTE_TABLE[fsrc] = rec;
+//	ROUTE_TABLE.insert(pair<unsigned int, struct RRec>(fsrc, rec));
 	SPDLOG_TRACE("Route {} updated", fsrc);
+	
 };
 
 /**

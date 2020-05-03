@@ -124,6 +124,8 @@ void GWThread::transiverInit(){
 	CHK_BD("SYNC_CHANNEL");
 	db_res = db.get_PAN_ID(pan_id);
 	CHK_BD("PAN_ID");
+	db_res = db.get_TX_POWER(tx_power);
+	CHK_BD("TX_POWER");
 	db_res = db.get_STREAM_IV(stream_iv);
 	CHK_BD("STREAM_IV");
 	db_res = db.get_STREAM_KEY(stream_key);
@@ -142,6 +144,8 @@ void GWThread::transiverInit(){
 	CHK_VAL();
 	ch_res = checker::sys_channel(sys_channel);
 	CHK_VAL();
+	ch_res = checker::tx_power(tx_power);
+	CHK_VAL();
 	
 	// TODO перегрузить черкер на вектор.
 	// Проверить что числа хорошо распределены.
@@ -149,6 +153,7 @@ void GWThread::transiverInit(){
 
 	// Теперь инициализируем передатчик
 	set_panid(pan_id);
+	set_tx_power(tx_power);
 	load_streem_iv(stream_iv);
 	load_streem_key(stream_key);
 	//set_rtc(..)

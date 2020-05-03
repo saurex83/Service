@@ -137,10 +137,14 @@ static void IP_Receive(Frame& frame){
 
 
 	if (frame.meta.meta.FDST != 0){
-		SPDLOG_TRACE("IP frame FDST not for gateway");
+		SPDLOG_TRACE("IP frame FDST not for gateway FDST={}", 
+				frame.meta.meta.FDST);
 		return;
 	}
 
+	// Отрежим IP заголовок	
+	frame.delHeader(sizeof(IP_H));
+	
 	// Добавляем новый маршрут
 	RT.addRoute(frame.meta.meta.NSRC, frame.meta.meta.FSRC, 
 			frame.meta.meta.NSRC_TS, frame.meta.meta.NSRC_CH);
@@ -159,6 +163,7 @@ static void IP_Send(Frame& frame){
 	bool res = RT.getRoute(fsrc, &nsrc, &ts, &ch);	
 	if (!res){
 		SPDLOG_TRACE("No route to {}", fsrc);
+		return;
 	};
 
 	struct IP_H iph;
@@ -174,7 +179,8 @@ static void IP_Send(Frame& frame){
 	frame.meta.meta.CH = ch;
 	frame.meta.meta.TS = ts;
 	frame.meta.meta.NDST = nsrc;
-		
+	SPDLOG_TRACE("Send IP to {} -> {}. IPP={}",fsrc, nsrc, 
+			frame.meta.meta.IPP);	
 	eth_send(frame);   
 };
 
@@ -182,7 +188,24 @@ static void IP_Send(Frame& frame){
 // Протокол UDP
 //********************************************
 static void UDP_Recive(Frame& frame){
-	SPDLOG_TRACE("UDP recived");
+	if (frame.size() == 0){
+		SPDLOG_TRACE("UDP size is zero. Drop");
+		return;
+	}
+
+	// Извлекаем номер порта
+	unsigned char port = frame.payload[0];
+	SPDLOG_TRACE("Received UDP packet on port {}", port);
+
+	frame.delHeader(1);
+
+	std::string dta_s;
+
+	for (auto it : frame.payload)
+		dta_s += std::to_string(unsigned(it)) + " ";
+
+	SPDLOG_TRACE("UDP data from : {}: {}", frame.meta.meta.FSRC, dta_s);
+
 };
 
 //********************************************
@@ -197,6 +220,83 @@ static void TCP_Recive(Frame& frame){
 //********************************************
 static void AUTH_IP_Recive(Frame& frame){
 	SPDLOG_TRACE("AUTH_IP received");
+	
+	// Смотрим что за пакет
+	unsigned char cmd = frame.payload[0];
+	frame.delHeader(1);
+
+	if (cmd != AUTH_CMD_REQ){
+		SPDLOG_TRACE("AUTH_ETH CMD = {}. Drop frame", cmd);
+		return;
+	}
+
+	if (frame.size() != sizeof(struct AUTH_ETH_REQ)){
+		SPDLOG_TRACE("Received AUTH_ETH_REQ size is {}, expected {} ",
+				frame.size(), sizeof(struct AUTH_ETH_REQ));
+		return;
+	};
+
+	struct AUTH_ETH_REQ& req =*(AUTH_ETH_REQ*)&frame.payload.front();		
+
+	// Узнаем из базы информацию об узле
+	DataBase db;
+	std::vector<unsigned char> mac;
+	std::stringstream stream;
+	std::string mac_str;
+	
+	for (size_t i = 0; i < 8; i++){
+		mac.push_back(req.mac[i]);
+		stream << std::setfill('0') << std::setw(2) << std::hex << 
+			unsigned(req.mac[i]);
+	};
+	mac_str = stream.str();
+	
+	int ipaddr;
+	std::string comment;
+	std::string location;
+	std::string name;
+	bool search_res;
+	bool res =db.get_NODELIST_by_MAC(mac, ipaddr, name, comment, location,
+		   	search_res);
+
+	if (!res)
+		throw(std::runtime_error("Error acces to NODELIST"));
+
+	if (!search_res)
+		SPDLOG_WARN("Access mac {} depricated", mac_str);
+	else
+		SPDLOG_TRACE(
+		"Access mac:{}, name:{}, IP:{}, NODE_TYPE:{}, NODE_VER:{}  granted",
+		mac_str, name, ipaddr, req.NODE_TYPE, req.NODE_VER);
+
+	//TODO MEASURE_POINT Разобрать sensor_types, channels
+
+	// Нужно дать ответ
+	Frame ans_frame;
+	struct AUTH_ETH_RESP resp;
+
+	for (int i = 0; i < 8; i++)
+		resp.mac[i] = req.mac[i];
+	
+	if (search_res){
+		resp.access = true;
+		resp.ipaddr = ipaddr;
+		//TODO params set
+	} else {
+		resp.access = false;
+		resp.ipaddr = 0;
+	};
+	
+	
+	ans_frame.addHeader((unsigned char*)&resp, sizeof(struct AUTH_ETH_RESP));
+
+	vector<unsigned char> cmd_vec = {AUTH_CMD_RESP};
+	ans_frame.addHeader(cmd_vec);
+
+	ans_frame.meta.meta.IPP = IPP_AUTH;
+	ans_frame.meta.meta.FDST =  frame.meta.meta.FSRC;
+
+	IP_Send(ans_frame);
 };
 
 //********************************************
@@ -331,12 +431,10 @@ static void AUTH_ETH_Receive(Frame& frame){
 	if (!res)
 		throw(std::runtime_error("Error acces to NODELIST"));
 
-	if (!search_res){
+	if (!search_res)
 		SPDLOG_WARN("Access mac {} depricated", mac_str);
-		return;
-	};
-
-	SPDLOG_TRACE(
+	else
+		SPDLOG_TRACE(
 		"Access mac:{}, name:{}, IP:{}, NODE_TYPE:{}, NODE_VER:{}  granted",
 		mac_str, name, ipaddr, req.NODE_TYPE, req.NODE_VER);
 

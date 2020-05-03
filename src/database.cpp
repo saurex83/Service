@@ -262,6 +262,24 @@ bool DataBase::set_SYS_CHANNEL(unsigned char& SYS_CHANNEL){
 }
 
 //***********************************************************
+//TX POWER
+//***********************************************************
+bool DataBase::get_TX_POWER(unsigned char& power){
+	std::string answer; 
+	bool res = getValueFromCONFIG("TX_POWER", answer);
+	if (!res)
+		return false;
+	if (convert_to_uchar(answer, power))
+		return true;
+	return false;
+}
+
+bool DataBase::set_TX_POWER(unsigned char& power){
+	std::string arg = std::to_string(power);
+	return setValueToCONFIG("TX_POWER", arg);
+}
+
+//***********************************************************
 //SYNC_CHANNEL
 //***********************************************************
 bool DataBase::get_SYNC_CHANNEL(unsigned char& SYNC_CHANNEL){
