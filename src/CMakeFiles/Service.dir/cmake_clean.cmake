@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Service.dir/udp_data_parser.cpp.o"
+  "CMakeFiles/Service.dir/udp_statistic.cpp.o"
   "CMakeFiles/Service.dir/exptimer.cpp.o"
   "CMakeFiles/Service.dir/neocore_stack.cpp.o"
   "CMakeFiles/Service.dir/meta.cpp.o"

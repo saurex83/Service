@@ -8,8 +8,16 @@
 #define IPP_UDP 0
 #define IPP_TCP 1 
 #define IPP_AUTH 2
+#define IPP_ROUTE 3
 #define SYS_TS	1
+#define MAX_LEN_ROUTE 30
 
+struct route_path{
+  char ptr;
+  unsigned short int last_node_addr;
+  unsigned short int addr[MAX_LEN_ROUTE];
+  signed char rssi[MAX_LEN_ROUTE];
+} __attribute__((packed));
 
 enum AUTH_ETH_TYPES {AUTH_CMD_REQ = 0, AUTH_CMD_RESP = 1};
 enum {NP_CMD_CARD = 0, NP_CMD_CARD_REQ = 1} NP_CMD_ENUM;

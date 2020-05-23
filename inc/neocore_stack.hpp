@@ -28,5 +28,6 @@ namespace neocore{
 	static void TCP_Recive(Frame& frame);
 	static void UDP_Recive(Frame& frame);
 	static void AUTH_IP_Recive(Frame& frame);
+	static void ROUTE_IPP_Receive(Frame& frame);
 
 };

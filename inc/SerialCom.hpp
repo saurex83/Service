@@ -9,4 +9,5 @@ namespace comm{
 	bool isConnected();
 	void write(vector<unsigned char>& data);
 	void read(vector<unsigned char>& data);
+	void read_imp(vector<unsigned char>& data);
 };

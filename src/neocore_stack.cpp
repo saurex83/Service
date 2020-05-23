@@ -1,9 +1,11 @@
 #include "neocore_stack.hpp"
 #include "database.hpp"
 #include <sstream>
-#include  <iomanip>
+#include <iomanip>
 #include "exptimer.hpp"
 #include "route_table.hpp"
+#include "udp_statistic.hpp"
+#include "udp_data_parser.hpp"
 
 namespace neocore{
 
@@ -111,7 +113,7 @@ static void ip_fill_meta(Frame& frame){
 static void IPP_Process(Frame& frame){
 	switch(frame.meta.meta.IPP){
 		case IPP_UDP:
-			SPDLOG_TRACE("IP is UDP");
+//			SPDLOG_TRACE("IP is UDP");
 			UDP_Recive(frame);
 			break;
 		case IPP_TCP:
@@ -119,16 +121,20 @@ static void IPP_Process(Frame& frame){
 			TCP_Recive(frame);
 			break;    
 		case IPP_AUTH:
-			SPDLOG_TRACE("IP is AUTH");
+//			SPDLOG_TRACE("IP is AUTH");
 			AUTH_IP_Recive(frame);
 			break;  
+		case IPP_ROUTE:
+//			SPDLOG_TRACE("IP is IPP_ROUTE");
+			ROUTE_IPP_Receive(frame);
+			break;
 		default:
 			SPDLOG_TRACE("Unrecognized IPP");
   };
 };
 
 static void IP_Receive(Frame& frame){
-	SPDLOG_TRACE("Received IP frame");
+//	SPDLOG_TRACE("Received IP frame");
 	
 	if (!ip_frame_filter(frame))
 		return;
@@ -185,6 +191,42 @@ static void IP_Send(Frame& frame){
 };
 
 //********************************************
+// Протокол IPP_ROUTE
+//********************************************
+
+static void ROUTE_IPP_Receive(Frame& frame){
+	if (frame.size() != sizeof(struct route_path)){
+		SPDLOG_TRACE("Size of frame {} != {}",
+				frame.size(), sizeof(struct route_path));
+	};
+	
+	struct route_path& rp =*(route_path*)&frame.payload.front();
+	
+	// Мы приняли пакет с маршрутом следования пакета.
+	// Если пакет не полность заполнен, то нужно добавить путь до шлюза
+	if (rp.ptr < MAX_LEN_ROUTE){
+		rp.rssi[rp.ptr] = frame.meta.meta.RSSI_SIG;
+		rp.addr[rp.ptr] = frame.meta.meta.NSRC;
+		rp.last_node_addr = 0;
+		rp.ptr++;
+	};
+
+	// Выведим путь в отладку.
+	// Потом добавить сохранение в БД
+	
+	std::string path;
+	for (int i = 0; i < rp.ptr; i++){
+		path += std::to_string(rp.addr[i]);
+		path += "-[";
+		path += std::to_string(rp.rssi[i]);
+		path += "dBm]-";
+	};
+	path += std::to_string(rp.last_node_addr);
+
+	SPDLOG_TRACE("PATH:{}",path);
+};
+
+//********************************************
 // Протокол UDP
 //********************************************
 static void UDP_Recive(Frame& frame){
@@ -195,17 +237,23 @@ static void UDP_Recive(Frame& frame){
 
 	// Извлекаем номер порта
 	unsigned char port = frame.payload[0];
-	SPDLOG_TRACE("Received UDP packet on port {}", port);
+	//SPDLOG_TRACE("Received UDP packet on port {}", port);
 
 	frame.delHeader(1);
 
 	std::string dta_s;
 
-	for (auto it : frame.payload)
-		dta_s += std::to_string(unsigned(it)) + " ";
+	//for (auto it : frame.payload)
+	//	dta_s += std::to_string(unsigned(it)) + " ";
 
-	SPDLOG_TRACE("UDP data from : {}: {}", frame.meta.meta.FSRC, dta_s);
-
+	//SPDLOG_TRACE("UDP data from : {}: {}", frame.meta.meta.FSRC, dta_s);
+	
+	// Обрабатываем статистику
+	if (port == 0xff)
+		udp_statistic::parse_statistic(frame);
+	// Обрабатываем измеренные данные
+	if (port == 0xfe)
+		udp_data_parser::parse_data(frame);
 };
 
 //********************************************

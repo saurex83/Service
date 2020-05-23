@@ -635,6 +635,66 @@ sysconfig.cpp.s:
 	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/sysconfig.cpp.s
 .PHONY : sysconfig.cpp.s
 
+udp_data_parser.o: udp_data_parser.cpp.o
+
+.PHONY : udp_data_parser.o
+
+# target to build an object file
+udp_data_parser.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/udp_data_parser.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/udp_data_parser.cpp.o
+.PHONY : udp_data_parser.cpp.o
+
+udp_data_parser.i: udp_data_parser.cpp.i
+
+.PHONY : udp_data_parser.i
+
+# target to preprocess a source file
+udp_data_parser.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/udp_data_parser.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/udp_data_parser.cpp.i
+.PHONY : udp_data_parser.cpp.i
+
+udp_data_parser.s: udp_data_parser.cpp.s
+
+.PHONY : udp_data_parser.s
+
+# target to generate assembly for a file
+udp_data_parser.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/udp_data_parser.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/udp_data_parser.cpp.s
+.PHONY : udp_data_parser.cpp.s
+
+udp_statistic.o: udp_statistic.cpp.o
+
+.PHONY : udp_statistic.o
+
+# target to build an object file
+udp_statistic.cpp.o:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/udp_statistic.cpp.o
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/udp_statistic.cpp.o
+.PHONY : udp_statistic.cpp.o
+
+udp_statistic.i: udp_statistic.cpp.i
+
+.PHONY : udp_statistic.i
+
+# target to preprocess a source file
+udp_statistic.cpp.i:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/udp_statistic.cpp.i
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/udp_statistic.cpp.i
+.PHONY : udp_statistic.cpp.i
+
+udp_statistic.s: udp_statistic.cpp.s
+
+.PHONY : udp_statistic.s
+
+# target to generate assembly for a file
+udp_statistic.cpp.s:
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service.dir/build.make src/CMakeFiles/Service.dir/udp_statistic.cpp.s
+	cd /home/saurex83/Projects/Neocore/Service && $(MAKE) -f src/CMakeFiles/Service_lib.dir/build.make src/CMakeFiles/Service_lib.dir/udp_statistic.cpp.s
+.PHONY : udp_statistic.cpp.s
+
 valuechecker.o: valuechecker.cpp.o
 
 .PHONY : valuechecker.o
@@ -724,6 +784,12 @@ help:
 	@echo "... sysconfig.o"
 	@echo "... sysconfig.i"
 	@echo "... sysconfig.s"
+	@echo "... udp_data_parser.o"
+	@echo "... udp_data_parser.i"
+	@echo "... udp_data_parser.s"
+	@echo "... udp_statistic.o"
+	@echo "... udp_statistic.i"
+	@echo "... udp_statistic.s"
 	@echo "... valuechecker.o"
 	@echo "... valuechecker.i"
 	@echo "... valuechecker.s"

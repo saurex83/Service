@@ -49,6 +49,8 @@ debug.hpp
 /home/saurex83/Projects/Neocore/Service/src/debug.hpp
 iostream
 -
+boost/thread/thread.hpp
+-
 
 /home/saurex83/Projects/Neocore/Service/src/agrthread.cpp
 agrthread.hpp
@@ -207,6 +209,10 @@ exptimer.hpp
 /home/saurex83/Projects/Neocore/Service/src/exptimer.hpp
 route_table.hpp
 /home/saurex83/Projects/Neocore/Service/src/route_table.hpp
+udp_statistic.hpp
+/home/saurex83/Projects/Neocore/Service/src/udp_statistic.hpp
+udp_data_parser.hpp
+/home/saurex83/Projects/Neocore/Service/src/udp_data_parser.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp
 debug.hpp
@@ -221,6 +227,26 @@ SerialCom.hpp
 /home/saurex83/Projects/Neocore/Service/src/SerialCom.hpp
 exception
 -
+
+/home/saurex83/Projects/Neocore/Service/src/udp_data_parser.cpp
+udp_data_parser.hpp
+/home/saurex83/Projects/Neocore/Service/src/udp_data_parser.hpp
+neocore_stack.hpp
+/home/saurex83/Projects/Neocore/Service/src/neocore_stack.hpp
+database.hpp
+/home/saurex83/Projects/Neocore/Service/src/database.hpp
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
+
+/home/saurex83/Projects/Neocore/Service/src/udp_statistic.cpp
+udp_statistic.hpp
+/home/saurex83/Projects/Neocore/Service/src/udp_statistic.hpp
+neocore_stack.hpp
+/home/saurex83/Projects/Neocore/Service/src/neocore_stack.hpp
+database.hpp
+/home/saurex83/Projects/Neocore/Service/src/database.hpp
+debug.hpp
+/home/saurex83/Projects/Neocore/Service/src/debug.hpp
 
 /home/saurex83/Projects/Neocore/Service/src/valuechecker.cpp
 valuechecker.hpp
@@ -987,6 +1013,14 @@ inc/spdlog/version.h
 inc/sysconfig.hpp
 exception
 -
+
+inc/udp_data_parser.hpp
+frame.hpp
+inc/frame.hpp
+
+inc/udp_statistic.hpp
+frame.hpp
+inc/frame.hpp
 
 inc/valuechecker.hpp
 string

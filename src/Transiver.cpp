@@ -3,6 +3,8 @@
 #include "Transiver.hpp"
 #include "debug.hpp"
 #include <iostream>
+//#include <boost/chrono.hpp>
+#include <boost/thread/thread.hpp>
 
 #define ATYPE_PAR_ERR  0
 #define ATYPE_CMD_ERR  1
@@ -67,11 +69,19 @@ static void write_data(vector<unsigned char> raw){
  * @param raw
  */
 static void read_data(vector<unsigned char>& raw){
-	comm::read(raw);
+	comm::read_imp(raw);
 	size_t read_len = raw.size();
-	if (!read_len)
-		return;
-	
+//	SPDLOG_TRACE("READ LEN={}", raw.size());	
+	// При чтении ответа может произойти две ситуации: трансивер завис 
+	// и не отвечает, тогда длинна ответа равна 0, либо из-за 
+	// буферицации ОС и микросхемы приемника ответ может прийти позже.
+	// Первая ситуация это ошибка, вторая ситуация допустима. 
+	// Для исключения второй ситуации время ожидания первого байта ответа в 
+	// моудле SerialCom увеличено до 1000мс, последующих байт по 50мс.
+	if (!read_len){
+		SPDLOG_TRACE("No answer from transiver, size={}", read_len);
+		throw(runtime_error("No answer from transiver."));
+	};
 	// Фактический размер на 1 байт больше указаного в пакете
 	if (read_len != raw[0] + 1){
 		SPDLOG_ERROR("Read data size is: {}. Byte LEN is {}",
@@ -114,6 +124,11 @@ static void read_data(vector<unsigned char>& raw){
  */
 static vector<unsigned char> 
 	send_cmd(unsigned char cmd, vector<unsigned char> args){
+	
+	// Перед отправкой команды дадим время микроконтролеру
+	// подготовиться к ее приему, после предыдущей команды
+	boost::this_thread::sleep_for(boost::chrono::milliseconds(30));
+	
 	// Отправляем команду в формате CMD,ARGS
 	
 	args.insert(args.begin(), cmd);
@@ -323,6 +338,7 @@ void Transiver::close_slot(unsigned char ts){
  * @return 
  */
 int Transiver::rx_frames(){
+	//SPDLOG_TRACE("Read RX frames");
 	unsigned char cmd = 0x09;
 	vector<unsigned char> args;
 
@@ -339,6 +355,7 @@ int Transiver::rx_frames(){
  * @return 
  */
 int Transiver::tx_frames(){
+	//SPDLOG_TRACE("Read TX frames");
 	unsigned char cmd = 0x0A;
 	vector<unsigned char> args;
 
@@ -369,6 +386,7 @@ void Transiver::push_tx(Frame& frame){
  * @param frame указатель на пакет
  */
 void Transiver::pop_rx(Frame& frame){
+	//SPDLOG_TRACE("POP RX frames");
 	unsigned char cmd = 0x0C;
 	vector<unsigned char> args;
 

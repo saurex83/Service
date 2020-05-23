@@ -9,9 +9,13 @@
 using namespace boost;
 using namespace asio;
 using namespace boost::asio;
+using namespace boost::posix_time;
+using namespace std::chrono;
 
 namespace comm{
-#define READ_TIMEOUT_US 20
+#define READ_FIRST_TIMEOUT_MS 1000
+#define READ_TIMEOUT_MS 50
+#define READ_FRAME_TIMEOUT_MS 20000
 
 class blocking_reader
 {
@@ -129,9 +133,94 @@ void read(vector<unsigned char>& data){
 //		throw(runtime_error(error.message()));
 //	};
 
-	blocking_reader reader(*m_Port, READ_TIMEOUT_US);
-	   
-  	while (reader.read_char(r_char))
+	blocking_reader reader(*m_Port, READ_TIMEOUT_MS);
+	
+	bool readed = false;
+    duration<double, milli> diff;
+	time_point<steady_clock> read_start = steady_clock::now();
+
+	
+	do{	
+		diff = read_start -  steady_clock::now();
+		// Если прочитали байт, то выходим из цикла ожидания первого байта
+		if (reader.read_char(r_char)){
+			readed = true;
+			break;
+		};
+	} while (diff.count() <= READ_FIRST_TIMEOUT_MS);	
+	
+	// Время ожидания первого байта закончилось, но ничего не прочитано
+	if (!readed)
+		return;
+
+	data.push_back((unsigned char)r_char);
+
+  	while (reader.read_char(r_char)){
 		data.push_back((unsigned char)r_char);
+	}
 }
+
+void read_imp(vector<unsigned char>& data){
+	_connect();
+	data.clear();
+	
+	char r_char;
+	boost::system::error_code error;	
+//	flush_serial_port(*m_Port, flush_receive, error);
+//	if (error != boost::system::errc::success){
+//		SPDLOG_ERROR("Flush error: {}", error.message().c_str());
+//		throw(runtime_error(error.message()));
+//	};
+
+	blocking_reader reader(*m_Port, READ_TIMEOUT_MS);
+	
+	bool readed = false;
+    duration<double, milli> diff;
+	time_point<steady_clock> read_start = steady_clock::now();
+
+	
+	do{	
+		// Если прочитали байт, то выходим из цикла ожидания первого байта
+		if (reader.read_char(r_char)){
+			data.push_back((unsigned char)r_char);
+			readed = true;
+			break;
+		};
+
+		diff = steady_clock::now() - read_start;
+	} while (diff.count() <= READ_FIRST_TIMEOUT_MS);	
+	
+	// Время ожидания первого байта закончилось, но ничего не прочитано
+	if (!readed){
+		SPDLOG_TRACE("First byte not readed, TO={}ms", diff.count());
+		return;
+	}
+
+	
+	unsigned char bytes_to_read = r_char;  
+	unsigned char read_byte = 0;
+
+	// Количество байт для чтения указано в принятом байте.
+	// Теперь пробуем прочитать это количество байти или таймаут на пакет  
+	read_start = steady_clock::now();
+	do{	
+		if (reader.read_char(r_char)){
+			data.push_back((unsigned char)r_char);
+			read_byte ++;
+			if (read_byte == bytes_to_read)
+				break;
+		};
+
+
+		diff = steady_clock::now() - read_start;
+	} while (diff.count() <= READ_FRAME_TIMEOUT_MS);
+
+//	SPDLOG_TRACE("Frame.len={}b, readed={}b, TO={}ms, data.size={}", 
+//			bytes_to_read,
+//			read_byte,
+//			diff.count(),
+//			data.size());
+
 };
+
+}; // namespace

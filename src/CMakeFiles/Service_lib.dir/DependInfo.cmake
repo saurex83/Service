@@ -20,6 +20,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/saurex83/Projects/Neocore/Service/src/meta.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/meta.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/neocore_stack.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/neocore_stack.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/sysconfig.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/sysconfig.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/src/udp_data_parser.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/udp_data_parser.cpp.o"
+  "/home/saurex83/Projects/Neocore/Service/src/udp_statistic.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/udp_statistic.cpp.o"
   "/home/saurex83/Projects/Neocore/Service/src/valuechecker.cpp" "/home/saurex83/Projects/Neocore/Service/src/CMakeFiles/Service_lib.dir/valuechecker.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
